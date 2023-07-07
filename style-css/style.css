@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Sora', sans-serif;
+    margin: 0;
+}
+
+
+
+/* ////////////////////////////////// */
+
+/* Estilização do "login" */
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 150px;
+}
+
+.title-welcome{
+    margin-right: 170px;
+    color: #5A5A5A;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.main-title{
+    color: #212121;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-label{
+    font-size: 15px;
+    margin: 10px;
+    color: #7E7E7E;
+}
+
+.login-input{
+    width: 310px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    outline-color: #E0E0E0;
+    border-radius: 13px;
+    margin: 5px;
+    
+}
+
+input::placeholder {
+    color: #BDBDBD;
+    padding: 10px;
+}
+
+.login-checkbox{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 85px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #212121;
+    margin-top: 1px;
+}
+
+.login-button{
+    width: 310px;
+    height: 40px;
+    border-radius: 13px;
+    margin-top: 15px;
+    background-color: #482D83;
+    color: #E0E0E0;
+    border: none;
+}
+
+/* ////////////////////////////////// */
+
+/* Estilização da logo "mentor class" */
+.logo{
+    font-size: 25px;
+    padding: 15px;
+    margin-left: 13px;
+}
+
+.logo-orange{
+    color: #FBB04D;
+    font-weight: 300;
+}
+
+.logo-white{
+    color: #FFFFFF;
+    font-weight: 700;
+}
+/* ////////////////////////////////// */
+
+/* Estilização da tela de "Mentores" */
+.display{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.menu-bar{
+    background-color: #482D83;
+    height: 615px;
+}
+
+li {
+    list-style: none;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+li:hover{
+    background-color: #D0D3E6;
+    border-radius: 10px;
+}
+
+.buttons{
+    border-radius: 20px;   
+    border: 1px solid #BDBDBD;
+    background-color: #FFFFFF;
+}
+
+table{
+    width: 900px;
+}
+
+tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+tr:first-child{
+    background-color: #482D83;
+}
+/* ////////////////////////////////// */
