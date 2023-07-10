@@ -3,7 +3,9 @@
 * {
     font-family: 'Sora', sans-serif;
     margin: 0;
+    top: 0;
 }
+
 /* ////////////////////////////////// */
 
 /* Estilização do "login" */
@@ -16,40 +18,40 @@
     margin-top: 150px;
 }
 
-.title-welcome{
+.title-welcome {
     margin-right: 170px;
     color: #5A5A5A;
     font-size: 15px;
     font-weight: 400;
 }
 
-.main-title{
+.main-title {
     color: #212121;
     font-size: 30px;
     font-weight: 900;
     margin-bottom: 30px;
 }
 
-.login-form{
+.login-form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.login-label{
+.login-label {
     font-size: 15px;
     margin: 10px;
     color: #7E7E7E;
 }
 
-.login-input{
+.login-input {
     width: 310px;
     height: 40px;
     border: 1px solid #E0E0E0;
     outline-color: #E0E0E0;
     border-radius: 13px;
     margin: 5px;
-    
+
 }
 
 input::placeholder {
@@ -57,7 +59,7 @@ input::placeholder {
     padding: 10px;
 }
 
-.login-checkbox{
+.login-checkbox {
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
@@ -69,7 +71,7 @@ input::placeholder {
     margin-top: 1px;
 }
 
-.login-button{
+.login-button {
     width: 310px;
     height: 40px;
     border-radius: 13px;
@@ -81,35 +83,86 @@ input::placeholder {
 
 /* ////////////////////////////////// */
 
-/* Estilização da logo "mentor class" */
-.logo{
-    font-size: 25px;
-    padding: 15px;
-    margin-left: 13px;
-}
-
-.logo-orange{
-    color: #FBB04D;
-    font-weight: 300;
-}
-
-.logo-white{
-    color: #FFFFFF;
-    font-weight: 700;
-}
-/* ////////////////////////////////// */
 
 /* Estilização da tela de "Mentores" */
-.display{
+
+
+.display {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row-reverse;
     justify-content: space-between;
+    background-color: #FCFCFC;
 }
 
-.menu-bar{
+.header-with-user {
+    background-color: #FFFFFF;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    width: 1135px;
+    height: 100px;
+    padding: 20px;
+}
+
+.content{
+    padding: 15px;
+    background-color: #FCFCFC;
+}
+
+.page-title {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 25PX;
+}
+
+/* MENU BAR */
+
+/* LOGO "MENTOR CLASS" */
+.logo {
+    padding: 15px;
+    margin-left: 5px;
+    font-size: 25px;
+}
+
+.logo-orange {
+    color: #FBB04D;
+    font-weight: 300;
+}
+
+.logo-white {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+/* ////////////////////////////////// */
+.menu-bar {
     background-color: #482D83;
-    height: 615px;
+    height: 100%;
+    width: 200px;
+}
+
+.side-menu-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    padding: 5px;
+    color: #FFFFFF;
+}
+/* ////////////////////////////////// */
+
+.user-name {
+    color: #212121;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.user-email {
+    color: #868686;
+    font-weight: 400;
+    font-size: 12px;
 }
 
 li {
@@ -120,26 +173,79 @@ li {
     justify-content: flex-start;
 }
 
-li:hover{
+li:hover {
     background-color: #D0D3E6;
-    border-radius: 10px;
+    width: 180px;
+    height: 40px;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;   
 }
 
-.buttons{
-    border-radius: 20px;   
+.buttons {
+    border-radius: 20px;
     border: 1px solid #BDBDBD;
     background-color: #FFFFFF;
 }
 
 table{
-    width: 900px;
+    margin-top: 20px;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 5px;
+    padding: 5px;
 }
 
 tr:nth-child(even) {
     background-color: #F5F5F5;
 }
 
-tr:first-child{
+tr:first-child {
+    padding: 10px;
     background-color: #482D83;
+    color: #FFFFFF;
+    font-weight: 200;
 }
+
+tr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+.new-button {
+    background-color: #00C247;
+    width: 200px;
+    height: 35px;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+    color: #EFFBF4;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.search-and-new-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-background {
+    border-radius: 20px;
+    box-shadow: 1px 1px 8px 1px #dbd6d6;
+    height: 428px;
+    padding: 20px;
+    margin: 2px 15px;
+}
+
+.search-bar {
+    width: 325px;
+    height: 35px;
+    border: 1px solid #E6E6E6;
+    border-radius: 15px;
+    color: #BABABA;
+}
+
 /* ////////////////////////////////// */
