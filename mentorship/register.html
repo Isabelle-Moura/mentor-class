@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Mentores</title>
+    <title>Tela de Cadastro de Mentorias</title>
 
     <link rel="stylesheet" href="../style-css/style.css">
 
@@ -41,53 +41,36 @@
             </header>
 
             <section class="content">
-                <div class="page-title">
-                    <div>Mentores</div>
+                <div class="display-button-title">
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"></i></button>
+                    <div class="page-title">
+                        <div>Nova mentoria</div>
+                    </div>
                 </div>
             </section>
 
             <section class="card-background">
-                <div class="search-and-new-button">
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon" style="color: #6950A1;"></i>
-                        <input type="text" placeholder="Pesquise uma palavra-chave" class="search-input">
-                      </div>
-                      
-                    <button class="new-button"> <i class="fa-solid fa-plus" style="color: #ffffff; margin-right: 12px;"></i> Novo Mentor
-                        <a href="../mentors/register.html" style="color: black;">X</a>
-                    </button>
+                <div>
+                    <div class="card-title">Dados</div>
+                    <hr>
+                    <div>
+                        <form class="display-form">
+                            <div class="display-label-input">
+                                <label style="color: #757575;">Título da mentoria</label>
+                                <input class="input-title-mentorship" placeholder="Insira o título da mentoria.">
+                            </div>
+                            <div class="display-label-input">
+                                <label style="color: #757575;">Mentor</label>
+                                <select class="input"></select>
+                            </div>
+                        </form>
+                        <div class="display-label-input" style="color: #757575;">
+                            <label for="toggle" class="toggle-label">Status</label>
+                            <input type="checkbox" id="toggle">
+                        </div>
+                        <button class="save-button-mentorship">Salvar</button>
+                    </div>
                 </div>
-
-
-                <table class="container text-center">
-                    <tbody class="row">
-                        <tr class="col-12">
-                            <td>Nome</td>
-                            <td>E-mail</td>
-                            <td>Ações</td>
-                        </tr>
-
-                        <tr class="col-12">
-                            <td>nhe nhe</td>
-                            <td>nhe nhe</td>
-                            <td><a href="../mentors/edit.html">X</a><button class="buttons"><i class="fa-solid fa-pencil"
-                                        style="color: #004ce8;"></i></button>
-                                <button class="buttons"><i class="fa-solid fa-trash"
-                                        style="color: #ff3333;"></i></button>
-                            </td>
-                        </tr>
-
-                        <tr class="col-12">
-                            <td>nhe nhe</td>
-                            <td>nhe nhe</td>
-                            <td><button class="buttons"><i class="fa-solid fa-pencil"
-                                        style="color: #004ce8;"></i></button>
-                                <button class="buttons"><i class="fa-solid fa-trash"
-                                        style="color: #ff3333;"></i></button>
-                            </td>
-                    </tbody>
-                </table>
-
             </section>
         </main>
 

@@ -1,9 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
 * {
-    font-family: 'Sora', sans-serif;
+    font-family: 'Sora', sans-serif; 
     margin: 0;
-    top: 0;
 }
 
 /* ////////////////////////////////// */
@@ -61,8 +60,6 @@ input::placeholder {
 
 .login-checkbox {
     display: flex;
-    justify-content: flex-start;
-    align-items: baseline;
     gap: 85px;
     padding: 10px;
     font-size: 12px;
@@ -87,7 +84,7 @@ input::placeholder {
 /* Estilização da tela de "Mentores" */
 
 
-.display {
+.display-content {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row-reverse;
@@ -107,8 +104,8 @@ input::placeholder {
     padding: 20px;
 }
 
-.content{
-    padding: 15px;
+.content {
+    padding: 10px;
     background-color: #FCFCFC;
 }
 
@@ -140,8 +137,8 @@ input::placeholder {
 /* ////////////////////////////////// */
 .menu-bar {
     background-color: #482D83;
-    height: 100%;
-    width: 200px;
+    height: 615px;
+    width: 210px;
 }
 
 .side-menu-list {
@@ -151,6 +148,7 @@ input::placeholder {
     padding: 5px;
     color: #FFFFFF;
 }
+
 /* ////////////////////////////////// */
 
 .user-name {
@@ -174,20 +172,22 @@ li {
 }
 
 li:hover {
-    background-color: #D0D3E6;
-    width: 180px;
+    background-color: #564696;
+    /* width: 200px; */
     height: 40px;
-    border: 1px solid #E6E6E6;
-    border-radius: 10px;   
+    border: 1px solid #564696;
+    border-radius: 10px;
 }
 
 .buttons {
     border-radius: 20px;
     border: 1px solid #BDBDBD;
     background-color: #FFFFFF;
+    height: 30px;
+    width: 30px;
 }
 
-table{
+table {
     margin-top: 20px;
     overflow: hidden;
     border: 1px solid black;
@@ -197,6 +197,10 @@ table{
 }
 
 tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+tr:nth-child(odd) {
     background-color: #F5F5F5;
 }
 
@@ -205,14 +209,22 @@ tr:first-child {
     background-color: #482D83;
     color: #FFFFFF;
     font-weight: 200;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-tr{
+tr {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: 7rem;
     align-items: center;
     margin: 10px;
     padding: 5px;
+    font-size: 12px;
+}
+
+td {
+    margin: 1px;
 }
 
 .new-button {
@@ -232,20 +244,169 @@ tr{
     align-items: center;
 }
 
-.table-background {
+/* Input de busca */
+.search-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px;
+  }
+
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  /* ////////////////////////////////// */
+
+.card-background {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
-    height: 428px;
+    height: 250px;
     padding: 20px;
-    margin: 2px 15px;
+    margin: 0px 15px;
 }
 
-.search-bar {
+.input {
+    width: 325px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #757575;
+    padding: 5px;
+    outline: none;
+}
+
+/* ////////////////////////////////// */
+
+tbody {
+    width: 100%;
+}
+
+.menu-list-item {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: flex-start;
+    align-items: center;
+    /* background-color: #564696; */
+    /* border: 1px solid #564696; */
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    margin: 5px;
+    padding: 10px;
+}
+
+/* Tela de Cadastro */
+.back-button {
+    background-color: #EEEEEE;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #EEEEEE;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.display-button-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.card-title {
+    color: #564696 !important;
+    font-size: 20px;
+}
+
+.display-label-input {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.display-form {
+    display: flex;
+}
+
+.save-button {
     width: 325px;
     height: 35px;
-    border: 1px solid #E6E6E6;
-    border-radius: 15px;
-    color: #BABABA;
+    border: 1px solid #482D83;
+    background-color: #482D83;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 0px 15px;
+    font-family: 'Sora', sens-serif;
 }
 
+/* ////////////////////////////////// */
+
+/* Tela de Editar de Mentorias */
+.input-title-mentorship {
+    width: 400px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #757575;
+    padding: 5px;
+    outline: none;
+}
+
+.save-button-mentorship {
+    width: 225px;
+    height: 35px;
+    border: 1px solid #482D83;
+    background-color: #482D83;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 0px 15px;
+}
+
+.toggle-status {
+
+}
+
+/* ////////////////////////////////// */
+
+/* Toggle */
+.toggle-label {
+    display: inline-block; 
+    width: 50px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #ccc;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .toggle-label:before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: transform 0.2s;
+  }
+  
+  #toggle:checked + .toggle-label:before {
+    transform: translateX(25px);
+  }
+  
 /* ////////////////////////////////// */
