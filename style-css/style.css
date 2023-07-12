@@ -221,7 +221,7 @@ table {
     border: 1px solid black;
     border-radius: 10px;
     -moz-border-radius: 5px;
-    padding: 5px;
+    /* padding: 5px; */
 }
 
 tr:nth-child(even) {
@@ -239,7 +239,7 @@ tr:first-child {
     font-weight: 200;
     display: flex;
     justify-content: space-between;
-    padding: 5px 18px;
+    /* padding: 5px 18px; */
 }
 
 tr {
@@ -253,50 +253,7 @@ tr {
 
 td {
     margin: 1px;
-    padding: 7px 25px;
-}
-
-table {
-    margin-top: 20px;
-    overflow: hidden;
-    border: 1px solid black;
-    border-radius: 10px;
-    -moz-border-radius: 5px;
-    padding: 5px;
-}
-
-tr:nth-child(even) {
-    background-color: #FAFAFA;
-}
-
-tr:nth-child(odd) {
-    background-color: #F5F5F5;
-}
-
-tr:first-child {
-    border-radius: 10px 0 0 0;
-    padding: 10px;
-    background-color: #482D83;
-    color: #FFFFFF;
-    font-weight: 200;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 18px;
-}
-
-tr {
-    border-radius: 0 10px 0 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 7rem;
-    align-items: center;
-    margin: 10px;
-    font-size: 12px;
-}
-
-td {
-    margin: 1px;
-    padding: 7px 25px;
+    /* padding: 7px 2px; */
 }
 
 .new-button {
