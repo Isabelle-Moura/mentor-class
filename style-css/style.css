@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
-    font-family: 'Sora', sans-serif; 
+    font-family: 'Sora', sans-serif;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* ////////////////////////////////// */
@@ -14,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin-top: 150px;
+    margin-top: 108px;
 }
 
 .title-welcome {
@@ -50,12 +54,12 @@
     outline-color: #E0E0E0;
     border-radius: 13px;
     margin: 5px;
-
+    padding-left: 10px;
 }
 
 input::placeholder {
     color: #BDBDBD;
-    padding: 10px;
+    padding-left: 3px;
 }
 
 .login-checkbox {
@@ -76,7 +80,31 @@ input::placeholder {
     background-color: #482D83;
     color: #E0E0E0;
     border: none;
+    cursor: pointer;
 }
+
+.sucess {
+    color: greenyellow;
+}
+
+.error {
+    color: red;
+}
+
+/* ICONE PARA MOSTRAR A SENHA */
+.password-container {
+    position: relative;
+}
+
+#toggle-password {
+    position: absolute;
+    top: 65%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* ////////////////////////////////// */
 
 /* ////////////////////////////////// */
 
@@ -110,7 +138,7 @@ input::placeholder {
 }
 
 .page-title {
-    margin-top: 5px;
+    margin: 10px 20px;
     font-weight: 600;
     font-size: 25PX;
 }
@@ -210,27 +238,71 @@ tr:first-child {
     color: #FFFFFF;
     font-weight: 200;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding: 5px 18px;
 }
 
 tr {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     gap: 7rem;
     align-items: center;
     margin: 10px;
-    padding: 5px;
     font-size: 12px;
 }
 
 td {
     margin: 1px;
+    padding: 7px 25px;
+}
+
+table {
+    margin-top: 20px;
+    overflow: hidden;
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 5px;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+tr:nth-child(odd) {
+    background-color: #F5F5F5;
+}
+
+tr:first-child {
+    border-radius: 10px 0 0 0;
+    padding: 10px;
+    background-color: #482D83;
+    color: #FFFFFF;
+    font-weight: 200;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 18px;
+}
+
+tr {
+    border-radius: 0 10px 0 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 7rem;
+    align-items: center;
+    margin: 10px;
+    font-size: 12px;
+}
+
+td {
+    margin: 1px;
+    padding: 7px 25px;
 }
 
 .new-button {
     background-color: #00C247;
-    width: 200px;
-    height: 35px;
+    width: 220px;
+    height: 45px;
     border: 1px solid #E6E6E6;
     border-radius: 10px;
     color: #EFFBF4;
@@ -250,32 +322,34 @@ td {
     flex-direction: row-reverse;
     align-items: center;
     width: 300px;
+    height: 45px;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 5px;
-  }
+}
 
-  .search-input {
+.search-input {
     flex: 1;
     border: none;
     outline: none;
     padding: 5px;
     font-size: 14px;
-  }
+}
 
-  .search-icon {
+.search-icon {
     width: 20px;
     height: 20px;
     margin-right: 5px;
-  }
-  /* ////////////////////////////////// */
+}
+
+/* ////////////////////////////////// */
 
 .card-background {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
     height: 250px;
     padding: 20px;
-    margin: 0px 15px;
+    margin: 0px 25px;
 }
 
 .input {
@@ -376,24 +450,22 @@ tbody {
     margin: 0px 15px;
 }
 
-.toggle-status {
-
-}
+.toggle-status {}
 
 /* ////////////////////////////////// */
 
 /* Toggle */
 .toggle-label {
-    display: inline-block; 
+    display: inline-block;
     width: 50px;
     height: 25px;
     border-radius: 25px;
     background-color: #ccc;
     position: relative;
     cursor: pointer;
-  }
-  
-  .toggle-label:before {
+}
+
+.toggle-label:before {
     content: "";
     position: absolute;
     top: 1px;
@@ -403,10 +475,10 @@ tbody {
     border-radius: 50%;
     background-color: #fff;
     transition: transform 0.2s;
-  }
-  
-  #toggle:checked + .toggle-label:before {
+}
+
+#toggle:checked+.toggle-label:before {
     transform: translateX(25px);
-  }
-  
+}
+
 /* ////////////////////////////////// */
