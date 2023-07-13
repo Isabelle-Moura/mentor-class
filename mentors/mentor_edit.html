@@ -6,9 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Cadastro de Mentores</title>
-
-    <link rel="stylesheet" href="../style-css/style.css">
+    <title>Tela de Editar de Mentores</title>
 
     <!-- Bootstrap -->
 
@@ -20,10 +18,19 @@
         crossorigin="anonymous"></script>
     <!-- ------------------ -->
 
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="../style-css/style.css">
+    <!-- ////////////////////////////////////////////// -->
+
+    <!-- Arquivo JS -->
+    <script defer src="../mentors/mentor_edit.js"></script>
+    <!-- ////////////////////////////////////////////// -->
+
     <!-- Font Awesome -->
 
     <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
     <!-- ------------------ -->
+
 </head>
 
 <body>
@@ -34,17 +41,20 @@
                 <div>
                     <i class="fa-solid fa-circle-user fa-3x" style="color: #6950A1;"></i>
                 </div>
+
                 <div>
-                    <div class="user-name">Augusto Carvalho</div>
-                    <div class="user-email">augusto@gmail.com</div>
+                    <div class="user-name">Isabelle Moura</div>
+                    <div class="user-email">mourabisabelle@gmail.com</div>
                 </div>
             </header>
 
             <section class="content">
                 <div class="display-button-title">
-                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"></i></button>
+                    <button class="back-button" id="backButton"><i class="fa-solid fa-arrow-left"
+                            style="color: #616161;"></i></button>
+
                     <div class="page-title">
-                        <div>Novo mentor</div>
+                        <div>Mentor</div>
                     </div>
                 </div>
             </section>
@@ -52,62 +62,71 @@
             <section class="card-background">
                 <div>
                     <div class="card-title">Dados</div>
+
                     <hr>
+
                     <div>
                         <form class="display-form">
+
                             <div class="display-label-input">
-                                <label style="color: #757575;">Nome</label>
-                                <input class="input" placeholder="Insira o nome.">
+                                <label class="label" for="name">Nome</label>
+                                <input class="form-input" name="name" id="name" placeholder="Insira o nome.">
                             </div>
+
                             <div class="display-label-input">
-                                <label style="color: #757575;">E-mail</label>
-                                <input class="input" placeholder="Insira o e-mail.">
+                                <label class="label" for="email">E-mail</label>
+                                <input class="form-input" name="email" id="email" placeholder="Insira o e-mail.">
                             </div>
+
                         </form>
-                        <button class="save-button">Salvar</button>
                     </div>
+
                 </div>
             </section>
         </main>
 
         <aside>
+            <!-- Side Menu Bar -->
             <nav class="menu-bar">
                 <div class="logo">
                     <div class="logo-orange">mentor<strong class="logo-white">class</strong></div>
                 </div>
+
                 <div>
+
                     <ul class="side-menu-list">
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-user-tie" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentores</span>
-                            <a href="../mentors/index.html">X</a>
+                            <span id="mentorsPage">Mentores</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-regular fa-address-book" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentorias</span>
-                            <a href="">X</a>
+                            <span id="mentorshipPage">Mentorias</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-school"></i>
                             </span>
-                            <span> Turmas</span>
-                            <a href="">X</a>
+                            <span id="classesPage">Turmas</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-clipboard-user"></i>
                             </span>
-                            <span>Alunos</span>
-                            <a href="../students/index.html">X</a>
+                            <span id="studentsPage">Alunos</span>
                         </li>
+
                     </ul>
                 </div>
             </nav>
+            <!-- ///////////////////////////////// -->
         </aside>
     </div>
 

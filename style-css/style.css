@@ -11,7 +11,7 @@
 
 /* ////////////////////////////////// */
 
-/* Estilização do "login" */
+/* Tela de "login" */
 
 .login-content {
     display: flex;
@@ -21,7 +21,7 @@
     margin-top: 108px;
 }
 
-.title-welcome {
+.welcome-title {
     margin-right: 170px;
     color: #5A5A5A;
     font-size: 15px;
@@ -83,15 +83,7 @@ input::placeholder {
     cursor: pointer;
 }
 
-.sucess {
-    color: greenyellow;
-}
-
-.error {
-    color: red;
-}
-
-/* ICONE PARA MOSTRAR A SENHA */
+/* Icone para mostrar/ocultar senha */
 .password-container {
     position: relative;
 }
@@ -106,11 +98,24 @@ input::placeholder {
 
 /* ////////////////////////////////// */
 
+.sucess {
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    border-radius: 13px;
+}
+
+.error {
+    color: red;
+    border: 1px solid red;
+    border-radius: 13px;
+}
+
 /* ////////////////////////////////// */
 
+/* Tela de "Mentores" */
 
-/* Estilização da tela de "Mentores" */
-
+/* Header com dados do usuário */
+/*  */
 
 .display-content {
     display: flex;
@@ -143,9 +148,9 @@ input::placeholder {
     font-size: 25PX;
 }
 
-/* MENU BAR */
+/* Menu Bar*/
 
-/* LOGO "MENTOR CLASS" */
+/* Logo "MENTOR CLASS" */
 .logo {
     padding: 15px;
     margin-left: 5px;
@@ -163,6 +168,20 @@ input::placeholder {
 }
 
 /* ////////////////////////////////// */
+.menu-list-item {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: flex-start;
+    align-items: center;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    margin: 5px;
+    padding: 10px;
+}
+
 .menu-bar {
     background-color: #482D83;
     height: 615px;
@@ -175,20 +194,7 @@ input::placeholder {
     margin-left: 5px;
     padding: 5px;
     color: #FFFFFF;
-}
-
-/* ////////////////////////////////// */
-
-.user-name {
-    color: #212121;
-    font-size: 15px;
-    font-weight: 700;
-}
-
-.user-email {
-    color: #868686;
-    font-weight: 400;
-    font-size: 12px;
+    cursor: pointer;
 }
 
 li {
@@ -206,6 +212,23 @@ li:hover {
     border: 1px solid #564696;
     border-radius: 10px;
 }
+/* ////////////////////////////////// */
+
+/* Header com dados do usuário */
+
+.user-name {
+    color: #212121;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.user-email {
+    color: #868686;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* Gerenciador de "Mentores" */
 
 .buttons {
     border-radius: 20px;
@@ -217,11 +240,9 @@ li:hover {
 
 table {
     margin-top: 20px;
-    overflow: hidden;
-    border: 1px solid black;
     border-radius: 10px;
     -moz-border-radius: 5px;
-    /* padding: 5px; */
+    width: 300px;
 }
 
 tr:nth-child(even) {
@@ -232,30 +253,49 @@ tr:nth-child(odd) {
     background-color: #F5F5F5;
 }
 
-tr:first-child {
-    padding: 10px;
+thead {
+    padding: 5px;
     background-color: #482D83;
     color: #FFFFFF;
-    font-weight: 200;
+    font-weight: 100;
+    height: 40px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    /* padding: 5px 18px; */
+    border-radius: 10px 10px 0px 0px;
+}
+
+th {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    width: 300px;
 }
 
 tr {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 7rem;
+    align-items: center;
+    gap: 25px;
+    width: 90%;
+}
+
+tbody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin: 10px;
     font-size: 12px;
+    width: 100%;
 }
 
-td {
-    margin: 1px;
-    /* padding: 7px 2px; */
-}
+/* ////////////////////////////////// */
 
+/* Search bar e botão "Novo Mentor" */
 .new-button {
     background-color: #00C247;
     width: 220px;
@@ -301,6 +341,11 @@ td {
 
 /* ////////////////////////////////// */
 
+
+/* Tela de Cadastro e Editar de "Mentores"*/
+
+/* Background do Conteúdo */
+
 .card-background {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
@@ -308,58 +353,31 @@ td {
     padding: 20px;
     margin: 0px 25px;
 }
-
-.input {
-    width: 325px;
-    height: 40px;
-    border: 1px solid #E0E0E0;
-    border-radius: 10px;
-    color: #757575;
-    padding: 5px;
-    outline: none;
-}
-
 /* ////////////////////////////////// */
-
-tbody {
-    width: 100%;
+hr {
+    margin: 10px 10px; 
 }
 
-.menu-list-item {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: row;
-    align-items: flex-start;
-    align-items: center;
-    /* background-color: #564696; */
-    /* border: 1px solid #564696; */
-    width: 180px;
-    height: 40px;
-    border-radius: 10px;
-    outline: none;
-    margin: 5px;
-    padding: 10px;
-}
-
-/* Tela de Cadastro */
 .back-button {
     background-color: #EEEEEE;
     width: 40px;
     height: 40px;
     border: 1px solid #EEEEEE;
     border-radius: 30px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .display-button-title {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .card-title {
     color: #564696 !important;
     font-size: 20px;
+    margin: 0px 5px;
+    padding: 1px;
 }
 
 .display-label-input {
@@ -374,16 +392,32 @@ tbody {
 }
 
 .save-button {
-    width: 325px;
-    height: 35px;
+    width: 300px;
+    height: 40px;
     border: 1px solid #482D83;
     background-color: #482D83;
     border-radius: 10px;
     color: #FFFFFF;
-    margin: 0px 15px;
-    font-family: 'Sora', sens-serif;
+    margin: 0px 10px;
+    font-family: 'Poppins', sens-serif;
+    font-weight: 500;
 }
 
+.label {
+    color: #757575;
+    margin: 7px 0px;
+    font-size: 15px;
+}
+
+.form-input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #757575;
+    padding: 4px;
+    outline: none;
+}
 /* ////////////////////////////////// */
 
 /* Tela de Editar de Mentorias */
@@ -406,8 +440,6 @@ tbody {
     color: #FFFFFF;
     margin: 0px 15px;
 }
-
-.toggle-status {}
 
 /* ////////////////////////////////// */
 

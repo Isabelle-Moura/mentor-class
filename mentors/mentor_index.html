@@ -20,6 +20,14 @@
         crossorigin="anonymous"></script>
     <!-- ------------------ -->
 
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="../style-css/style.css">
+    <!-- ////////////////////////////////////////////// -->
+
+    <!-- Arquivo JS -->
+    <script defer src="../mentors/mentor_index.js"></script>
+    <!-- ////////////////////////////////////////////// -->
+
     <!-- Font Awesome -->
 
     <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
@@ -27,26 +35,38 @@
 
 </head>
 
+
 <body>
+
     <div class="display-content">
 
+        <!-- Header com os dados do usuário -->
         <main>
+
             <header class="header-with-user">
                 <div>
                     <i class="fa-solid fa-circle-user fa-3x" style="color: #6950A1;"></i>
                 </div>
+
                 <div>
                     <div class="user-name" id="user-name">Isabelle Moura</div>
                     <div class="user-email" id="user-email">mourabisabelle@gmail.com</div>
                 </div>
             </header>
+            <!-- ///////////////////////////////// -->
 
+            <!-- Título da Página -->
             <section class="content">
                 <div class="page-title">
                     <div>Mentores</div>
                 </div>
             </section>
+            <!-- ///////////////////////////////// -->
 
+
+            <!-- Gerenciador de Mentores -->
+
+            <!-- Barra de Pesquisa e Botão de "Novo Mentor" -->
             <section class="card-background">
                 <div class="search-and-new-button">
                     <div class="search-container">
@@ -54,82 +74,102 @@
                         <input type="text" placeholder="Pesquise uma palavra-chave" class="search-input">
                     </div>
 
-                    <button class="new-button"> <i class="fa-solid fa-plus"
+                    <button type="button" class="new-button" id="newButton"><i class="fa-solid fa-plus"
                             style="color: #ffffff; margin-right: 12px;"></i> Novo Mentor
-                        <a href="../mentors/register.html" style="color: black;">X</a>
                     </button>
                 </div>
+            
+            <!-- Listagem de Mentores -->
+                <div>
+                    <table id="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                            </tr>
+                            <tr>
+                                <th>E-mail</th>
+                            </tr>                            
+                            <tr>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                            <tr>
+                                <td>nhe nhe</td>
+                           
+                                <td>nhe nhe</td>
+                           
+                                <td>
+                                    <button class="buttons" id="editButton"><i class="fa-solid fa-pencil"
+                                            style="color: #004ce8;"></i></button>
+                                    <button class="buttons"><i class="fa-solid fa-trash"
+                                            style="color: #ff3333;"></i></button>
+                                </td>
+                            </tr>
 
-                <table class="container text-center" class="row">
-                    <tbody class="col-12">
-                        <tr>
-                            <td >Nome</td>
-                            <td>E-mail</td>
-                            <td>Ações</td>
-                        </tr>
+                            <tr>
+                                <td>nhe nhe</td>
+                           
+                                <td>nhe nhe</td>
+                          
+                                <td>
+                                    <button class="buttons"><i class="fa-solid fa-pencil"
+                                            style="color: #004ce8;"></i></button>
+                                    <button class="buttons"><i class="fa-solid fa-trash"
+                                            style="color: #ff3333;"></i></button>
+                                </td>
+                            </tr>
 
-                        <tr>
-                            <td >nhe nhe</td>
-                            <td>nhe nhe</td>
-                            <td><a href="../mentors/edit.html">X</a><button class="buttons"><i
-                                        class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
-                                <button class="buttons"><i class="fa-solid fa-trash"
-                                        style="color: #ff3333;"></i></button>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>nhe nhe</td>
-                            <td>nhe nhe</td>
-                            <td><button class="buttons"><i class="fa-solid fa-pencil"
-                                        style="color: #004ce8;"></i></button>
-                                <button class="buttons"><i class="fa-solid fa-trash"
-                                        style="color: #ff3333;"></i></button>
-                            </td>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </section>
+            <!-- ///////////////////////////////// -->
         </main>
 
         <aside>
+            <!-- Side Menu Bar -->
             <nav class="menu-bar">
                 <div class="logo">
                     <div class="logo-orange">mentor<strong class="logo-white">class</strong></div>
                 </div>
+
                 <div>
+
                     <ul class="side-menu-list">
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-user-tie" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentores</span>
-                            <a href="../mentors/index.html">X</a>
+                            <span id="mentorsPage">Mentores</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-regular fa-address-book" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentorias</span>
-                            <a href="../mentorship/index.html">X</a>
+                            <span id="mentorshipPage">Mentorias</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-school"></i>
                             </span>
-                            <span> Turmas</span>
-                            <a href="../classes/index.html">X</a>
+                            <span id="classesPage">Turmas</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-clipboard-user"></i>
                             </span>
-                            <span>Alunos</span>
-                            <a href="../students/index.html">X</a>
+                            <span id="studentsPage">Alunos</span>
                         </li>
+
                     </ul>
                 </div>
             </nav>
+            <!-- ///////////////////////////////// -->
         </aside>
     </div>
 

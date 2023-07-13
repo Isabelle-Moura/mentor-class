@@ -3,16 +3,31 @@
 
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Tela de Login</title>
+
+  <!-- Arquivo CSS -->
   <link rel="stylesheet" href="../style-css/style.css">
+  <!-- ////////////////////////////////////////////// -->
+
+  <!-- Arquivo JS -->
+  <script defer src="../login/login_app.js"></script>
+  <!-- ////////////////////////////////////////////// -->
+
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
+  <!-- ////////////////////////////////////////////// -->
+
 </head>
 
 <body>
+
   <section class="login-content" id="content">
+
     <div>
-      <div class="title-welcome">Seja bem-vindo(a)!</div>
+      <div class="welcome-title">Seja bem-vindo(a)!</div>
       <div class="main-title">Realize seu Login</div>
     </div>
 
@@ -22,12 +37,14 @@
         <input class="login-input" name="name" class="email" placeholder="Insira o seu nome." type="text" id="name">
         <small id="nameError"></small>
       </div>
+
       <div>
         <label class="login-label" for="email">E-mail</label><br>
         <input class="login-input" name="email" class="email" placeholder="Insira o seu e-mail." type="email"
           id="email">
         <small id="emailError"></small>
       </div>
+
       <div class="password-container">
         <label class="login-label" for="password">Senha</label><br>
         <input class="login-input" type="password" id="password" name="password" placeholder="Insira a sua senha.">
@@ -37,17 +54,19 @@
     </form>
 
     <div class="login-checkbox">
-      <div class="">
+      <div>
         <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="..." />
         <strong>Lembrar-me</strong>
       </div>
+
       <div style="color: #7E7E7E;">
         Esqueci minha senha
       </div>
     </div>
-    <button class="login-button" id="submitButton" type="submit"><a href="../mentors/index.html">Salvar</a></button>
 
-    <script src="../login/app.js"></script>
+    <button class="login-button" id="enterButton" type="button">Entrar</button>
+
+  </section>
+
 </body>
-
 </html>
