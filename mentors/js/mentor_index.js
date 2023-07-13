@@ -7,7 +7,7 @@ const classesPage = document.getElementById("classesPage");
 const studentsPage = document.getElementById("mentorsPage");
 
 mentorsPage.addEventListener ("click", function () {
-    window.location.href = "../mentors/mentor_index.html"
+    window.location.href = "../mentors/html/mentor_index.html"
 })
 
 mentorshipPage.addEventListener ("click", function () {
@@ -26,13 +26,13 @@ studentsPage.addEventListener ("click", function () {
 const newButton = document.getElementById("newButton")
 
 newButton.addEventListener ("click", function () {
-    window.location.href = "../mentors/mentor_register.html"
+    window.location.href = "../mentors/html/mentor_register.html"
 })
 
 //Botão "Editar"
 const editButton = document.getElementById("editButton")
 
 editButton.addEventListener ("click", function() {
-    window.location.href = "../mentors/mentor_edit.html"
+    window.location.href = "../mentors/html/mentor_edit.html"
 })
 //////////////////////////////////////////

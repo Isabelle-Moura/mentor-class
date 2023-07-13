@@ -7,7 +7,7 @@ const classesPage = document.getElementById("classesPage");
 const studentsPage = document.getElementById("mentorsPage");
 
 mentorsPage.addEventListener("click", function () {
-  window.location.href = "../mentors/mentor_index.html";
+  window.location.href = "../mentors/html/mentor_index.html";
 });
 
 mentorshipPage.addEventListener("click", function () {
@@ -26,7 +26,7 @@ studentsPage.addEventListener("click", function () {
 const backButton = document.getElementById("backButton");
 
 backButton.addEventListener("click", function () {
-  window.location.href = "../mentors/mentor_index.html";
+  window.location.href = "../mentors/html/mentor_index.html";
 });
 
 //Botão "Salvar"
@@ -52,7 +52,7 @@ const registerMentor = async (mentor) => {
     body: JSON.stringify(autor),
   });
 
-  window.location = "../mentors/mentor_index.html";
+  window.location = "../mentors/html/mentor_index.html";
 };
 
 form.addEventListener("submit", (e) => {

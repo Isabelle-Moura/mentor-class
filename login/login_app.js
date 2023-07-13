@@ -21,7 +21,7 @@ togglePassword.addEventListener("click", function () {
 const enterButton = document.getElementById("enterButton");
 
 enterButton.addEventListener("click", function () {
-  window.location.href = "../mentors/mentor_index.html";
+  window.location.href = "../mentors/html/mentor_index.html";
 });
 /////////////////////////////////////////////////////////
 

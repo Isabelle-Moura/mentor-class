@@ -4,7 +4,7 @@
 const backButton = document.getElementById("backButton")
 
 backButton.addEventListener ("click", function () {
-    window.location.href = "../mentors/mentor_index.html"
+    window.location.href = "../mentors/html/mentor_index.html"
 })
 
 //"Side Menu"
@@ -14,7 +14,7 @@ const classesPage = document.getElementById("classesPage");
 const studentsPage = document.getElementById("mentorsPage");
 
 mentorsPage.addEventListener ("click", function () {
-    window.location.href = "../mentors/mentor_index.html"
+    window.location.href = "../mentors/html/mentor_index.html"
 })
 
 mentorshipPage.addEventListener ("click", function () {
