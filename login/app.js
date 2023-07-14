@@ -17,11 +17,11 @@ togglePassword.addEventListener("click", function () {
 /////////////////////////////////////////////////////////
 
 //Redirecionar a página para "Mentores"
-
 const enterButton = document.getElementById("enterButton");
 
 enterButton.addEventListener("click", function () {
-  window.location.href = "../mentors/html/mentor_index.html";
+  window.location.href = "../mentors/html/index.html";
 });
+
 /////////////////////////////////////////////////////////
 

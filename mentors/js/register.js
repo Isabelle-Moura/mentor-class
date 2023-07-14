@@ -7,7 +7,7 @@ const classesPage = document.getElementById("classesPage");
 const studentsPage = document.getElementById("mentorsPage");
 
 mentorsPage.addEventListener("click", function () {
-  window.location.href = "../mentors/html/mentor_index.html";
+  window.location.href = "../../mentors/html/index.html";
 });
 
 mentorshipPage.addEventListener("click", function () {
@@ -26,7 +26,7 @@ studentsPage.addEventListener("click", function () {
 const backButton = document.getElementById("backButton");
 
 backButton.addEventListener("click", function () {
-  window.location.href = "../mentors/html/mentor_index.html";
+  window.location.href = "../../mentors/html/index.html";
 });
 
 //Botão "Salvar"
@@ -42,17 +42,32 @@ backButton.addEventListener("click", function () {
 const form = document.getElementById("form");
 const url = "http://localhost:3000/mentors";
 
-const registerMentor = async (mentor) => {
-  await fetch(`${url}`, {
-    method: "POST",
-    headers: {
-      "Accept": "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(autor),
-  });
+// const getMentors = async () => {
+//   try {
+//     const apiResponse = await fetch(`${url}`);
+//     const mentors = await apiResponse.json();
+//     console.log(mentors);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
-  window.location = "../mentors/html/mentor_index.html";
+const registerMentor = async (mentor) => {
+  try {
+    await fetch(`${url}`, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(mentor),
+    });
+
+    window.location = "../../mentors/html/index.html";
+
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 form.addEventListener("submit", (e) => {
@@ -65,7 +80,7 @@ form.addEventListener("submit", (e) => {
     name,
     email,
   };
-  
+
   registerMentor(mentor);
 });
 //////////////////////////////////////////

@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Cadastro de Mentores</title>
+    <title>Tela de Editar de Mentores</title>
 
     <!-- Bootstrap -->
 
@@ -19,11 +19,11 @@
     <!-- ------------------ -->
 
     <!-- Arquivo CSS -->
-    <link rel="stylesheet" href="../../style-css/style.css">
+    <link rel="stylesheet" href="../../css/style.css">
     <!-- ////////////////////////////////////////////// -->
 
     <!-- Arquivo JS -->
-    <script defer src="../mentors/js/mentor_register.js"></script>
+    <script defer src="../../mentors/js/edit.js"></script>
     <!-- ////////////////////////////////////////////// -->
 
     <!-- Font Awesome -->
@@ -50,11 +50,11 @@
 
             <section class="content">
                 <div class="display-button-title">
-                    <button class="back-button" id="backButton"><i class="fa-solid fa-arrow-left"
+                    <button class="back-button" id="backButton" type="submit" onclick="editButton"><i class="fa-solid fa-arrow-left"
                             style="color: #616161;"></i></button>
 
                     <div class="page-title">
-                        <div>Novo mentor</div>
+                        <div>Mentor</div>
                     </div>
                 </div>
             </section>
@@ -69,19 +69,18 @@
                         <form class="display-form" id="form">
 
                             <div class="display-label-input">
-                                <label class="label">Nome</label>
-                                <input class="form-input" placeholder="Insira o nome.">
+                                <label class="label" for="name">Nome</label>
+                                <input class="form-input" name="name" id="name" placeholder="Insira o nome.">
                             </div>
 
                             <div class="display-label-input">
-                                <label class="label">E-mail</label>
-                                <input class="form-input" placeholder="Insira o e-mail.">
+                                <label class="label" for="email">E-mail</label>
+                                <input class="form-input" name="email" id="email" placeholder="Insira o e-mail.">
                             </div>
 
                         </form>
-
-                        <button class="save-button" id="saveButton" type="submit">Salvar</button>
                     </div>
+
                 </div>
             </section>
         </main>

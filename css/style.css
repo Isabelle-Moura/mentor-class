@@ -137,10 +137,10 @@ input::placeholder {
     padding: 20px;
 }
 
-.content {
+/* .content {
     padding: 10px;
     background-color: #FCFCFC;
-}
+} */
 
 .page-title {
     margin: 10px 20px;
@@ -230,7 +230,7 @@ li:hover {
 
 /* Gerenciador de "Mentores" */
 
-.buttons {
+.edit-button {
     border-radius: 20px;
     border: 1px solid #BDBDBD;
     background-color: #FFFFFF;
@@ -238,8 +238,28 @@ li:hover {
     width: 30px;
 }
 
+.edit-button:hover{
+    background-color: #5f92f7;
+}
+
+.delete-button {
+    border-radius: 20px;
+    border: 1px solid #BDBDBD;
+    background-color: #FFFFFF;
+    height: 30px;
+    width: 30px;
+}
+
+.delete-button:hover{
+    background-color: #f57878;
+}
+
+.buttons:hover {
+    background-color: #ac9dec;
+}
+
 table {
-    margin-top: 20px;
+    margin: 0px 2px;
     border-radius: 10px;
     -moz-border-radius: 5px;
     width: 300px;
@@ -253,14 +273,18 @@ tr:nth-child(odd) {
     background-color: #F5F5F5;
 }
 
+.bk-purple {
+    background-color: #482D83 !important;
+    gap: 40px;
+}
+
 thead {
     padding: 5px;
-    background-color: #482D83;
+    background-color: #482D83 !important;
     color: #FFFFFF;
-    font-weight: 100;
-    height: 40px;
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
     border-radius: 10px 10px 0px 0px;
 }
@@ -281,6 +305,8 @@ tr {
     align-items: center;
     gap: 25px;
     width: 90%;
+    padding: 7px;
+    margin-bottom: 4px;
 }
 
 tbody {
@@ -307,10 +333,15 @@ tbody {
     font-size: 15px;
 }
 
+.new-button:hover {
+    background-color: #029e3b;
+}
+
 .search-and-new-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 30px;
 }
 
 /* Input de busca */
@@ -349,7 +380,6 @@ tbody {
 .card-background {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
-    height: 250px;
     padding: 20px;
     margin: 0px 25px;
 }
@@ -371,6 +401,10 @@ hr {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.back-button:hover {
+    background-color: #dbd9d9;
 }
 
 .card-title {
@@ -401,6 +435,10 @@ hr {
     margin: 0px 10px;
     font-family: 'Poppins', sens-serif;
     font-weight: 500;
+}
+
+.save-button:hover {
+    background-color: #3f2772;
 }
 
 .label {
