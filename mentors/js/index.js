@@ -11,7 +11,7 @@ const showMentors = (mentors) => {
         <td>${mentor.name}</td>
         <td>${mentor.email}</td>
         <td>
-          <button class="edit-button" id="editButton" onclick="edit()"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
+          <button class="edit-button" id="editButton" onclick="edit(${mentor.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
           <button class="delete-button" id="deleteButton" onclick="deleteButton(${mentor.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
         </td>
       </tr>
@@ -75,8 +75,8 @@ newButton.addEventListener("click", function () {
 // editButton.addEventListener("click", function () {
 // });
 
-const edit = () => {
-    window.location.href = "../../mentors/html/edit.html";    
+const edit = (id) => {
+    window.location.href = `../../mentors/html/edit.html?id=${id}`;    
 }
 //////////////////////////////////////////
 

@@ -1,29 +1,24 @@
 //U = UPDATE
 const url = 'http://localhost:3000/mentors'
 const form = document.getElementById("form")
-let mentorId = null 
+let mentorId = '' 
 
-const getMentorId = () => {
-    const params = new URLSearchParams(window.location.search)
-    const id = parseInt(params.get('id'))
-
-    return id
+const getMentorIdUrl = () => {
+    const paramsString = window.location.search
+    const params = new URLSearchParams(paramsString)
+    mentorId = params.get('id')
 }
 
-const getMentor = async (id) => {
-    const apiResponse = await fetch(`${url}/${id}`)
+const getMentor = async () => {
+    const apiResponse = await fetch(`${url}/${mentorId}`)
     const mentor = await apiResponse.json()
+    console.log(mentor)
 
     return mentor
 } 
 
-const loadFormData = async (mentor) => {
-    document.getElementById("name").value = mentor.name
-    document.getElementById("email").value = mentor.email
-}
-
-const editMentor = async (id, mentor) => {
-    await fetch(`${url}/${id}`, {
+const editMentor = async (mentor) => {
+    await fetch(`${url}/${mentorId}`, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -34,27 +29,33 @@ const editMentor = async (id, mentor) => {
    window.location = "../../mentors/html/index.html"
 }
 
+const loadFormData = async (mentor) => {
+    document.getElementById("name").value = mentor.name
+    document.getElementById("email").value = mentor.email
+}
+
 const loadData = async () => {
-    mentorId = getMentorId() 
-    const mentor = await getMentor(mentorId)
+    getMentorIdUrl() 
+    const mentor = await getMentor()
     loadFormData(mentor)
 }
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault()
 
     const name = form.elements['name'].value
     const email = form.elements['email'].value
 
     const mentor = {
-        name,
-        email
+        "name": name,
+        "email": email
     }
 
-    editMentor(mentorId, mentor)
+    editMentor(mentor)
 })
 
 loadData()
+
 //////////////////////////////////////////
 //Redirecionamento das páginas 
 

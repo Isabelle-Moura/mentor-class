@@ -38,10 +38,6 @@ backButton.addEventListener("click", function () {
 
 //////////////////////////////////////////
 
-//C = Create
-const form = document.getElementById("form");
-const url = "http://localhost:3000/mentors";
-
 // const getMentors = async () => {
 //   try {
 //     const apiResponse = await fetch(`${url}`);
@@ -51,6 +47,10 @@ const url = "http://localhost:3000/mentors";
 //     console.error(error);
 //   }
 // };
+
+//C = Create
+const form = document.getElementById("form");
+const url = "http://localhost:3000/mentors";
 
 const registerMentor = async (mentor) => {
   try {
@@ -70,7 +70,7 @@ const registerMentor = async (mentor) => {
   }
 };
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("click", (e) => {
   e.preventDefault();
 
   const name = form.elements['name'].value;
