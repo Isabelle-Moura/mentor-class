@@ -6,9 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Editar de Mentorias</title>
-
-    <link rel="stylesheet" href="../style-css/style.css">
+    <title>Tela de Mentorias</title>
 
     <!-- Bootstrap -->
 
@@ -20,95 +18,146 @@
         crossorigin="anonymous"></script>
     <!-- ------------------ -->
 
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- ////////////////////////////////////////////// -->
+
+    <!-- Arquivo JS -->
+    <script defer src="../../mentorship/js/register.js"></script>
+    <!-- ////////////////////////////////////////////// -->
+
     <!-- Font Awesome -->
 
     <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
     <!-- ------------------ -->
+
 </head>
+
 
 <body>
     <div class="display-content">
-
+        <!-- Header com os dados do usuário -->
         <main>
+
             <header class="header-with-user">
+
                 <div>
+
                     <i class="fa-solid fa-circle-user fa-3x" style="color: #6950A1;"></i>
+
                 </div>
+
                 <div>
-                    <div class="user-name">Augusto Carvalho</div>
-                    <div class="user-email">augusto@gmail.com</div>
+
+                    <div class="user-name" id="user-name">Isabelle Moura</div>
+                    <div class="user-email" id="user-email">mourabisabelle@gmail.com</div>
+
                 </div>
             </header>
+            <!-- ///////////////////////////////// -->
 
             <section class="content">
+
                 <div class="display-button-title">
+
                     <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"></i></button>
+
                     <div class="page-title">
-                        <div>Mentoria</div>
+
+                        <div>Nova mentoria</div>
+
                     </div>
                 </div>
             </section>
 
             <section class="card-background">
+
                 <div>
+
                     <div class="card-title">Dados</div>
+
                     <hr>
-                    <div>
+
+                    <div id="form">
+
                         <form class="display-form">
+
                             <div class="display-label-input">
-                                <label style="color: #757575;">Título da mentoria</label>
-                                <input class="input-title-mentorship" placeholder="Insira o título da mentoria.">
+                                <label style="color: #757575;" for="mentorshipTitle">Título da mentoria</label>
+                                <input class="input-title-mentorship" id="mentorshipTitle" name="mentorshipTitle" placeholder="Insira o título da mentoria.">
                             </div>
+
                             <div class="display-label-input">
-                                <label style="color: #757575;">Mentor</label>
-                                <select class="input"></select>
+                                <label style="color: #757575;" for="mentor">Mentor</label>
+                                <select class="select-mentorship" id="mentor" name="mentor"></select>
                             </div>
+
                         </form>
-                        <div class="display-label-input" style="color: #757575;">Status
+
+                        <div class="display-label-input">
+                            <label style="color: #757575;">Status</label>
+                            <div class="display-toggle">
+                                <div class="toggle">
+                                    <input type="checkbox" id="toggle-status" >
+                                    <label for="toggle-status" class="toggle-label"></label>
+                                </div>
+                                <div>Ativo</div>
+                            </div>
                         </div>
+
+                        <button class="save-button-mentorship" type="submit">Salvar</button>
+
                     </div>
+
                 </div>
+
             </section>
+
         </main>
 
         <aside>
+            <!-- Side Menu Bar -->
             <nav class="menu-bar">
+
                 <div class="logo">
                     <div class="logo-orange">mentor<strong class="logo-white">class</strong></div>
                 </div>
+
                 <div>
+
                     <ul class="side-menu-list">
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-user-tie" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentores</span>
-                            <a href="../mentors/index.html">X</a>
+                            <span id="mentorsPage">Mentores</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-regular fa-address-book" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentorias</span>
-                            <a href="../mentorship/index.html">X</a>
+                            <span id="mentorshipPage">Mentorias</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-school"></i>
                             </span>
-                            <span> Turmas</span>
-                            <a href="">X</a>
+                            <span id="classesPage">Turmas</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-clipboard-user"></i>
                             </span>
-                            <span>Alunos</span>
-                            <a href="../students/index.html">X</a>
+                            <span id="studentsPage">Alunos</span>
                         </li>
                     </ul>
+
                 </div>
             </nav>
+            <!-- ///////////////////////////////// -->
         </aside>
     </div>
 

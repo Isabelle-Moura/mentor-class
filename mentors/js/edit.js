@@ -1,7 +1,7 @@
 //U = UPDATE
 const url = 'http://localhost:3000/mentors'
 const form = document.getElementById("form")
-let mentorId = '' 
+let mentorId = null 
 
 const getMentorIdUrl = () => {
     const paramsString = window.location.search
@@ -40,7 +40,7 @@ const loadData = async () => {
     loadFormData(mentor)
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const name = form.elements['name'].value

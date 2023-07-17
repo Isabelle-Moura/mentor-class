@@ -1,39 +1,40 @@
 //R = Read
-const url = "http://localhost:3000/mentors";
+const url = "http://localhost:3000/mentorships";
 
-const showMentors = (mentors) => {
+const showMentorship = (mentorships) => {
   const tableContent = document.getElementById("tableContent");
-  let mentorHtml = "";
+  let mentorshipHtml = "";
 
-  mentors.forEach((mentor) => {
-    mentorHtml += `
+  mentorships.forEach((mentorhip) => {
+    mentorshipHtml += `
       <tr>
-        <td>${mentor.name}</td>
-        <td>${mentor.email}</td>
+        <td>${mentorship.title}</td>
+        <td>${mentorship.mentor}</td>
+        <td>${mentorship.status}</td>
         <td>
-          <button class="edit-button" id="editButton" onclick="edit(${mentor.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
-          <button class="delete-button" id="deleteButton" onclick="deleteButton(${mentor.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
+          <button class="edit-button" id="editButton" onclick="edit(${mentorship.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
+          <button class="delete-button" id="deleteButton" onclick="deleteButton(${mentorship.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
         </td>
       </tr>
     `;
   });
 
-  tableContent.innerHTML = mentorHtml;
+  tableContent.innerHTML = mentorshipHtml;
 };
 
-const getMentors = async () => {
+const getMentorship = async () => {
   try {
     const apiResponse = await fetch(url);
-    const mentors = await apiResponse.json();
+    const mentorships = await apiResponse.json();
 
-    console.log(mentors);
-    showMentors(mentors);
+    console.log(mentorship);
+    showMentorship(mentorships);
   } catch (error) {
     console.error(error);
   }
 };
 
-getMentors();
+getMentorship();
 
 //////////////////////////////////////////
 
@@ -61,33 +62,33 @@ studentsPage.addEventListener("click", function () {
   window.location.href = "../../students/html/index.html";
 });
 
-//Botão "Novo Mentor"
+//Botão "Nova Mentoria"
 const newButton = document.getElementById("newButton");
 
 newButton.addEventListener("click", function () {
-  window.location.href = "../../mentors/html/register.html";
+  window.location.href = "../../mentorship/html/register.html";
 });
 
 //Botão "Editar"
 const edit = (id) => {
-    window.location.href = `../../mentorship/html/edit.html?id=${id}`;    
+    window.location.href = `../../mentors/html/edit.html?id=${id}`;    
 }
 //////////////////////////////////////////
 
 //D = Delete
-const deleteButton = async (mentorId) => {
+const deleteButton = async (mentorshipId) => {
     try {
-      const response = await fetch(`${url}/${mentorId}`, {
+      const response = await fetch(`${url}/${mentorshipId}`, {
         method: 'DELETE',
       })
         console.log(response);
         if (response.ok) {
-          console.log('Mentor excluído com sucesso');
+          console.log('Mentoria excluída com sucesso');
         } else {
-          console.error('Erro ao excluir o mentor!');
+          console.error('Erro ao excluir a mentorria!');
         }
 
     } catch (error) {
-      console.error('Ocorreu um erro ao excluir o mentor!', error);
+      console.error('Ocorreu um erro ao excluir a mentoria!', error);
     }
   };

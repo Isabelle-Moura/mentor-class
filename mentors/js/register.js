@@ -29,25 +29,6 @@ backButton.addEventListener("click", function () {
   window.location.href = "../../mentors/html/index.html";
 });
 
-//Botão "Salvar"
-// const saveButton = document.getElementById("saveButton");
-
-// saveButton.addEventListener("click", function () {
-//   window.location.href = "../mentors/mentor_index.html";
-// });
-
-//////////////////////////////////////////
-
-// const getMentors = async () => {
-//   try {
-//     const apiResponse = await fetch(`${url}`);
-//     const mentors = await apiResponse.json();
-//     console.log(mentors);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
 //C = Create
 const form = document.getElementById("form");
 const url = "http://localhost:3000/mentors";
