@@ -25,9 +25,9 @@
     <!-- Arquivo JS -->
     <script defer src="../../mentors/js/register.js"></script>
     <!-- ////////////////////////////////////////////// -->
-    
+
     <!-- Font Awesome -->
-    
+
     <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
     <!-- ////////////////////////////////////////////// -->
 
@@ -59,7 +59,7 @@
                 </div>
             </section>
 
-            <section class="card-background">
+            <section class="card-background-form">
                 <div>
                     <div class="card-title">Dados</div>
 
@@ -67,21 +67,16 @@
 
                     <div>
                         <form class="display-form" id="form">
-
                             <div class="display-label-input">
-                                <label class="label">Nome</label>
-                                <input class="form-input" placeholder="Insira o nome.">
+                                <label class="label" for="name">Nome</label>
+                                <input type="text" class="form-input" name="name" placeholder="Insira o nome.">
                             </div>
-
                             <div class="display-label-input">
-                                <label class="label">E-mail</label>
-                                <input class="form-input" placeholder="Insira o e-mail.">
+                                <label class="label" for="email">E-mail</label>
+                                <input type="email" class="form-input" name="email" placeholder="Insira o e-mail.">
                             </div>
-
+                            <button class="save-button" id="saveButton" type="submit">Salvar</button>
                         </form>
-
-                        <button class="save-button" id="saveButton" onclick="registerMentor()
-                        ">Salvar</button>
                     </div>
                 </div>
             </section>

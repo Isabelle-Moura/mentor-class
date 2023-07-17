@@ -207,11 +207,11 @@ li {
 
 li:hover {
     background-color: #564696;
-    /* width: 200px; */
     height: 40px;
     border: 1px solid #564696;
     border-radius: 10px;
 }
+
 /* ////////////////////////////////// */
 
 /* Header com dados do usuário */
@@ -283,19 +283,16 @@ thead {
     background-color: #482D83 !important;
     color: #FFFFFF;
     display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
     border-radius: 10px 10px 0px 0px;
 }
 
 th {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 25px;
-    width: 300px;
+    width: 320px;
+    margin-right: 8px;
 }
 
 tr {
@@ -304,7 +301,7 @@ tr {
     justify-content: space-between;
     align-items: center;
     gap: 25px;
-    width: 90%;
+    width: 100%;
     padding: 7px;
     margin-bottom: 4px;
 }
@@ -414,6 +411,14 @@ hr {
     padding: 1px;
 }
 
+.card-background-form {
+    border-radius: 20px;
+    box-shadow: 1px 1px 8px 1px #dbd6d6;
+    padding: 20px;
+    margin: 0px 25px;
+    height: 240px;
+}
+
 .display-label-input {
     display: flex;
     flex-direction: column;
@@ -426,13 +431,14 @@ hr {
 }
 
 .save-button {
+    position: fixed;
     width: 300px;
     height: 40px;
     border: 1px solid #482D83;
     background-color: #482D83;
     border-radius: 10px;
     color: #FFFFFF;
-    margin: 0px 10px;
+    margin: 100px 10px;
     font-family: 'Poppins', sens-serif;
     font-weight: 500;
 }

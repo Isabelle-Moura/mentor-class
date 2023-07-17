@@ -62,7 +62,6 @@ const registerMentor = async (mentor) => {
       },
       body: JSON.stringify(mentor),
     });
-
     window.location = "../../mentors/html/index.html";
 
   } catch (error) {
@@ -70,17 +69,18 @@ const registerMentor = async (mentor) => {
   }
 };
 
-form.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const name = form.elements['name'].value;
   const email = form.elements['email'].value;
 
   const mentor = {
-    name,
-    email,
+    "name": name,
+    "email": email,
   };
 
   registerMentor(mentor);
 });
+
 //////////////////////////////////////////
