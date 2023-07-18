@@ -1,16 +1,3 @@
-//Configurações do toggle de Ativo/Inativo
-
-const toggleInput = document.getElementById('toggle-input');
-
-toggleInput.addEventListener('change', () => {
-  // Se o toggle estiver ativo, fazer alguma ação
-  if (toggleInput.checked) {
-    console.log('Toggle ativado :D');
-  } else {
-    console.log('Toggle desativado :C');
-  }
-});
-
 //Redirecionamento das páginas
 
 //"Side Menu"
@@ -39,13 +26,13 @@ studentsPage.addEventListener("click", function () {
 const backButton = document.getElementById("backButton");
 
 backButton.addEventListener("click", function () {
-  window.location.href = "../../mentors/html/index.html";
+  window.location.href = "../../mentorship/html/index.html";
 });
 
 /////////////////////////////////////////////////
 
 //C = Create
-const form = document.getElementById("form");
+const form = document.getElementById("formMentorship");
 const url1 = "http://localhost:3000/mentorships";
 const url2 = "http://localhost:3000/mentors"
 
@@ -53,7 +40,7 @@ const getMentor = async (id) => {
     if (id == null){
         return false
     }
-    const response = await fetch (`${url2}`/${id})
+    const response = await fetch (`${url2}/${id}`)
     const mentor = await response.json()
     return mentor
 }
@@ -75,13 +62,12 @@ const loadSelect = async () => {
         const option = new Option (mentor.name, mentor.id)
         mentorSelect.options.add(option)
     })
+    console.log(mentorSelect)
 }
-
-//Parei aqui
 
 const registerMentorship = async (mentorship) => {
   try {
-    await fetch(`${url}`, {
+    await fetch(`${url1}`, {
       method: "POST",
       headers: {
         "Accept": "application/json, text/plain, */*",
@@ -96,19 +82,31 @@ const registerMentorship = async (mentorship) => {
   }
 };
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const mentorshipTitle = form.elements['mentorshipTitle'].value;
-  const mentor = form.elements['email'].value;
-  const status = form.elements['status'].value;
+  const mentor = form.elements['mentor'].value;
+  const status = form.elements['toggle-input'].checked;
+
+  const mentorObject = await getMentor(mentor)
+  console.log(mentorObject)
+
+  if(Object.keys(mentorObject).length == 0){
+    console.log("Não foi possível cadastrar a mentoria, mentor inválido :/")
+    return
+  }
 
   const mentorship = {
-    "mentorshipTitle": mentorshipTitle,
-    "mentor"
+    mentorshipTitle: mentorshipTitle,
+    mentor: {
+      id: mentorObject.id,
+      name: mentorObject.name
+    },
+    status: status
   };
 
   registerMentorship(mentorship);
 });
-
+loadSelect()
 //////////////////////////////////////////

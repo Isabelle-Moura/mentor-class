@@ -36,6 +36,36 @@ const getMentors = async () => {
 getMentors();
 
 //////////////////////////////////////////
+//Imput de busca (Search Bar)
+const searchInput = document.getElementById("searchInput");
+
+// Função para filtrar mentores por nome
+const filterMentors = (mentors, searchTerm) => {
+  searchTerm = searchTerm.toLowerCase();
+  return mentors.filter((mentor) => mentor.name.toLowerCase().includes(searchTerm));
+};
+
+// Função para realizar a busca e exibição dos mentores filtrados
+const searchMentors = (searchTerm) => {
+  const apiResponse = fetch(url)
+    .then((response) => response.json())
+    .then((mentors) => {
+      const filteredMentors = filterMentors(mentors, searchTerm);
+      showMentors(filteredMentors);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+searchInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    const searchTerm = searchInput.value;
+    searchMentors(searchTerm);
+  }
+});
+
+//////////////////////////////////////////
 
 //Redirecionamento das páginas
 
@@ -70,7 +100,7 @@ newButton.addEventListener("click", function () {
 
 //Botão "Editar"
 const edit = (id) => {
-    window.location.href = `../../mentorship/html/edit.html?id=${id}`;    
+    window.location.href = `../../mentors/html/edit.html?id=${id}`;    
 }
 //////////////////////////////////////////
 

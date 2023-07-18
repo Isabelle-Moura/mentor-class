@@ -268,11 +268,10 @@ tr:nth-child(odd) {
 
 .bk-purple {
     background-color: #482D83 !important;
-    gap: 40px;
 }
 
 table {
-    margin: 0px 15px;
+    margin-top: 1px;
 }
 
 thead {
@@ -281,7 +280,8 @@ thead {
     color: #FFFFFF;
     display: flex;
     border-radius: 10px 10px 0px 0px;
-    height: 40px;
+    height: 45px;
+    width: 66rem;
 }
 
 th {
@@ -289,22 +289,17 @@ th {
     justify-content: space-between;
     align-items: center;
     gap: 25px;
-    width: 300px;
     font-weight: 200 !important;
     font-size: 13px !important;
 }
 
 tr {
-    width: 300px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 25px;
-    width: 103%;
+    width: 100%;
     padding: 9px;
-    margin-bottom: 4px;
-    margin-right: 15px;
+    margin: 3px !important;
 }
 
 tbody {
@@ -312,7 +307,6 @@ tbody {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
     font-size: 12px;
 }
 
@@ -321,13 +315,14 @@ tbody {
 /* Search bar e botão "Novo Mentor" */
 .new-button {
     background-color: #00C247;
-    width: 220px;
-    height: 45px;
+    width: 200px;
+    height: 37px;    
     border: 1px solid #E6E6E6;
     border-radius: 10px;
     color: #EFFBF4;
     font-weight: 400;
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .new-button:hover {
@@ -338,7 +333,7 @@ tbody {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 /* Input de busca */
@@ -346,11 +341,12 @@ tbody {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    width: 300px;
-    height: 45px;
+    width: 289px;
+    height: 37px;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 5px;
+    margin-bottom: 5px;
 }
 
 .search-input {
@@ -377,8 +373,9 @@ tbody {
 .card-background {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
-    padding: 20px;
+    padding: 15px;
     margin: 0px 25px;
+    background-color: #FFFFFF;
 }
 /* ////////////////////////////////// */
 hr {
@@ -426,8 +423,13 @@ hr {
     margin-bottom: 10px;
 }
 
+.dFlex {
+    display: flex;
+}
+
 .display-form {
     display: flex;
+    flex-direction: column;
 }
 
 .save-button {
@@ -473,7 +475,8 @@ hr {
     color: #FFFFFF;
     display: flex;
     border-radius: 10px 10px 0px 0px;
-    height: 40px;
+    height: 45px;
+    width: 66rem;
 }
 
 .mentorship-tbody {
@@ -481,37 +484,31 @@ hr {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    margin: 10px;
     font-size: 12px;
 }
 
 .mentorship-th {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     gap: 25px;
-    width: 220px;
     font-weight: 200 !important;
     font-size: 13px !important;
 }
 
 .mentorship-tr {
-    width: 300px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 25px;
-    width: 103%;
+    width: 100%;
     padding: 9px;
-    margin-bottom: 4px;
-    margin-right: 15px;
+    margin: 3px !important;
 }
 
 /* Tela de Cadastro e Editar de "Mentorias" */
 
 .input-title-mentorship {
-    width: 400px;
+    width: 450px;
     height: 40px;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
@@ -542,42 +539,52 @@ hr {
 }
 
 /* Toggle de Ativo/Inativo (esse me deu trabalho kkkkk)*/
+.toggle-active{
+    background-color: #D9FEE6;
+    color: #00C247;
+    padding: 5px 15px;
+    border-radius: 7px;
+}
+
+.toggle-inactive{
+    background-color: #FFE1E1;
+    color: #FF3333;
+    padding: 5px 15px;
+    border-radius: 7px;
+}
+
 .toggle {
     position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: #E6E6E6;
-    border-radius: 15px;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px; 
     overflow: hidden;
     cursor: pointer;
-    margin: 5px 10px 0px 5px;
+    margin-right: 10px;
   }
-
-.toggle-label {
+  
+  .toggle-label {
     position: absolute;
     top: 0;
     left: 0;
-    width: 30px;
-    height: 30px;
+    width: 20px; 
+    height: 20px;
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
-}
-
-#toggle-status {
+  }
+  
+  #toggle-input {
     display: none;
-}
-
-#toggle-input:checked + .toggle-label {
+  }
+  
+  #toggle-input:checked + .toggle-label {
     transform: translateX(100%);
     background-color: #00C247;
-}
-
-.toggle:active{
-    color: #00C247;
-}
-
+  }
+  
 /* ////////////////////////////////// */
 .display-toggle {
     display: flex;
@@ -585,3 +592,7 @@ hr {
 }
 
 /* ////////////////////////////////// */
+
+.widthTh{
+    width: 27%;
+}

@@ -60,7 +60,7 @@
 
                 <div class="display-button-title">
 
-                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"></i></button>
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;" id="backButton"></i></button>
 
                     <div class="page-title">
 
@@ -78,34 +78,37 @@
 
                     <hr>
 
-                    <div id="form">
+                    <div>
 
-                        <form class="display-form">
-
-                            <div class="display-label-input">
-                                <label style="color: #757575;" for="mentorshipTitle">Título da mentoria</label>
-                                <input class="input-title-mentorship" id="mentorshipTitle" name="mentorshipTitle" placeholder="Insira o título da mentoria.">
+                        <form class="display-form" id="formMentorship">
+                            <div class="dFlex">
+                                <div class="display-label-input">
+                                    <label style="color: #757575;" for="mentorshipTitle">Título da mentoria</label>
+                                    <input class="input-title-mentorship" id="mentorshipTitle" name="mentorshipTitle" placeholder="Insira o título da mentoria.">
+                                </div>
+    
+                                <div class="display-label-input">
+                                    <label style="color: #757575;" for="mentor">Mentor</label>
+                                    <select class="select-mentorship" id="mentor" name="mentor"></select>
+                                </div>
                             </div>
 
-                            <div class="display-label-input">
-                                <label style="color: #757575;" for="mentor">Mentor</label>
-                                <select class="select-mentorship" id="mentor" name="mentor"></select>
+                            <div>
+                                <div class="display-label-input">
+                                    <label style="color: #757575;">Status</label>
+                                    <div class="display-toggle">
+                                        <div class="toggle">
+                                            <input type="checkbox" id="toggle-input">
+                                            <label for="toggle-input" class="toggle-label"></label>
+                                        </div>                                  
+                                        <div>Ativo</div>
+                                    </div>
+                                </div>
+                                
                             </div>
+                            <button class="save-button-mentorship" id="saveButton">Salvar</button>
 
                         </form>
-
-                        <div class="display-label-input">
-                            <label style="color: #757575;">Status</label>
-                            <div class="display-toggle">
-                                <div class="toggle">
-                                    <input type="checkbox" id="toggle-status" >
-                                    <label for="toggle-status" class="toggle-label"></label>
-                                </div>
-                                <div>Ativo</div>
-                            </div>
-                        </div>
-
-                        <button class="save-button-mentorship" type="submit">Salvar</button>
 
                     </div>
 

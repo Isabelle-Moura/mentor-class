@@ -5,12 +5,12 @@ const showMentorship = (mentorships) => {
   const tableContent = document.getElementById("tableContent");
   let mentorshipHtml = "";
 
-  mentorships.forEach((mentorhip) => {
+  mentorships.forEach((mentorship) => {
     mentorshipHtml += `
       <tr>
-        <td>${mentorship.title}</td>
-        <td>${mentorship.mentor}</td>
-        <td>${mentorship.status}</td>
+        <td>${mentorship.mentorshipTitle}</td>
+        <td>${mentorship.mentor.name}</td>
+        <td class="${mentorship.status ? "toggle-active" : "toggle-inactive"}">${mentorship.status ? "Ativo" : "Inativo"}</td>
         <td>
           <button class="edit-button" id="editButton" onclick="edit(${mentorship.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
           <button class="delete-button" id="deleteButton" onclick="deleteButton(${mentorship.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
@@ -22,19 +22,51 @@ const showMentorship = (mentorships) => {
   tableContent.innerHTML = mentorshipHtml;
 };
 
+
 const getMentorship = async () => {
   try {
     const apiResponse = await fetch(url);
     const mentorships = await apiResponse.json();
 
-    console.log(mentorship);
     showMentorship(mentorships);
+    console.log(mentorships);
   } catch (error) {
     console.error(error);
   }
 };
 
 getMentorship();
+
+//////////////////////////////////////////
+
+//Imput de busca (Search Bar)
+const searchInput = document.getElementById("searchInput");
+
+// Função para filtrar mentorias por nome
+const filterMentorship = (mentorship, searchTerm) => {
+  searchTerm = searchTerm.toLowerCase();
+  return mentorship.filter((mentorship) => mentorship.mentor.name.toLowerCase().includes(searchTerm));
+};
+
+// Função para realizar a busca e exibição das mentorias filtradas
+const searchMentorships = async (searchTerm) => {
+  const apiResponse = await fetch(url)
+    .then((response) => response.json())
+    .then((mentorships) => {
+      const filteredMentorships = filterMentorship(mentorships, searchTerm);
+      showMentorship(filteredMentorships);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+searchInput.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    const searchTerm = searchInput.value;
+    searchMentorships(searchTerm);
+  }
+});
 
 //////////////////////////////////////////
 
@@ -71,7 +103,7 @@ newButton.addEventListener("click", function () {
 
 //Botão "Editar"
 const edit = (id) => {
-    window.location.href = `../../mentors/html/edit.html?id=${id}`;    
+    window.location.href = `../../mentorship/html/edit.html?id=${id}`;    
 }
 //////////////////////////////////////////
 
@@ -85,7 +117,7 @@ const deleteButton = async (mentorshipId) => {
         if (response.ok) {
           console.log('Mentoria excluída com sucesso');
         } else {
-          console.error('Erro ao excluir a mentorria!');
+          console.error('Erro ao excluir a mentoria!');
         }
 
     } catch (error) {
