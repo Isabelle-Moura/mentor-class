@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Mentorias</title>
+    <title>Tela de Cadastro de Turmas</title>
 
     <!-- Bootstrap -->
 
@@ -23,7 +23,7 @@
     <!-- ////////////////////////////////////////////// -->
 
     <!-- Arquivo JS -->
-    <script defer src="../../mentorship/js/register.js"></script>
+    <script defer src="../../classes/js/register.js"></script>
     <!-- ////////////////////////////////////////////// -->
 
     <!-- Font Awesome -->
@@ -33,12 +33,11 @@
 
 </head>
 
-
 <body>
     <div class="display-content">
+
         <!-- Header com os dados do usuário -->
         <main>
-
             <header class="header-with-user">
 
                 <div>
@@ -56,78 +55,84 @@
             </header>
             <!-- ///////////////////////////////// -->
 
-            <section class="content">
-
+            <!-- Título da Página -->
+            <section>
                 <div class="display-button-title">
-
-                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;" id="backButton"></i></button>
-
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"
+                            id="backButton"></i></button>
                     <div class="page-title">
-
-                        <div>Nova mentoria</div>
-
+                        <div>Nova turma</div>
                     </div>
                 </div>
             </section>
+            <!-- ///////////////////////////////// -->
 
             <section class="card-background">
-
                 <div>
-
-                    <div class="card-title">Dados</div>
-
+                    <div class="card-title">Mentoria</div>
                     <hr>
-
-                    <div>
-
-                        <form class="display-form" id="formMentorship">
-                            <div class="dFlex">
+                    <div class="display-form">
+                        <form class="display-form" id="formClasses">
+                            <div>
                                 <div class="display-label-input">
-                                    <label style="color: #757575;" for="mentorshipTitle">Título da mentoria</label>
-                                    <input class="input-title-form" id="mentorshipTitle" name="mentorshipTitle" placeholder="Insira o título da mentoria.">
+                                    <label style="color: #757575;" for="mentorship">Mentoria</label>
+                                    <select class="select-field" name="mentorship" id="mentorship">
                                 </div>
-    
                                 <div class="display-label-input">
-                                    <label style="color: #757575;" for="mentor">Mentor</label>
-                                    <select class="select-field" id="mentor" name="mentor"></select>
+                                    <label style="color: #757575; background-color: #6950A1;"
+                                        for="mentor">Mentor</label>
+                                    <select class="select-field" name="mentor" id="mentor">
                                 </div>
                             </div>
 
                             <div>
                                 <div class="display-label-input">
-                                    <label style="color: #757575;">Status</label>
-                                    <div class="display-toggle">
-                                        <div class="toggle">
-                                            <input type="checkbox" id="toggle-input">
-                                            <label for="toggle-input" class="toggle-label"></label>
-                                        </div>                                  
-                                        <div>Ativo</div>
-                                    </div>
+                                    <label style="color: #757575;" for="beginning">Data de início</label>
+                                    <input class="input-title-form" name="beginning" id="beginning">
                                 </div>
-                                
+
+                                <div class="display-label-input">
+                                    <label style="color: #757575;" for="weekday">Dia da semana</label>
+                                    <select class="select-field" name="weekday" id="weekday">
+                                        <option>Selecione uma opção...</option>
+                                        <option>Segunda-feira</option>
+                                        <option>Terça-feira</option>
+                                        <option>Quarta-feira</option>
+                                        <option>Quinta-feira</option>
+                                        <option>Sexta-feira</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="color: #757575;" for="beginningTime">Hora de início</label>
+                                    <input class="input-title-form" name="beginningTime" id="beginningTime">
+                                </div>
+                                <div>
+                                    <label style="color: #757575;" for="endingTime">Hora de fim</label>
+                                    <input class="input-title-form" name="endingTime" id="endingTime">
+                                </div>
                             </div>
-                            <button class="save-button-mentorship" id="saveButton">Salvar</button>
 
                         </form>
+                        <!-- <button class="save-button">Salvar</button> -->
+                    </div>
 
+                    <div>
+                        <div class="card-title">Turma</div>
+                        <hr>
                     </div>
 
                 </div>
-
             </section>
-
         </main>
 
         <aside>
             <!-- Side Menu Bar -->
             <nav class="menu-bar">
-
                 <div class="logo">
                     <div class="logo-orange">mentor<strong class="logo-white">class</strong></div>
                 </div>
 
                 <div>
-
                     <ul class="side-menu-list">
                         <li class="menu-list-item">
                             <span>

@@ -1,27 +1,3 @@
-//Redirecionamento das páginas
-
-//"Side Menu"
-const mentorsPage = document.getElementById("mentorsPage");
-const mentorshipPage = document.getElementById("mentorshipPage");
-const classesPage = document.getElementById("classesPage");
-const studentsPage = document.getElementById("studentsPage");
-
-mentorsPage.addEventListener("click", function () {
-  window.location.href = "../../mentors/html/index.html";
-});
-
-mentorshipPage.addEventListener("click", function () {
-  window.location.href = "../../mentorship/html/index.html";
-});
-
-classesPage.addEventListener("click", function () {
-  window.location.href = "../../classes/html/index.html";
-});
-
-studentsPage.addEventListener("click", function () {
-  window.location.href = "../../students/html/index.html";
-});
-
 //Botão para voltar para a página principal
 const backButton = document.getElementById("backButton");
 

@@ -145,7 +145,8 @@ input::placeholder {
 .page-title {
     margin: 10px 20px;
     font-weight: 600;
-    font-size: 25PX;
+    font-size: 25px;
+    padding: 10px;
 }
 
 /* Menu Bar*/
@@ -282,6 +283,8 @@ thead {
     border-radius: 10px 10px 0px 0px;
     height: 45px;
     width: 66rem;
+    font-weight: 200;
+    font-size: 13px;
 }
 
 th {
@@ -466,48 +469,11 @@ hr {
 }
 /* ////////////////////////////////// */
 
-/* Tela Inicial de "Mentorias" */
-
-/* Gerenciador de Mentorias */
-.mentorship-thead {
-    padding: 3px;
-    background-color: #482D83 !important;
-    color: #FFFFFF;
-    display: flex;
-    border-radius: 10px 10px 0px 0px;
-    height: 45px;
-    width: 66rem;
-}
-
-.mentorship-tbody {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
-}
-
-.mentorship-th {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    font-weight: 200 !important;
-    font-size: 13px !important;
-}
-
-.mentorship-tr {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 9px;
-    margin: 3px !important;
-}
+/* "Mentorias" */
 
 /* Tela de Cadastro e Editar de "Mentorias" */
 
-.input-title-mentorship {
+.input-title-form {
     width: 450px;
     height: 40px;
     border: 1px solid #E0E0E0;
@@ -528,7 +494,7 @@ hr {
     font-style: 'Poppins', sans-serif;
 }
 
-.select-mentorship {
+.select-field {
     width: 300px;
     height: 40px;
     border: 1px solid #E0E0E0;

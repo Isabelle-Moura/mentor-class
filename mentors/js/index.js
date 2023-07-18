@@ -34,8 +34,8 @@ const getMentors = async () => {
 };
 
 getMentors();
-
 //////////////////////////////////////////
+
 //Imput de busca (Search Bar)
 const searchInput = document.getElementById("searchInput");
 
@@ -64,7 +64,6 @@ searchInput.addEventListener("keyup", (event) => {
     searchMentors(searchTerm);
   }
 });
-
 //////////////////////////////////////////
 
 //Redirecionamento das páginas
