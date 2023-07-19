@@ -91,6 +91,42 @@
       "classLink": "https://meet.google.com/xxx-yyyy-zzz",
       "meetQuantity": "10",
       "id": 1
+    },
+    {
+      "mentorName": {
+        "id": 3,
+        "name": "Letícia Porto Soares"
+      },
+      "mentorship": {
+        "id": 1,
+        "mentorship": "Gerenciamento de estados globais com React e TS"
+      },
+      "beginning": "15/09",
+      "weekday": "Sexta-feira",
+      "beginningTime": "19h",
+      "endingTime": "21h 30min",
+      "className": "Turma 04",
+      "classLink": "https://meet.google.com/yyy-zzzz-xxx",
+      "meetQuantity": "15",
+      "id": 2
+    },
+    {
+      "mentorName": {
+        "id": 2,
+        "name": "Márcio Silva"
+      },
+      "mentorship": {
+        "id": 1,
+        "mentorship": "Gerenciamento de estados globais com React e TS"
+      },
+      "beginning": "13/04",
+      "weekday": "Quarta-feira",
+      "beginningTime": "20h",
+      "endingTime": "22h",
+      "className": "Turma 03",
+      "classLink": "https://meet.google.com/xxx-yxyx-zzz",
+      "meetQuantity": "5",
+      "id": 3
     }
   ],
   "students": []
