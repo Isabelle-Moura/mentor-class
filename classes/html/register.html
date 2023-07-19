@@ -74,52 +74,77 @@
                     <div class="display-form">
                         <form class="display-form" id="formClasses">
                             <div>
-                                <div class="display-label-input">
-                                    <label style="color: #757575;" for="mentorship">Mentoria</label>
-                                    <select class="select-field" name="mentorship" id="mentorship">
+                                <div class="display-inputs">
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="mentorship">Mentoria</label>
+                                        <select class="select-field custom-input-select" name="mentorship" id="mentorship"></select>
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="mentorName">Mentor</label>
+                                        <select class="select-field custom-input-select" name="mentorName" id="mentorName"></select>
+                                    </div>
                                 </div>
-                                <div class="display-label-input">
-                                    <label style="color: #757575; background-color: #6950A1;"
-                                        for="mentor">Mentor</label>
-                                    <select class="select-field" name="mentor" id="mentor">
+
+                                <div class="display-inputs">
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="beginning">Data de início</label>
+                                        <input class="smaller-input custom-input-select" name="beginning" id="beginning"
+                                            placeholder="Insira a data de início.">
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="weekday">Dia da semana</label>
+                                        <select class="smaller-select-field custom-input-select" name="weekday" id="weekday">
+                                            <option>Selecione uma opção...</option>
+                                            <option>Segunda-feira</option>
+                                            <option>Terça-feira</option>
+                                            <option>Quarta-feira</option>
+                                            <option>Quinta-feira</option>
+                                            <option>Sexta-feira</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="beginningTime">Hora de início</label>
+                                        <input class="smaller-input" name="beginningTime" id="beginningTime"
+                                            placeholder="Insira a hora de início.">
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="endingTime">Hora de fim</label>
+                                        <input class="smaller-input" name="endingTime" id="endingTime"
+                                            placeholder="Insira a hora de término.">
+                                    </div>
                                 </div>
                             </div>
 
                             <div>
-                                <div class="display-label-input">
-                                    <label style="color: #757575;" for="beginning">Data de início</label>
-                                    <input class="input-title-form" name="beginning" id="beginning">
-                                </div>
-
-                                <div class="display-label-input">
-                                    <label style="color: #757575;" for="weekday">Dia da semana</label>
-                                    <select class="select-field" name="weekday" id="weekday">
-                                        <option>Selecione uma opção...</option>
-                                        <option>Segunda-feira</option>
-                                        <option>Terça-feira</option>
-                                        <option>Quarta-feira</option>
-                                        <option>Quinta-feira</option>
-                                        <option>Sexta-feira</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label style="color: #757575;" for="beginningTime">Hora de início</label>
-                                    <input class="input-title-form" name="beginningTime" id="beginningTime">
-                                </div>
-                                <div>
-                                    <label style="color: #757575;" for="endingTime">Hora de fim</label>
-                                    <input class="input-title-form" name="endingTime" id="endingTime">
-                                </div>
+                                <div class="card-title">Turma</div>
+                                <hr>
                             </div>
 
+                            <div class="display-inputs">
+                                <div class="display-labels-inputs">
+                                    <label style="color: #7D7D7D;" for="className">Turma</label>
+                                    <input class="larger-input" name="className" id="className"
+                                        placeholder="Insira o nome da turma.">
+                                </div>
+                                <div class="display-labels-inputs">
+                                    <label style="color: #7D7D7D;" for="className">Link da aula</label>
+                                    <input class="larger-input" name="classLink" id="classLink"
+                                        placeholder="Insira o link do meet.">
+                                </div>
+                                <div class="display-labels-inputs">
+                                    <label style="color: #7D7D7D;" for="meetQuantity">Qtd de encontros</label>
+                                    <input class="smaller-input" name="meetQuantity" id="meetQuantity"
+                                        placeholder="Insira a qtd. de encontros.">
+                                </div>
+                            </div>
+                            <button class="save-button-classes">Salvar</button>
                         </form>
-                        <!-- <button class="save-button">Salvar</button> -->
                     </div>
 
-                    <div>
-                        <div class="card-title">Turma</div>
-                        <hr>
-                    </div>
 
                 </div>
             </section>

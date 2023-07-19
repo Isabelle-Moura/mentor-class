@@ -58,8 +58,9 @@
 }
 
 input::placeholder {
-    color: #BDBDBD;
+    color: #c4c1c1;
     padding-left: 3px;
+    font-size: 13px;
 }
 
 .login-checkbox {
@@ -136,11 +137,6 @@ input::placeholder {
     height: 100px;
     padding: 20px;
 }
-
-/* .content {
-    padding: 10px;
-    background-color: #FCFCFC;
-} */
 
 .page-title {
     margin: 10px 20px;
@@ -273,43 +269,37 @@ tr:nth-child(odd) {
 
 table {
     margin-top: 1px;
+    /* width: 90%; */
 }
 
 thead {
     padding: 3px;
-    background-color: #482D83 !important;
     color: #FFFFFF;
-    display: flex;
-    border-radius: 10px 10px 0px 0px;
     height: 45px;
-    width: 66rem;
     font-weight: 200;
     font-size: 13px;
+    width: 66rem;
 }
 
 th {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
+    border-radius: 10px 10px 0px 0px !important;
     font-weight: 200 !important;
     font-size: 13px !important;
+    text-align: center;
 }
 
 tr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 9px;
-    margin: 3px !important;
+    height: 45px;
+    width: 66rem;
+    padding: 20px;
+    margin: 5px;
+    text-align: center; 
 }
 
 tbody {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     font-size: 12px;
 }
 
@@ -367,7 +357,6 @@ tbody {
 }
 
 /* ////////////////////////////////// */
-
 
 /* Tela de Cadastro e Editar de "Mentores"*/
 
@@ -458,6 +447,17 @@ hr {
     font-size: 15px;
 }
 
+input {
+    font-size: 12px;
+    color: #757575 !important;
+}
+
+.custom-input-select {
+    color:#c4c1c1 !important; 
+    padding-left: 3px; 
+    font-size: 13px;
+}
+
 .form-input {
     width: 300px;
     height: 40px;
@@ -473,13 +473,43 @@ hr {
 
 /* Tela de Cadastro e Editar de "Mentorias" */
 
-.input-title-form {
-    width: 450px;
+.larger-input {
+    width: 300px;
     height: 40px;
     border: 1px solid #E0E0E0;
     border-radius: 10px;
     color: #757575;
-    padding: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+.smaller-input {
+    width: 201px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #757575;
+    padding: 10px;
+    outline: none;
+}
+
+.select-field {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #757575;
+    padding: 10px;
+    outline: none;
+}
+
+.smaller-select-field {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    color: #757575;
+    padding: 10px;
     outline: none;
 }
 
@@ -494,29 +524,25 @@ hr {
     font-style: 'Poppins', sans-serif;
 }
 
-.select-field {
-    width: 300px;
-    height: 40px;
-    border: 1px solid #E0E0E0;
-    border-radius: 10px;
-    color: #757575;
-    padding: 5px;
-    outline: none;
-}
-
 /* Toggle de Ativo/Inativo (esse me deu trabalho kkkkk)*/
 .toggle-active{
     background-color: #D9FEE6;
     color: #00C247;
-    padding: 5px 15px;
+    padding: 6px;
     border-radius: 7px;
+    margin: 10px;
+    width: 70px;
+    height: 30px;
 }
 
 .toggle-inactive{
     background-color: #FFE1E1;
     color: #FF3333;
-    padding: 5px 15px;
+    padding: 6px;
     border-radius: 7px;
+    margin: 10px;
+    width: 70px;
+    height: 30px;
 }
 
 .toggle {
@@ -562,3 +588,31 @@ hr {
 .widthTh{
     width: 27%;
 }
+
+/* ////////////////////////////////// */
+/* Turmas */
+.display-inputs {
+    display: flex;
+}
+
+.display-labels-inputs{
+    margin: 5px 10px 5px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.save-button-classes{
+    width: 300px;
+    height: 40px;
+    border: 1px solid #482D83;
+    background-color: #482D83;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin-top: 25px;
+    font-family: 'Poppins', sens-serif;
+    font-weight: 500;
+}
+
+/* ////////////////////////////////// */

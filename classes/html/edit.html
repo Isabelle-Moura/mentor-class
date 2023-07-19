@@ -6,9 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Cadastro de Alunos</title>
-
-    <link rel="stylesheet" href="../style-css/style.css">
+    <title>Tela de Editar de Turmas</title>
 
     <!-- Bootstrap -->
 
@@ -20,98 +18,179 @@
         crossorigin="anonymous"></script>
     <!-- ------------------ -->
 
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- ////////////////////////////////////////////// -->
+
+    <!-- Arquivo JS -->
+    <script defer src="../../classes/js/edit.js"></script>
+    <!-- ////////////////////////////////////////////// -->
+
     <!-- Font Awesome -->
 
     <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
     <!-- ------------------ -->
+
 </head>
 
 <body>
     <div class="display-content">
 
+        <!-- Header com os dados do usuário -->
         <main>
             <header class="header-with-user">
+
                 <div>
+
                     <i class="fa-solid fa-circle-user fa-3x" style="color: #6950A1;"></i>
+
                 </div>
+
                 <div>
-                    <div class="user-name">Augusto Carvalho</div>
-                    <div class="user-email">augusto@gmail.com</div>
+
+                    <div class="user-name" id="user-name">Isabelle Moura</div>
+                    <div class="user-email" id="user-email">mourabisabelle@gmail.com</div>
+
                 </div>
             </header>
+            <!-- ///////////////////////////////// -->
 
-            <section class="content">
+            <!-- Título da Página -->
+            <section>
                 <div class="display-button-title">
-                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"></i></button>
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"
+                            id="backButton"></i></button>
                     <div class="page-title">
-                        <div>Aluno</div>
+                        <div>Turma</div>
                     </div>
                 </div>
             </section>
+            <!-- ///////////////////////////////// -->
 
             <section class="card-background">
                 <div>
-                    <div class="card-title">Dados</div>
+                    <div class="card-title">Mentoria</div>
                     <hr>
-                    <div>
-                        <form class="display-form">
-                            <div class="display-label-input">
-                                <label style="color: #757575;">Nome</label>
-                                <input class="input" placeholder="Insira o nome.">
+                    <div class="display-form">
+                        <form class="display-form" id="formClasses">
+                            <div>
+                                <div class="display-inputs">
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="mentorship">Mentoria</label>
+                                        <select style="color: #c4c1c1; padding-left: 3px; font-size: 13px;" class="select-field" name="mentorship" id="mentorship"></select>
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="mentorName">Mentor</label>
+                                        <select style="color: #c4c1c1; padding-left: 3px; font-size: 13px;" class="select-field" name="mentorName" id="mentorName"></select>
+                                    </div>
+                                </div>
+
+                                <div class="display-inputs">
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="beginning">Data de início</label>
+                                        <input class="smaller-input" name="beginning" id="beginning"
+                                            placeholder="Insira a data de início.">
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="weekday">Dia da semana</label>
+                                        <select style="color: #c4c1c1; padding-left: 3px; font-size: 13px;" class="smaller-select-field" name="weekday" id="weekday">
+                                            <option>Selecione uma opção...</option>
+                                            <option>Segunda-feira</option>
+                                            <option>Terça-feira</option>
+                                            <option>Quarta-feira</option>
+                                            <option>Quinta-feira</option>
+                                            <option>Sexta-feira</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="beginningTime">Hora de início</label>
+                                        <input class="smaller-input" name="beginningTime" id="beginningTime"
+                                            placeholder="Insira a hora de início.">
+                                    </div>
+
+                                    <div class="display-labels-inputs">
+                                        <label style="color: #7D7D7D;" for="endingTime">Hora de fim</label>
+                                        <input class="smaller-input" name="endingTime" id="endingTime"
+                                            placeholder="Insira a hora de término.">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="display-label-input">
-                                <label style="color: #757575;">E-mail</label>
-                                <input class="input" placeholder="Insira o e-mail.">
+
+                            <div>
+                                <div class="card-title">Turma</div>
+                                <hr>
                             </div>
-                            <div class="display-label-input">
-                                <label>Turma</label>
-                                <select class="input"></select>
+
+                            <div class="display-inputs">
+                                <div class="display-labels-inputs">
+                                    <label style="color: #7D7D7D;" for="className">Turma</label>
+                                    <input class="larger-input" name="className" id="className"
+                                        placeholder="Insira o nome da turma.">
+                                </div>
+                                <div class="display-labels-inputs">
+                                    <label style="color: #7D7D7D;" for="className">Link da aula</label>
+                                    <input class="larger-input" name="className" id="className"
+                                        placeholder="Insira o link do meet.">
+                                </div>
+                                <div class="display-labels-inputs">
+                                    <label style="color: #7D7D7D;" for="className">Qtd de encontros</label>
+                                    <input class="smaller-input" name="className" id="className"
+                                        placeholder="Insira a qtd. de encontros.">
+                                </div>
                             </div>
+                            <button class="save-button-classes">Editar</button>
                         </form>
-                        <button class="save-button">Salvar</button>
                     </div>
+
+
                 </div>
             </section>
         </main>
 
         <aside>
+            <!-- Side Menu Bar -->
             <nav class="menu-bar">
                 <div class="logo">
                     <div class="logo-orange">mentor<strong class="logo-white">class</strong></div>
                 </div>
+
                 <div>
                     <ul class="side-menu-list">
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-user-tie" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentores</span>
-                            <a href="../mentors/index.html">X</a>
+                            <span id="mentorsPage">Mentores</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-regular fa-address-book" style="color: #ededed;"></i>
                             </span>
-                            <span>Mentorias</span>
-                            <a href="">X</a>
+                            <span id="mentorshipPage">Mentorias</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-school"></i>
                             </span>
-                            <span> Turmas</span>
-                            <a href="">X</a>
+                            <span id="classesPage">Turmas</span>
                         </li>
+
                         <li class="menu-list-item">
                             <span>
                                 <i class="fa-solid fa-clipboard-user"></i>
                             </span>
-                            <span>Alunos</span>
-                            <a href="../students/index.html">X</a>
+                            <span id="studentsPage">Alunos</span>
                         </li>
                     </ul>
+
                 </div>
             </nav>
+            <!-- ///////////////////////////////// -->
         </aside>
     </div>
 

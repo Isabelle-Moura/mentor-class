@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Mentorias</title>
+    <title>Tela de Editar de Mentorias</title>
 
     <!-- Bootstrap -->
 
@@ -60,11 +60,12 @@
 
                 <div class="display-button-title">
 
-                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;" id="backButton"></i></button>
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"
+                            id="backButton"></i></button>
 
                     <div class="page-title">
 
-                        <div>Mentoria</div>
+                        <div>Nova mentoria</div>
 
                     </div>
                 </div>
@@ -83,30 +84,31 @@
                         <form class="display-form" id="formMentorship">
                             <div class="dFlex">
                                 <div class="display-label-input">
-                                    <label style="color: #757575;" for="mentorshipTitle">Título da mentoria</label>
-                                    <input class="input-title-mentorship" id="mentorshipTitle" name="mentorshipTitle" placeholder="Insira o título da mentoria.">
+                                    <label style="color:#7D7D7D;" for="mentorshipTitle">Título da mentoria</label>
+                                    <input class="larger-input" id="mentorshipTitle" name="mentorshipTitle"
+                                        placeholder="Insira o título da mentoria.">
                                 </div>
-    
+
                                 <div class="display-label-input">
-                                    <label style="color: #757575;" for="mentor">Mentor</label>
-                                    <select class="select-mentorship" id="mentor" name="mentor"></select>
+                                    <label style="color:#7D7D7D;" for="mentor">Mentor</label>
+                                    <select style="color:#c4c1c1; padding-left: 3px; font-size: 13px;" class="select-field" id="mentor" name="mentor"></select>
                                 </div>
                             </div>
 
                             <div>
                                 <div class="display-label-input">
-                                    <label style="color: #757575;">Status</label>
+                                    <label style="color:#7D7D7D;">Status</label>
                                     <div class="display-toggle">
                                         <div class="toggle">
                                             <input type="checkbox" id="toggle-input">
                                             <label for="toggle-input" class="toggle-label"></label>
-                                        </div>                                  
+                                        </div>
                                         <div>Ativo</div>
                                     </div>
                                 </div>
-                                
+
                             </div>
-                            <button class="save-button-mentorship" id="saveButton" type="submit">Editar</button>
+                            <button class="save-button-mentorship" id="saveButton">Salvar</button>
 
                         </form>
 

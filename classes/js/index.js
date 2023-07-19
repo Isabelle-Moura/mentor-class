@@ -4,19 +4,19 @@ const showClasses = (classes) => {
     const tableContent = document.getElementById("tableContent");
     let classHtml = "";
   
-    classes.forEach((classItem) => {
+    classes.forEach((classData) => {
       classHtml += `
         <tr>
-          <td>${classItem.className}</td>
-          <td>${classItem.mentor}</td>
-          <td>${classItem.mentorship}</td>
-          <td>${classItem.beginning}</td>
-          <td>${classItem.weekday}</td>
-          <td>${classItem.time}</td>
-          <td>${classItem.meetings}</td>
+          <td>${classData.className}</td>
+          <td>${classData.mentorName.name}</td>
+          <td>${classData.mentorship.mentorship}</td>
+          <td>${classData.beginning}</td>
+          <td>${classData.weekday}</td>
+          <td>${classData.beginningTime}</td>
+          <td>${classData.meetQuantity}</td>
           <td>
-            <button class="edit-button" id="editButton" onclick="edit(${classItem.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
-            <button class="delete-button" id="deleteButton" onclick="deleteButton(${classItem.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
+            <button class="edit-button" id="editButton" onclick="edit(${classData.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
+            <button class="delete-button" id="deleteButton" onclick="deleteButton(${classData.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
           </td>
         </tr>
       `;

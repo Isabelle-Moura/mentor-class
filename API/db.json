@@ -60,7 +60,7 @@
         "id": 5,
         "name": "Pedro Souza"
       },
-      "status": false,
+      "status": true,
       "id": 4
     },
     {
@@ -71,17 +71,27 @@
       },
       "status": false,
       "id": 5
-    },
-    {
-      "mentorshipTitle": "Gerenciamento de estados globais com React e TS",
-      "mentor": {
-        "id": 3,
-        "name": "Letícia Porto Soares"
-      },
-      "status": false,
-      "id": 6
     }
   ],
-  "classes": [],
+  "classes": [
+    {
+      "mentorName": {
+        "id": 2,
+        "name": "Márcio Silva"
+      },
+      "mentorship": {
+        "id": 1,
+        "mentorship": "Gerenciamento de estados globais com React e TS"
+      },
+      "beginning": "12/07",
+      "weekday": "Segunda-feira",
+      "beginningTime": "18h",
+      "endingTime": "20h",
+      "className": "Turma 01",
+      "classLink": "https://meet.google.com/xxx-yyyy-zzz",
+      "meetQuantity": "10",
+      "id": 1
+    }
+  ],
   "students": []
 }

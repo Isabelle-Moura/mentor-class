@@ -41,7 +41,6 @@ const getMentorshipIdUrl = () => {
 const getMentorship = async () => {
   const apiResponse = await fetch(`${url}/${mentorshipId}`);
   const mentorship = await apiResponse.json();
-
   return mentorship;
 };
 
