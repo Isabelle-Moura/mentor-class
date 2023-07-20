@@ -270,7 +270,8 @@ tr:nth-child(odd) {
 
 table {
     margin-top: 1px;
-    /* width: 90%; */
+    width: 100%;
+    border-spacing: 10%; /* Adiciona um espaçamento de 5 pixels entre as células */
 }
 
 thead {
@@ -290,18 +291,23 @@ th {
 }
 
 tr {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     height: 45px;
     width: 66rem;
     padding: 20px;
-    margin: 5px;
-    text-align: center; 
+    margin: 5px !important;
+    text-align: center;
 }
 
 tbody {
     font-size: 12px;
+}
+
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle; /* Centraliza verticalmente o conteúdo das células */
+    text-align: center;
 }
 
 /* ////////////////////////////////// */
@@ -366,8 +372,8 @@ tbody {
 .card-background {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
-    padding: 15px;
-    margin: 0px 25px;
+    padding: 20px;
+    margin: 0px 10px;
     background-color: #FFFFFF;
 }
 /* ////////////////////////////////// */
@@ -482,6 +488,7 @@ input {
     color: #757575;
     padding: 10px;
     outline: none;
+    font-size: 12px;
 }
 
 .smaller-input {
@@ -492,6 +499,7 @@ input {
     color: #757575;
     padding: 10px;
     outline: none;
+    font-size: 12px;
 }
 
 .select-field {
@@ -502,6 +510,7 @@ input {
     color: #757575;
     padding: 10px;
     outline: none;
+    font-size: 12px;
 }
 
 .smaller-select-field {
@@ -512,6 +521,7 @@ input {
     color: #757575;
     padding: 10px;
     outline: none;
+    font-size: 12px;
 }
 
 .save-button-mentorship {

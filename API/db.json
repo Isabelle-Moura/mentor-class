@@ -47,7 +47,7 @@
         "id": 6,
         "name": "Jéssica Moura"
       },
-      "status": true,
+      "status": false,
       "id": 2
     },
     {
@@ -74,45 +74,45 @@
         "id": 2,
         "name": "Márcio Silva"
       },
-      "status": false,
+      "status": true,
       "id": 5
     }
   ],
   "classes": [
     {
       "mentorName": {
-        "id": 2,
-        "name": "Márcio Silva"
+        "id": 3,
+        "name": "Letícia Soares"
       },
       "mentorship": {
         "id": 1,
         "mentorship": "Gerenciamento de estados globais com React e TS"
       },
-      "beginning": "12/07",
-      "weekday": "Segunda-feira",
-      "beginningTime": "18h",
-      "endingTime": "20h",
+      "beginning": "12/09/23",
+      "weekday": "Quinta-feira",
+      "beginningTime": "18h 30",
+      "endingTime": "21h",
       "className": "Turma 01",
       "classLink": "https://meet.google.com/xxx-yyyy-zzz",
-      "meetQuantity": "10",
+      "meetQuantity": "2/10",
       "id": 1
     },
     {
       "mentorName": {
-        "id": 2,
-        "name": "Márcio Silva"
+        "id": 6,
+        "name": "Jéssica Moura"
       },
       "mentorship": {
         "id": 1,
         "mentorship": "Gerenciamento de estados globais com React e TS"
       },
-      "beginning": "13/04",
+      "beginning": "13/04/23",
       "weekday": "Quarta-feira",
       "beginningTime": "20h",
       "endingTime": "22h",
       "className": "Turma 03",
       "classLink": "https://meet.google.com/xxx-yxyx-zzz",
-      "meetQuantity": "5",
+      "meetQuantity": "1/5",
       "id": 3
     }
   ],

@@ -56,7 +56,10 @@ const loadMentorsSelect = async () => {
   mentorSelect.options.add(emptyOption);
 
   mentors.forEach((mentor) => {
-    const option = new Option(mentor.name + mentor.email, mentor.id);
+    const option = new Option(
+      mentor.name + " " + "(" + mentor.email + ")",
+      mentor.id
+    );
     mentorSelect.options.add(option);
   });
   console.log(mentorSelect);
@@ -78,21 +81,105 @@ const editClass = async (classData) => {
   await fetch(`${url}/${classId}`, {
     method: "PUT",
     headers: {
-      Accept: "application/json, text/plain, */*",
+      "Accept": "application/json, text/plain, */*",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(mentorship),
+    body: JSON.stringify(classData),
   });
-  window.location = "../../classes/html/index.html"
+  window.location = "../../classes/html/index.html";
 };
 
 const loadFormData = async (classData) => {
-    loadMentorsSelect()
-    loadMentorshipsSelect()
-    document.getElementById("mentorship").value = mentorship.mentorship
+  loadMentorsSelect();
+  loadMentorshipsSelect();
+  
+  document.getElementById("className").value = classData.className;
+  document.getElementById("mentorship").value = classData.mentorship.id;
+  document.getElementById("mentorName").value = classData.mentorName.id;
+  document.getElementById("beginning").value = classData.beginning;
+  document.getElementById("weekday").value = classData.weekday;
+  document.getElementById("beginningTime").value = classData.beginningTime;
+  document.getElementById("classLink").value = classData.classLink;
+  document.getElementById("endingTime").value = classData.endingTime;
+  document.getElementById("meetQuantity").value = classData.meetQuantity;
 
-    const mentorshipSelect = document.getElementById("mentorship")
-    const mentorships = await getMentorships()
+  const mentorSelect = document.getElementById("mentorName");
+  const mentors = await getMentors();
+  for (let counter = 1; counter <= mentors.length; counter++) {
+    if (
+      mentorSelect.options[counter].innerText === mentors.mentorName.name
+      ) {
+        console.log(mentors)
+        mentorSelect.options[counter].selected = true;
+    }
+  }
 
-    
-}
+  const mentorshipSelect = document.getElementById("mentorship");
+  const mentorships = await getMentorships();
+  for (let counter = 1; counter <= mentorships.length; counter++) {
+    if (
+      mentorshipSelect.options[counter].innerText ===
+      classData.mentorship.mentorship
+    ) {
+      mentorshipSelect.options[counter].selected = true;
+      break;
+    }
+  }
+};
+
+const loadData = async () => {
+  getClassIdUrl();
+  const classData = await getClass();
+  loadFormData(classData);
+};
+
+formClasses.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const mentorship = formClasses.elements["mentorship"].value;
+  const mentorName = formClasses.elements["mentorName"].value;
+  const beginning = formClasses.elements["beginning"].value;
+  const weekday = formClasses.elements["weekday"].value;
+  const beginningTime = formClasses.elements["beginningTime"].value;
+  const endingTime = formClasses.elements["endingTime"].value;
+  const className = formClasses.elements["className"].value;
+  const classLink = formClasses.elements["classLink"].value;
+  const meetQuantity = formClasses.elements["meetQuantity"].value;
+
+  const mentorshipObject = await getMentorship(mentorship);
+  if (Object.keys(mentorshipObject).lenght == 0) {
+    console.log("Não foi possível cadastrar a turma, mentoria inválida :/");
+  }
+
+  const mentorObject = await getMentor(mentorName);
+  if (Object.keys(mentorObject).lenght == 0) {
+    console.log("Não foi possível cadastrar a turma, mentor inválido :/");
+  }
+
+  const classData = {
+    mentorName: {
+      id: mentorObject.id,
+      name: mentorObject.name,
+    },
+    mentorship: {
+      id: mentorshipObject.id,
+      mentorship: mentorshipObject.mentorshipTitle,
+    },
+    beginning,
+    weekday,
+    beginningTime,
+    endingTime,
+    className,
+    classLink,
+    meetQuantity,
+  };
+  editClass(classData);
+});
+loadData();
+//////////////////////////////////////////
+
+//Botão para voltar para a página principal
+const backButton = document.getElementById("backButton");
+
+backButton.addEventListener("click", function () {
+  window.location.href = "../../classes/html/index.html";
+});

@@ -63,7 +63,7 @@ const loadMentorsSelect = async () => {
   mentorSelect.options.add(emptyOption)
 
   mentors.forEach (mentor => {
-    const option = new Option (mentor.name + " " + mentor.email, mentor.id )
+    const option = new Option (mentor.name + " " + "(" + mentor.email + ")", mentor.id )
     mentorSelect.options.add(option)
   })
   console.log(mentorSelect)

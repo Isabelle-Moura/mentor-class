@@ -9,10 +9,10 @@ const showClasses = (classes) => {
         <tr>
           <td>${classData.className}</td>
           <td>${classData.mentorName.name}</td>
-          <td>${classData.mentorship.mentorship}</td>
+          <td style="max-width: 120px;">${classData.mentorship.mentorship}</td>
           <td>${classData.beginning}</td>
           <td>${classData.weekday}</td>
-          <td>${classData.beginningTime}</td>
+          <td>${classData.beginningTime + '-' + classData.endingTime}</td>
           <td>${classData.meetQuantity}</td>
           <td>
             <button class="edit-button" id="editButton" onclick="edit(${classData.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>

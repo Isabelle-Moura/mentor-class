@@ -58,7 +58,7 @@
             <!-- Título da Página -->
             <section>
                 <div class="display-button-title">
-                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" id="backButton" style="color: #616161;"
                             id="backButton"></i></button>
                     <div class="page-title">
                         <div>Turma</div>
@@ -66,7 +66,6 @@
                 </div>
             </section>
             <!-- ///////////////////////////////// -->
-
             <section class="card-background">
                 <div>
                     <div class="card-title">Mentoria</div>
@@ -77,12 +76,12 @@
                                 <div class="display-inputs">
                                     <div class="display-labels-inputs">
                                         <label style="color: #7D7D7D;" for="mentorship">Mentoria</label>
-                                        <select style="color: #c4c1c1; padding-left: 3px; font-size: 13px;" class="select-field" name="mentorship" id="mentorship"></select>
+                                        <select class="larger-input" name="mentorship" id="mentorship"></select>
                                     </div>
 
                                     <div class="display-labels-inputs">
                                         <label style="color: #7D7D7D;" for="mentorName">Mentor</label>
-                                        <select style="color: #c4c1c1; padding-left: 3px; font-size: 13px;" class="select-field" name="mentorName" id="mentorName"></select>
+                                        <select class="larger-input" name="mentorName" id="mentorName"></select>
                                     </div>
                                 </div>
 
@@ -95,7 +94,7 @@
 
                                     <div class="display-labels-inputs">
                                         <label style="color: #7D7D7D;" for="weekday">Dia da semana</label>
-                                        <select style="color: #c4c1c1; padding-left: 3px; font-size: 13px;" class="smaller-select-field" name="weekday" id="weekday">
+                                        <select class="smaller-select-field" name="weekday" id="weekday">
                                             <option>Selecione uma opção...</option>
                                             <option>Segunda-feira</option>
                                             <option>Terça-feira</option>
@@ -132,12 +131,12 @@
                                 </div>
                                 <div class="display-labels-inputs">
                                     <label style="color: #7D7D7D;" for="className">Link da aula</label>
-                                    <input class="larger-input" name="className" id="className"
+                                    <input class="larger-input" name="classLink" id="classLink"
                                         placeholder="Insira o link do meet.">
                                 </div>
                                 <div class="display-labels-inputs">
-                                    <label style="color: #7D7D7D;" for="className">Qtd de encontros</label>
-                                    <input class="smaller-input" name="className" id="className"
+                                    <label style="color: #7D7D7D;" for="meetQuantity">Qtd de encontros</label>
+                                    <input class="smaller-input" name="meetQuantity" id="meetQuantity"
                                         placeholder="Insira a qtd. de encontros.">
                                 </div>
                             </div>
