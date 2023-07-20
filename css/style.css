@@ -6,7 +6,6 @@
     font-family: 'Sora', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 /* ////////////////////////////////// */
@@ -71,6 +70,7 @@ input::placeholder {
     font-weight: 400;
     color: #212121;
     margin-top: 1px;
+    align-content: center;
 }
 
 .login-button {
@@ -124,6 +124,7 @@ input::placeholder {
     flex-direction: row-reverse;
     justify-content: space-between;
     background-color: #FCFCFC;
+    height: 625px;
 }
 
 .header-with-user {
@@ -150,7 +151,7 @@ input::placeholder {
 /* Logo "MENTOR CLASS" */
 .logo {
     padding: 15px;
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 25px;
 }
 
@@ -181,7 +182,7 @@ input::placeholder {
 
 .menu-bar {
     background-color: #482D83;
-    height: 615px;
+    height: 100%;
     width: 210px;
 }
 
