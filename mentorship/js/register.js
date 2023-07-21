@@ -13,9 +13,6 @@ const url1 = "http://localhost:3000/mentorships";
 const url2 = "http://localhost:3000/mentors"
 
 const getMentor = async (id) => {
-    if (id == null){
-        return false
-    }
     const response = await fetch (`${url2}/${id}`)
     const mentor = await response.json()
     return mentor
@@ -38,7 +35,6 @@ const loadSelect = async () => {
         const option = new Option (mentor.name, mentor.id)
         mentorSelect.options.add(option)
     })
-    console.log(mentorSelect)
 }
 
 const registerMentorship = async (mentorship) => {
@@ -66,8 +62,6 @@ form.addEventListener("submit", async (e) => {
   const status = form.elements['toggle-input'].checked;
 
   const mentorObject = await getMentor(mentor)
-  console.log(mentorObject)
-
   if(Object.keys(mentorObject).length == 0){
     console.log("Não foi possível cadastrar a mentoria, mentor inválido :/")
     return

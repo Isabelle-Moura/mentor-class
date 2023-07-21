@@ -5,9 +5,6 @@ const url = "http://localhost:3000/mentorships";
 const url2 = "http://localhost:3000/mentors"
 
 const getMentor = async (id) => {
-    if (id == null){
-        return false
-    }
     const response = await fetch (`${url2}/${id}`)
     const mentor = await response.json()
     return mentor

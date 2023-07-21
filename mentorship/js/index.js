@@ -29,7 +29,7 @@ const getMentorship = async () => {
     const mentorships = await apiResponse.json();
 
     showMentorship(mentorships);
-    console.log(mentorships);
+    
   } catch (error) {
     console.error(error);
   }

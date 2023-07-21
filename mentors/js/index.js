@@ -46,16 +46,15 @@ const filterMentors = (mentors, searchTerm) => {
 };
 
 // Função para realizar a busca e exibição dos mentores filtrados
-const searchMentors = (searchTerm) => {
-  const apiResponse = fetch(url)
-    .then((response) => response.json())
-    .then((mentors) => {
-      const filteredMentors = filterMentors(mentors, searchTerm);
-      showMentors(filteredMentors);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+const searchMentors =async (searchTerm) => {
+  try {
+    const apiResponse = await fetch(`${url}`)
+    const mentors = await apiResponse.json()
+    const filteredMentors = filterMentors(mentors, searchTerm);
+    showMentors(filteredMentors);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 searchInput.addEventListener("keyup", (event) => {

@@ -40,34 +40,38 @@ const getClasses = async () => {
   getClasses();
 //////////////////////////////////////////
 
-//Imput de busca (Search Bar)
+//Imput de busca (Search Bar) 
+
 const searchInput = document.getElementById("searchInput");
 
-// Função para filtrar turmas por nome
 const filterClasses = (classes, searchTerm) => {
   searchTerm = searchTerm.toLowerCase();
-  return classes.filter((classItem) => classItem.name.toLowerCase().includes(searchTerm));
+  return classes.filter((classData) => {
+    const mentorName = classData.mentorName.name.toLowerCase();
+    const className = classData.className.toLowerCase();
+    return mentorName.includes(searchTerm) || className.includes(searchTerm); //Vai pesquisar tanto por turma quanto por mentor
+  });
 };
 
-// Função para realizar a busca e exibição dos turmas filtrados
-const searchClasses = (searchTerm) => {
-  const apiResponse = fetch(url)
-    .then((response) => response.json())
-    .then((classes) => {
-      const filteredClasses = filterClasses(classes, searchTerm);
-      showClasses(filteredClasses);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+const searchClasses = async (searchTerm) => {
+  try {
+    const apiResponse = await fetch(`${url}`);
+    const classes = await apiResponse.json();
+    const filteredClasses = filterClasses(classes, searchTerm);
+    showClasses(filteredClasses);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-searchInput.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
+searchInput.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
     const searchTerm = searchInput.value;
     searchClasses(searchTerm);
   }
 });
+
+
 //////////////////////////////////////////
 
 //Redirecionamento das páginas

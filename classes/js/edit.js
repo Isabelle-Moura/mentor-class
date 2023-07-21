@@ -5,9 +5,6 @@ const url2 = "http://localhost:3000/mentors";
 let classId = null;
 
 const getMentorship = async (id) => {
-  if (id == null) {
-    return false;
-  }
   const response = await fetch(`${url1}/${id}`);
   const mentorship = await response.json();
   return mentorship;
@@ -34,9 +31,6 @@ const loadMentorshipsSelect = async () => {
 };
 
 const getMentor = async (id) => {
-  if (id == null) {
-    return false;
-  }
   const response = await fetch(`${url2}/${id}`);
   const mentor = await response.json();
   return mentor;
@@ -62,7 +56,6 @@ const loadMentorsSelect = async () => {
     );
     mentorSelect.options.add(option);
   });
-  console.log(mentorSelect);
 };
 
 const getClassIdUrl = () => {
@@ -81,7 +74,7 @@ const editClass = async (classData) => {
   await fetch(`${url}/${classId}`, {
     method: "PUT",
     headers: {
-      "Accept": "application/json, text/plain, */*",
+      Accept: "application/json, text/plain, */*",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(classData),
@@ -92,10 +85,8 @@ const editClass = async (classData) => {
 const loadFormData = async (classData) => {
   loadMentorsSelect();
   loadMentorshipsSelect();
-  
+
   document.getElementById("className").value = classData.className;
-  document.getElementById("mentorship").value = classData.mentorship.id;
-  document.getElementById("mentorName").value = classData.mentorName.id;
   document.getElementById("beginning").value = classData.beginning;
   document.getElementById("weekday").value = classData.weekday;
   document.getElementById("beginningTime").value = classData.beginningTime;
@@ -105,25 +96,23 @@ const loadFormData = async (classData) => {
 
   const mentorSelect = document.getElementById("mentorName");
   const mentors = await getMentors();
-  for (let counter = 1; counter <= mentors.length; counter++) {
-    if (
-      mentorSelect.options[counter].innerText === mentors.mentorName.name
-      ) {
-        console.log(mentors)
-        mentorSelect.options[counter].selected = true;
-    }
+  const mentorIndex = mentors.findIndex(
+    (mentor) => mentor.name === classData.mentorName.name
+  );
+
+  if (mentorIndex !== -1) {
+    mentorSelect.options[mentorIndex + 1].selected = true; 
   }
 
   const mentorshipSelect = document.getElementById("mentorship");
   const mentorships = await getMentorships();
-  for (let counter = 1; counter <= mentorships.length; counter++) {
-    if (
-      mentorshipSelect.options[counter].innerText ===
-      classData.mentorship.mentorship
-    ) {
-      mentorshipSelect.options[counter].selected = true;
-      break;
-    }
+  const mentorshipIndex = mentorships.findIndex(
+    (mentorship) =>
+      mentorship.mentorshipTitle === classData.mentorship.mentorship
+  );
+
+  if (mentorshipIndex !== -1) {
+    mentorshipSelect.options[mentorshipIndex + 1].selected = true; 
   }
 };
 

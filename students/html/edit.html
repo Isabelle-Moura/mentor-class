@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Mentorias</title>
+    <title>Tela de Editar de Alunos</title>
 
     <!-- Bootstrap -->
 
@@ -23,7 +23,7 @@
     <!-- ////////////////////////////////////////////// -->
 
     <!-- Arquivo JS -->
-    <script defer src="../../mentorship/js/index.js"></script>
+    <script defer src="../../students/js/edit.js"></script>
     <!-- ////////////////////////////////////////////// -->
 
     <!-- Font Awesome -->
@@ -33,9 +33,9 @@
 
 </head>
 
-
 <body>
     <div class="display-content">
+
         <!-- Header com os dados do usuário -->
         <main>
 
@@ -56,48 +56,48 @@
             </header>
             <!-- ///////////////////////////////// -->
 
-            <section class="content">        
+            <section class="content">
+
+                <div class="display-button-title">
+
+                    <button class="back-button"><i class="fa-solid fa-arrow-left" style="color: #616161;"
+                            id="backButton"></i></button>
 
                     <div class="page-title">
-                        <div>Mentorias</div>
+
+                        <div>Aluno</div>
+
                     </div>
-                    
+                </div>
             </section>
 
-            <!-- Gerenciador de Mentores -->
-
-            <!-- Barra de Pesquisa e Botão de "Novo Mentor" -->
             <section class="card-background">
-
-                <div class="search-and-new-button">
-
-                    <div class="search-container">
-                        <i class="fas fa-search search-icon" style="color: #6950A1;"></i>
-                        <input type="text" placeholder="Pesquise uma palavra-chave" class="search-input" id="searchInput">
-                    </div>
-
-                    <button type="button" class="new-button" id="newButton"><i class="fa-solid fa-plus"
-                            style="color: #ffffff; margin-right: 12px;"></i> Nova Mentoria
-                    </button>
-                </div>
-
                 <div>
-
-                    <table>
-                        <thead class="b-radius">
-                            <tr class="bk-purple">
-                                <th>Título da Mentoria</th>
-                                <th>Mentor</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody class="mentorship-tbody" id="tableContent"></tbody>
-                    </table>
-
+                    <div class="card-title">Dados</div>
+                    <hr>
+                    <div>
+                        <form class="display-form" id="formStudents">
+                            <div class="dFlex">
+                                <div class="display-label-input">
+                                    <label style="color:#7D7D7D;" for="name">Nome</label>
+                                    <input class="larger-input custom-input-select" name="name" id="name"
+                                        placeholder="Insira o nome.">
+                                </div>
+                                <div class="display-label-input">
+                                    <label style="color: #757575;" for="email">E-mail</label>
+                                    <input class="larger-input custom-input-select" name="email" id="email"
+                                        placeholder="Insira o e-mail.">
+                                </div>
+                                <div class="display-label-input">
+                                    <label style="color: #757575;" for="className">Turma</label>
+                                    <select class="select-field custom-input-select" name="className"
+                                        id="className"></select>
+                                </div>
+                            </div>
+                            <button class="save-button" type="submit">Editar</button>
+                        </form>
+                    </div>
                 </div>
-
             </section>
         </main>
 

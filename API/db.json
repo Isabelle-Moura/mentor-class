@@ -35,15 +35,6 @@
     {
       "mentorshipTitle": "Gerenciamento de estados globais com React e TS",
       "mentor": {
-        "id": 2,
-        "name": "Márcio Silva"
-      },
-      "status": true,
-      "id": 1
-    },
-    {
-      "mentorshipTitle": "Gerenciamento de estados globais com React e TS",
-      "mentor": {
         "id": 6,
         "name": "Jéssica Moura"
       },
@@ -76,6 +67,15 @@
       },
       "status": true,
       "id": 5
+    },
+    {
+      "mentorshipTitle": "Programação Orientada a Objeto",
+      "mentor": {
+        "id": 2,
+        "name": "Márcio Silva"
+      },
+      "status": false,
+      "id": 6
     }
   ],
   "classes": [
@@ -90,7 +90,7 @@
       },
       "beginning": "12/09/23",
       "weekday": "Quinta-feira",
-      "beginningTime": "18h 30",
+      "beginningTime": "18h",
       "endingTime": "21h",
       "className": "Turma 01",
       "classLink": "https://meet.google.com/xxx-yyyy-zzz",
@@ -116,5 +116,24 @@
       "id": 3
     }
   ],
-  "students": []
+  "students": [
+    {
+      "name": "Almyr Freima",
+      "email": "almyrfreiman@gmail.com",
+      "className": {
+        "id": 1,
+        "name": "Turma 01"
+      },
+      "id": 1
+    },
+    {
+      "name": "Daniel Brandão",
+      "email": "daniel@gmail.com",
+      "className": {
+        "id": 3,
+        "name": "Turma 03"
+      },
+      "id": 2
+    }
+  ]
 }

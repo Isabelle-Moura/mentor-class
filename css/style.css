@@ -283,8 +283,11 @@ thead {
     width: 66rem;
 }
 
+.b-radius{
+    border-radius: 10px 10px 10px 10px !important;
+}
+
 th {
-    border-radius: 10px 10px 0px 0px !important;
     font-weight: 200 !important;
     font-size: 13px !important;
     text-align: center;
@@ -432,14 +435,13 @@ hr {
 }
 
 .save-button {
-    position: fixed;
     width: 300px;
     height: 40px;
     border: 1px solid #482D83;
     background-color: #482D83;
     border-radius: 10px;
     color: #FFFFFF;
-    margin: 100px 10px;
+    margin: 10px 10px;
     font-family: 'Poppins', sens-serif;
     font-weight: 500;
 }
