@@ -56,6 +56,14 @@
     padding-left: 10px;
 }
 
+.small-tag-display{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    font-size: 10px;
+}
+
 input::placeholder {
     color: #c4c1c1;
     padding-left: 3px;
@@ -77,11 +85,16 @@ input::placeholder {
     width: 310px;
     height: 40px;
     border-radius: 13px;
-    margin-top: 15px;
+    margin: 15px 13px;
     background-color: #482D83;
     color: #E0E0E0;
     border: none;
     cursor: pointer;
+}
+
+.login-button:hover{
+    background-color: #3b2569;
+    color: #E0E0E0;
 }
 
 /* Icone para mostrar/ocultar senha */
@@ -99,9 +112,9 @@ input::placeholder {
 
 /* ////////////////////////////////// */
 
-.sucess {
-    color: greenyellow;
-    border: 1px solid greenyellow;
+.success {
+    color: #40D175 !important;
+    border: 1px solid #40D175;
     border-radius: 13px;
 }
 
@@ -111,6 +124,31 @@ input::placeholder {
     border-radius: 13px;
 }
 
+small {
+    color: red;
+}
+
+.disabled {
+    background-color: gray;
+    color: rgb(44, 44, 44);
+    cursor: not-allowed;
+}
+
+.disabled:hover {
+    background-color: rgb(65, 63, 63);
+}
+
+.enabled {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #482D83;
+    background-color: #482D83;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 10px 10px;
+    font-family: 'Poppins', sens-serif;
+    font-weight: 500;
+}
 /* ////////////////////////////////// */
 
 /* Tela de "Mentores" */
@@ -179,6 +217,7 @@ input::placeholder {
     margin: 5px;
     padding: 10px;
 }
+
 
 .menu-bar {
     background-color: #482D83;

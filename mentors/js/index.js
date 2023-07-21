@@ -42,14 +42,16 @@ const searchInput = document.getElementById("searchInput");
 // Função para filtrar mentores por nome
 const filterMentors = (mentors, searchTerm) => {
   searchTerm = searchTerm.toLowerCase();
-  return mentors.filter((mentor) => mentor.name.toLowerCase().includes(searchTerm));
+  return mentors.filter((mentor) =>
+    mentor.name.toLowerCase().includes(searchTerm)
+  );
 };
 
 // Função para realizar a busca e exibição dos mentores filtrados
-const searchMentors =async (searchTerm) => {
+const searchMentors = async (searchTerm) => {
   try {
-    const apiResponse = await fetch(`${url}`)
-    const mentors = await apiResponse.json()
+    const apiResponse = await fetch(`${url}`);
+    const mentors = await apiResponse.json();
     const filteredMentors = filterMentors(mentors, searchTerm);
     showMentors(filteredMentors);
   } catch (error) {
@@ -98,24 +100,23 @@ newButton.addEventListener("click", function () {
 
 //Botão "Editar"
 const edit = (id) => {
-    window.location.href = `../../mentors/html/edit.html?id=${id}`;    
-}
+  window.location.href = `../../mentors/html/edit.html?id=${id}`;
+};
 //////////////////////////////////////////
 
 //D = Delete
 const deleteButton = async (mentorId) => {
-    try {
-      const response = await fetch(`${url}/${mentorId}`, {
-        method: 'DELETE',
-      })
-        console.log(response);
-        if (response.ok) {
-          console.log('Mentor excluído com sucesso');
-        } else {
-          console.error('Erro ao excluir o mentor!');
-        }
-
-    } catch (error) {
-      console.error('Ocorreu um erro ao excluir o mentor!', error);
+  try {
+    const response = await fetch(`${url}/${mentorId}`, {
+      method: "DELETE",
+    });
+    console.log(response);
+    if (response.ok) {
+      console.log("Mentor excluído com sucesso");
+    } else {
+      console.error("Erro ao excluir o mentor!");
     }
-  };
+  } catch (error) {
+    console.error("Ocorreu um erro ao excluir o mentor!", error);
+  }
+};

@@ -14,14 +14,50 @@ togglePassword.addEventListener("click", function () {
     togglePassword.classList.add("fa-eye");
   }
 });
+
 /////////////////////////////////////////////////////////
+//Validação dos inputs
+const form = document.getElementById("form");
+const REQUIRED = "Este campo é obrigatório!";
 
-//Redirecionar a página para "Mentores"
-const enterButton = document.getElementById("enterButton");
+const showMessage = (input, message, className) => {
+  const msg = input.parentNode.querySelector("small");
+  msg.innerText = message;
+  input.classList.remove("success");
+  input.classList.remove("error");
+  input.classList.add(className);
+  return className === "success";
+};
 
-enterButton.addEventListener("click", function () {
-  window.location.href = "../mentors/html/index.html";
+const hasValue = (input, message) => {
+  if (input.value.trim() === "") {
+    return showMessage(input, message, "error");
+  } else {
+    return showMessage(input, "", "success");
+  }
+};
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = form.elements["name"];
+  const email = form.elements["email"];
+  const password = form.elements["password"];
+  const button = document.getElementById("enterButton")
+
+  const nameValid = hasValue(name, REQUIRED);
+  const emailValid = hasValue(email, REQUIRED);
+  const passwordValid = hasValue(password, REQUIRED);
+
+  if (nameValid && emailValid && passwordValid) {
+    button.disabled = false
+    button.classList.remove('disabled')
+    if (button.disabled != true)
+    window.location.href = "../mentors/html/index.html";
+  }
 });
 
-/////////////////////////////////////////////////////////
+// const enterButton = () => {
+//   }
 
+/////////////////////////////////////////////////////////
