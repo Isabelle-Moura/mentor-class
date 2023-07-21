@@ -1,5 +1,5 @@
 //R = Read
-const url = "http://localhost:3000/mentorships";
+const url = "https://api-projeto-modulo-1.onrender.com/mentorships";
 
 const showMentorship = (mentorships) => {
   const tableContent = document.getElementById("tableContent");

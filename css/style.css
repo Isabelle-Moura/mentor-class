@@ -271,7 +271,6 @@ tr:nth-child(odd) {
 table {
     margin-top: 1px;
     width: 100%;
-    border-spacing: 10%; /* Adiciona um espaçamento de 5 pixels entre as células */
 }
 
 thead {

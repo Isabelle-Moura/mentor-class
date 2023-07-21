@@ -7,7 +7,7 @@ backButton.addEventListener("click", function () {
 
 //C = Create
 const form = document.getElementById("form");
-const url = "http://localhost:3000/mentors";
+const url = "https://api-projeto-modulo-1.onrender.com/mentors";
 
 const registerMentor = async (mentor) => {
   try {

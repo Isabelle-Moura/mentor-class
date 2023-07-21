@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/classes";
+const url = "https://api-projeto-modulo-1.onrender.com/classes";
 
 const showClasses = (classes) => {
     const tableContent = document.getElementById("tableContent");

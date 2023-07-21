@@ -1,8 +1,8 @@
 //U = UPDATE
 const formMentorship = document.getElementById("formMentorship");
 let mentorshipId = null;
-const url = "http://localhost:3000/mentorships";
-const url2 = "http://localhost:3000/mentors"
+const url = "https://api-projeto-modulo-1.onrender.com/mentorships";
+const url2 = "https://api-projeto-modulo-1.onrender.com/mentors"
 
 const getMentor = async (id) => {
     const response = await fetch (`${url2}/${id}`)

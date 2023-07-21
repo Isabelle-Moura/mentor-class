@@ -118,7 +118,7 @@
   ],
   "students": [
     {
-      "name": "Almyr Freima",
+      "name": "Almyr Freiman",
       "email": "almyrfreiman@gmail.com",
       "className": {
         "id": 1,
@@ -130,8 +130,8 @@
       "name": "Daniel Brandão",
       "email": "daniel@gmail.com",
       "className": {
-        "id": 3,
-        "name": "Turma 03"
+        "id": 1,
+        "name": "Turma 01"
       },
       "id": 2
     }

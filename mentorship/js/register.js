@@ -9,8 +9,8 @@ backButton.addEventListener("click", function () {
 
 //C = Create
 const form = document.getElementById("formMentorship");
-const url1 = "http://localhost:3000/mentorships";
-const url2 = "http://localhost:3000/mentors"
+const url1 = "https://api-projeto-modulo-1.onrender.com/mentorships";
+const url2 = "https://api-projeto-modulo-1.onrender.com/mentors"
 
 const getMentor = async (id) => {
     const response = await fetch (`${url2}/${id}`)

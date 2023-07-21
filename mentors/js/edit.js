@@ -1,5 +1,5 @@
 //U = UPDATE
-const url = 'http://localhost:3000/mentors'
+const url = 'https://api-projeto-modulo-1.onrender.com/mentors'
 const form = document.getElementById("form")
 let mentorId = null 
 

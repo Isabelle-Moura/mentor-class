@@ -1,4 +1,4 @@
-const url = " http://localhost:3000/students"
+const url = "https://api-projeto-modulo-1.onrender.com/students"
 
 const showStudent = (students) => {
     const tableContent = document.getElementById("tableContent")

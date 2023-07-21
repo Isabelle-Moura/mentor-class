@@ -7,9 +7,9 @@ backButton.addEventListener("click", function () {
 
 /////////////////////////////////////////////////
 const formClasses = document.getElementById("formClasses")
-const url = "http://localhost:3000/classes"
-const url1 = "http://localhost:3000/mentorships"
-const url2 = "http://localhost:3000/mentors"
+const url = "https://api-projeto-modulo-1.onrender.com/classes"
+const url1 = "https://api-projeto-modulo-1.onrender.com/mentorships"
+const url2 = "https://api-projeto-modulo-1.onrender.com/mentors"
 
 const getMentorship = async (id) => {
   if (id == null){
