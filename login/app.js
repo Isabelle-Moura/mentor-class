@@ -16,48 +16,62 @@ togglePassword.addEventListener("click", function () {
 });
 
 /////////////////////////////////////////////////////////
-//Validação dos inputs
-const form = document.getElementById("form");
-const REQUIRED = "Este campo é obrigatório!";
+// //Validação dos inputs
 
-const showMessage = (input, message, className) => {
-  const msg = input.parentNode.querySelector("small");
-  msg.innerText = message;
-  input.classList.remove("success");
-  input.classList.remove("error");
-  input.classList.add(className);
-  return className === "success";
-};
+const enterButton = () => {
+  const email = document.querySelector("#email");
+  const labelEmail = document.querySelector("#labelEmail");
 
-const hasValue = (input, message) => {
-  if (input.value.trim() === "") {
-    return showMessage(input, message, "error");
+  const password = document.querySelector("#password");
+  const labelPassword = document.querySelector("#labelPassword");
+
+  let msgError = document.querySelector("#msgError");
+  let msgSuccess = document.querySelector("#msgSuccess")
+
+  let usersList = null; // Inicialize como null
+
+  let userValid = {
+    name: "",
+    email: "",
+    password: "",
+  };
+
+  usersList = JSON.parse(localStorage.getItem("usersList"));
+
+  if (usersList === null) {
+    usersList = [];
+  }
+ 
+ usersList.forEach( (item) => {
+  if (email.value == item.email && password.value == item.password){
+
+    userValid = {
+      name: item.name,
+      email: item.email,
+      password: item.password
+    }
+
+  }
+ })
+
+  if (email.value == userValid.email && password.value == userValid.password) {
+    usersList.push(userValid);
+    localStorage.setItem("usersList", JSON.stringify(usersList));
+    msgSuccess.setAttribute('style', 'display: block')
+    msgError.setAttribute("style", "display: none");
+    msgSuccess.innerHTML = `Redirecionando...`
+
+    setTimeout(()=> {
+      window.location.href = "../mentors/html/index.html"
+    }, 3000)   
+
   } else {
-    return showMessage(input, "", "success");
+    labelEmail.setAttribute('style', 'color: red')
+    email.setAttribute('style', 'border-color: red')
+    labelPassword.setAttribute('style', 'color: red')
+    password.setAttribute('style', 'border-color: red')
+    msgError.setAttribute('style', 'display: block')
+    msgError.innerHTML = `E-mail ou senha incorretos!`
+    email.focus()
   }
-};
-
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const name = form.elements["name"];
-  const email = form.elements["email"];
-  const password = form.elements["password"];
-  const button = document.getElementById("enterButton")
-
-  const nameValid = hasValue(name, REQUIRED);
-  const emailValid = hasValue(email, REQUIRED);
-  const passwordValid = hasValue(password, REQUIRED);
-
-  if (nameValid && emailValid && passwordValid) {
-    button.disabled = false
-    button.classList.remove('disabled')
-    if (button.disabled != true)
-    window.location.href = "../mentors/html/index.html";
-  }
-});
-
-// const enterButton = () => {
-//   }
-
-/////////////////////////////////////////////////////////
+} 

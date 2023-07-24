@@ -12,12 +12,32 @@
 
 /* Tela de "login" */
 
+.signup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 95px;
+}
+
 .login-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin-top: 125px;
+    margin-top: 130px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container i {
+    position: absolute;
+    top: 65%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
 .welcome-title {
@@ -31,7 +51,7 @@
     color: #212121;
     font-size: 30px;
     font-weight: 900;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .login-form {
@@ -56,7 +76,22 @@
     padding-left: 10px;
 }
 
-.small-tag-display{
+.new-account {
+    display: flex;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    color: #212121;
+    margin: 1px 25px;
+    align-content: center;
+}
+
+.strong-new-account {
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+.small-tag-display {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -92,7 +127,7 @@ input::placeholder {
     cursor: pointer;
 }
 
-.login-button:hover{
+.login-button:hover {
     background-color: #3b2569;
     color: #E0E0E0;
 }
@@ -108,6 +143,17 @@ input::placeholder {
     right: 20px;
     transform: translateY(-50%);
     cursor: pointer;
+}
+
+/* ////////////////////////////////// */
+
+/* Estilização para campos válidos */
+.login-input.success {
+    border-color: #40D175;
+}
+
+.login-label.success-label {
+    color: #40D175;
 }
 
 /* ////////////////////////////////// */
@@ -149,6 +195,36 @@ small {
     font-family: 'Poppins', sens-serif;
     font-weight: 500;
 }
+
+.singup-main-title {
+    color: #212121;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+#msgError {
+    text-align: center;
+    color: rgb(218, 8, 8);
+    background-color: rgb(236, 126, 126);
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 1px 0px 15px 0px !important;
+    display: none;
+}
+
+#msgSuccess {
+    text-align: center;
+    color: #40D175;
+    background-color: #aef3c7;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 1px 0px 15px 0px !important;
+    display: none;
+}
+
 /* ////////////////////////////////// */
 
 /* Tela de "Mentores" */
@@ -266,6 +342,22 @@ li:hover {
 }
 
 /* Gerenciador de "Mentores" */
+.sort-button {
+    width: 150px;
+    height: 37px;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    color: #a4a6ac;
+    font-weight: 400 !important;
+    font-size: 15px;
+    align-self: flex-start;
+}
+
+.search-and-order-button{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
 
 .edit-button {
     border-radius: 20px;
@@ -275,7 +367,7 @@ li:hover {
     width: 30px;
 }
 
-.edit-button:hover{
+.edit-button:hover {
     background-color: #5f92f7;
 }
 
@@ -287,7 +379,7 @@ li:hover {
     width: 30px;
 }
 
-.delete-button:hover{
+.delete-button:hover {
     background-color: #f57878;
 }
 
@@ -321,7 +413,7 @@ thead {
     width: 66rem;
 }
 
-.b-radius{
+.b-radius {
     border-radius: 10px 10px 10px 10px !important;
 }
 
@@ -347,7 +439,8 @@ td {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    vertical-align: middle; /* Centraliza verticalmente o conteúdo das células */
+    vertical-align: middle;
+    /* Centraliza verticalmente o conteúdo das células */
     text-align: center;
 }
 
@@ -357,7 +450,7 @@ td {
 .new-button {
     background-color: #00C247;
     width: 200px;
-    height: 37px;    
+    height: 37px;
     border: 1px solid #E6E6E6;
     border-radius: 10px;
     color: #EFFBF4;
@@ -417,9 +510,10 @@ td {
     margin: 0px 10px;
     background-color: #FFFFFF;
 }
+
 /* ////////////////////////////////// */
 hr {
-    margin: 10px 10px; 
+    margin: 10px 10px;
 }
 
 .back-button {
@@ -500,8 +594,8 @@ input {
 }
 
 .custom-input-select {
-    color:#c4c1c1 !important; 
-    padding-left: 3px; 
+    color: #c4c1c1 !important;
+    padding-left: 3px;
     font-size: 13px;
 }
 
@@ -514,6 +608,7 @@ input {
     padding: 4px;
     outline: none;
 }
+
 /* ////////////////////////////////// */
 
 /* "Mentorias" */
@@ -576,7 +671,7 @@ input {
 }
 
 /* Toggle de Ativo/Inativo (esse me deu trabalho kkkkk)*/
-.toggle-active{
+.toggle-active {
     background-color: #D9FEE6;
     color: #00C247;
     padding: 6px;
@@ -586,7 +681,7 @@ input {
     height: 30px;
 }
 
-.toggle-inactive{
+.toggle-inactive {
     background-color: #FFE1E1;
     color: #FF3333;
     padding: 6px;
@@ -601,33 +696,33 @@ input {
     width: 40px;
     height: 20px;
     background-color: #ccc;
-    border-radius: 10px; 
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     margin-right: 10px;
-  }
-  
-  .toggle-label {
+}
+
+.toggle-label {
     position: absolute;
     top: 0;
     left: 0;
-    width: 20px; 
+    width: 20px;
     height: 20px;
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
-  }
-  
-  #toggle-input {
+}
+
+#toggle-input {
     display: none;
-  }
-  
-  #toggle-input:checked + .toggle-label {
+}
+
+#toggle-input:checked+.toggle-label {
     transform: translateX(100%);
     background-color: #00C247;
-  }
-  
+}
+
 /* ////////////////////////////////// */
 .display-toggle {
     display: flex;
@@ -636,7 +731,7 @@ input {
 
 /* ////////////////////////////////// */
 
-.widthTh{
+.widthTh {
     width: 27%;
 }
 
@@ -646,7 +741,7 @@ input {
     display: flex;
 }
 
-.display-labels-inputs{
+.display-labels-inputs {
     margin: 5px 10px 5px 10px;
     display: flex;
     flex-direction: column;
@@ -654,7 +749,7 @@ input {
     margin-bottom: 5px;
 }
 
-.save-button-classes{
+.save-button-classes {
     width: 300px;
     height: 40px;
     border: 1px solid #482D83;

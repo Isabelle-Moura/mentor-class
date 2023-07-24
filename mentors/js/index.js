@@ -1,31 +1,39 @@
 //R = Read
 const url = "https://api-projeto-modulo-1.onrender.com/mentors";
 
+
 const showMentors = (mentors) => {
   const tableContent = document.getElementById("tableContent");
   let mentorHtml = "";
-
+  
   mentors.forEach((mentor) => {
     mentorHtml += `
-      <tr>
-        <td>${mentor.name}</td>
-        <td>${mentor.email}</td>
+    <tr>
+    <td>${mentor.name}</td>
+    <td>${mentor.email}</td>
         <td>
           <button class="edit-button" id="editButton" onclick="edit(${mentor.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
           <button class="delete-button" id="deleteButton" onclick="deleteButton(${mentor.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
         </td>
       </tr>
-    `;
-  });
+      `;
+    });
 
   tableContent.innerHTML = mentorHtml;
+  
+  // Ordenar a lista de mentores por ordem alfabética do nome
+  const sortByNameButton = document.getElementById("sortByNameButton");
+    sortByNameButton.addEventListener("click", () => {
+      mentors.sort((a, b) => a.name.localeCompare(b.name));
+      showMentors(mentors);
+    });
 };
 
 const getMentors = async () => {
   try {
     const apiResponse = await fetch(url);
     const mentors = await apiResponse.json();
-
+    
     console.log(mentors);
     showMentors(mentors);
   } catch (error) {
@@ -120,3 +128,20 @@ const deleteButton = async (mentorId) => {
     console.error("Ocorreu um erro ao excluir o mentor!", error);
   }
 };
+
+//Pegar os dados do usuário no localStorage
+
+// No JavaScript da página de mentores
+document.addEventListener("DOMContentLoaded", () => {
+  // Recupere a lista de usuários cadastrados do localStorage
+  const usersList = JSON.parse(localStorage.getItem("usersList"));
+
+  if (usersList && usersList.length > 0) {
+    // Se a lista de usuários existir e não estiver vazia, exiba o último usuário cadastrado
+    const lastUser = usersList[usersList.length - 1];
+    document.getElementById("user-name").textContent = `${lastUser.name}`;
+    document.getElementById("user-email").textContent = `${lastUser.email}`;
+  } else {
+    alert("Usuário não existe!")
+  }
+});
