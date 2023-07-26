@@ -123,7 +123,7 @@ const signupButton = () => {
     msgSuccess.innerHTML = `<strong>Cadastrando usuário...</strong>`;
 
     setTimeout(() => {
-      window.location.href = "../index.html;
+      window.location.href = "../singup/index.html;
     }, 3000);
   } else {
     msgError.setAttribute("style", "display: block");
