@@ -7,10 +7,18 @@
     margin: 0;
     padding: 0;
 }
-
 /* ////////////////////////////////// */
 
-/* Tela de "login" */
+
+/* LOGIN AND SIGNUP SCREEN STYLING */
+
+/* Sign Up Screen */
+.singup-main-title {
+    color: #212121;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
 
 .signup-content {
     display: flex;
@@ -19,6 +27,30 @@
     align-content: center;
     margin-top: 90px;
 }
+
+#msgError {
+    text-align: center;
+    color: rgb(218, 8, 8);
+    background-color: rgb(236, 126, 126);
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 1px 0px 15px 0px !important;
+    display: none;
+}
+
+#msgSuccess {
+    text-align: center;
+    color: #40D175;
+    background-color: #aef3c7;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 1px 0px 15px 0px !important;
+    display: none;
+}
+
+/* Login Screen */
 
 .login-content {
     display: flex;
@@ -91,14 +123,6 @@
     margin-left: 4px;
 }
 
-.small-tag-display {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20px;
-    font-size: 10px;
-}
-
 input::placeholder {
     color: #c4c1c1;
     padding-left: 3px;
@@ -132,7 +156,7 @@ input::placeholder {
     color: #E0E0E0;
 }
 
-/* Icone para mostrar/ocultar senha */
+/* Show/Hide password icon */
 .password-container {
     position: relative;
 }
@@ -144,10 +168,10 @@ input::placeholder {
     transform: translateY(-50%);
     cursor: pointer;
 }
-
 /* ////////////////////////////////// */
 
-/* Estilização para campos válidos */
+
+/* VALIDATION FIELD STYLING*/
 .login-input.success {
     border-color: #40D175;
 }
@@ -156,7 +180,6 @@ input::placeholder {
     color: #40D175;
 }
 
-/* ////////////////////////////////// */
 
 .success {
     color: #40D175 !important;
@@ -169,69 +192,12 @@ input::placeholder {
     border: 1px solid red;
     border-radius: 13px;
 }
-
-small {
-    color: red;
-}
-
-.disabled {
-    background-color: gray;
-    color: rgb(44, 44, 44);
-    cursor: not-allowed;
-}
-
-.disabled:hover {
-    background-color: rgb(65, 63, 63);
-}
-
-.enabled {
-    width: 300px;
-    height: 40px;
-    border: 1px solid #482D83;
-    background-color: #482D83;
-    border-radius: 10px;
-    color: #FFFFFF;
-    margin: 10px 10px;
-    font-family: 'Poppins', sens-serif;
-    font-weight: 500;
-}
-
-.singup-main-title {
-    color: #212121;
-    font-size: 30px;
-    font-weight: 900;
-    margin-bottom: 10px;
-}
-
-#msgError {
-    text-align: center;
-    color: rgb(218, 8, 8);
-    background-color: rgb(236, 126, 126);
-    width: 300px;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 1px 0px 15px 0px !important;
-    display: none;
-}
-
-#msgSuccess {
-    text-align: center;
-    color: #40D175;
-    background-color: #aef3c7;
-    width: 300px;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 1px 0px 15px 0px !important;
-    display: none;
-}
-
 /* ////////////////////////////////// */
 
-/* Tela de "Mentores" */
 
-/* Header com dados do usuário */
-/*  */
+/* MAIN SCREEN */
 
+/* Header with user data */
 .display-content {
     display: flex;
     flex-wrap: nowrap;
@@ -253,6 +219,96 @@ small {
     padding: 20px;
 }
 
+.user-name {
+    color: #212121;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.user-email {
+    color: #868686;
+    font-weight: 400;
+    font-size: 12px;
+}
+/* ////////////////////////////////// */
+
+
+/* SEARCH BAR, SORTING AND NEW BUTTON AREA */
+
+/* Sorting data */
+.sort-button {
+    width: 180px;
+    height: 37px;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    color: #a4a6ac;
+    font-weight: 400 !important;
+    font-size: 15px;
+    align-self: flex-start;
+    outline: none;
+}
+
+.search-and-order-button {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+/* New button */
+.new-button {
+    background-color: #00C247;
+    width: 200px;
+    height: 37px;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+    color: #EFFBF4;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.new-button:hover {
+    background-color: #029e3b;
+}
+
+.search-and-new-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Search bar */
+.search-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 289px;
+    height: 37px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* ////////////////////////////////// */
+
+
+/* PAGE TITLE */
 .page-title {
     margin: 10px 20px;
     font-weight: 600;
@@ -260,9 +316,12 @@ small {
     padding: 10px;
 }
 
-/* Menu Bar*/
+/* ////////////////////////////////// */
 
-/* Logo "MENTOR CLASS" */
+
+/* SIDE MENU BAR*/
+
+/* "MENTOR CLASS" logo*/
 .logo {
     padding: 15px;
     margin-left: 10px;
@@ -293,7 +352,6 @@ small {
     margin: 5px;
     padding: 10px;
 }
-
 
 .menu-bar {
     background-color: #482D83;
@@ -327,38 +385,73 @@ li:hover {
 
 /* ////////////////////////////////// */
 
-/* Header com dados do usuário */
 
-.user-name {
-    color: #212121;
-    font-size: 15px;
-    font-weight: 700;
+/* TABLE CONTENT */
+
+table {
+    margin-top: 1px;
+    width: 100%;
+}
+/* ////////////////////////////////// */
+
+/* Table Header */
+thead {
+    padding: 3px;
+    color: #FFFFFF;
+    height: 45px;
+    font-weight: 200;
+    font-size: 13px;
+    width: 66rem;
 }
 
-.user-email {
-    color: #868686;
-    font-weight: 400;
+.bk-purple {
+    background-color: #482D83 !important;
+}
+
+.b-radius {
+    border-radius: 10px 10px 10px 10px !important;
+}
+
+th {
+    font-weight: 200 !important;
+    font-size: 13px !important;
+    text-align: center;
+}
+/* ////////////////////////////////// */
+
+/* Table Body */
+
+tbody {
     font-size: 12px;
 }
 
-/* Gerenciador de "Mentores" */
-.sort-button {
-    width: 150px;
-    height: 37px;
-    border: 1px solid #CCCCCC;
-    border-radius: 10px;
-    color: #a4a6ac;
-    font-weight: 400 !important;
-    font-size: 15px;
-    align-self: flex-start;
+td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    text-align: center;
+}
+/* ////////////////////////////////// */
+
+/* Table Row */
+tr:nth-child(even) {
+    background-color: #FAFAFA;
 }
 
-.search-and-order-button{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+tr:nth-child(odd) {
+    background-color: #F5F5F5;
 }
 
+tr {
+    height: 45px;
+    width: 66rem;
+    padding: 20px;
+    margin: 5px !important;
+    text-align: center;
+}
+
+/* Edit button */
 .edit-button {
     border-radius: 20px;
     border: 1px solid #BDBDBD;
@@ -370,6 +463,8 @@ li:hover {
 .edit-button:hover {
     background-color: #5f92f7;
 }
+
+/* Delete button*/
 
 .delete-button {
     border-radius: 20px;
@@ -383,125 +478,13 @@ li:hover {
     background-color: #f57878;
 }
 
-.buttons:hover {
-    background-color: #ac9dec;
-}
-
-tr:nth-child(even) {
-    background-color: #FAFAFA;
-}
-
-tr:nth-child(odd) {
-    background-color: #F5F5F5;
-}
-
-.bk-purple {
-    background-color: #482D83 !important;
-}
-
-table {
-    margin-top: 1px;
-    width: 100%;
-}
-
-thead {
-    padding: 3px;
-    color: #FFFFFF;
-    height: 45px;
-    font-weight: 200;
-    font-size: 13px;
-    width: 66rem;
-}
-
-.b-radius {
-    border-radius: 10px 10px 10px 10px !important;
-}
-
-th {
-    font-weight: 200 !important;
-    font-size: 13px !important;
-    text-align: center;
-}
-
-tr {
-    height: 45px;
-    width: 66rem;
-    padding: 20px;
-    margin: 5px !important;
-    text-align: center;
-}
-
-tbody {
-    font-size: 12px;
-}
-
-td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-    /* Centraliza verticalmente o conteúdo das células */
-    text-align: center;
-}
-
 /* ////////////////////////////////// */
 
-/* Search bar e botão "Novo Mentor" */
-.new-button {
-    background-color: #00C247;
-    width: 200px;
-    height: 37px;
-    border: 1px solid #E6E6E6;
-    border-radius: 10px;
-    color: #EFFBF4;
-    font-weight: 400;
-    font-size: 15px;
-    margin-bottom: 5px;
-}
 
-.new-button:hover {
-    background-color: #029e3b;
-}
+/* "MENTORS" and "STUDENTS" SCREENS STYLING*/
+/* Register and Edit Screens */
 
-.search-and-new-button {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-/* Input de busca */
-.search-container {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    width: 289px;
-    height: 37px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 5px;
-    margin-bottom: 5px;
-}
-
-.search-input {
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 5px;
-    font-size: 14px;
-}
-
-.search-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
-
-/* ////////////////////////////////// */
-
-/* Tela de Cadastro e Editar de "Mentores"*/
-
-/* Background do Conteúdo */
+/* Form Card Styling*/
 
 .card-background {
     border-radius: 20px;
@@ -511,28 +494,8 @@ td {
     background-color: #FFFFFF;
 }
 
-/* ////////////////////////////////// */
 hr {
     margin: 10px 10px;
-}
-
-.back-button {
-    background-color: #EEEEEE;
-    width: 40px;
-    height: 40px;
-    border: 1px solid #EEEEEE;
-    border-radius: 30px;
-    margin-left: 10px;
-}
-
-.display-button-title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.back-button:hover {
-    background-color: #dbd9d9;
 }
 
 .card-title {
@@ -550,13 +513,6 @@ hr {
     height: 240px;
 }
 
-.display-label-input {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
 .dFlex {
     display: flex;
 }
@@ -565,23 +521,9 @@ hr {
     display: flex;
     flex-direction: column;
 }
+/* ////////////////////////////////// */
 
-.save-button {
-    width: 300px;
-    height: 40px;
-    border: 1px solid #482D83;
-    background-color: #482D83;
-    border-radius: 10px;
-    color: #FFFFFF;
-    margin: 10px 10px;
-    font-family: 'Poppins', sens-serif;
-    font-weight: 500;
-}
-
-.save-button:hover {
-    background-color: #3f2772;
-}
-
+/* Input and label */
 .label {
     color: #757575;
     margin: 7px 0px;
@@ -608,12 +550,59 @@ input {
     padding: 4px;
     outline: none;
 }
+.display-label-input {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
 /* ////////////////////////////////// */
 
-/* "Mentorias" */
+/* Buttons */
 
-/* Tela de Cadastro e Editar de "Mentorias" */
+.back-button {
+    background-color: #EEEEEE;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #EEEEEE;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.back-button:hover {
+    background-color: #dbd9d9;
+}
+
+.display-button-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.save-button {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #482D83;
+    background-color: #482D83;
+    border-radius: 10px;
+    color: #FFFFFF;
+    margin: 10px 10px;
+    font-family: 'Poppins', sens-serif;
+    font-weight: 500;
+}
+
+.save-button:hover {
+    background-color: #3f2772;
+}
+/* ////////////////////////////////// */
+
+/* ////////////////////////////////// */
+
+
+/* "MENTORSHIPS" SCREENS STYLING*/
+
+/* Register and Edit Screens */
 
 .larger-input {
     width: 300px;
@@ -670,7 +659,7 @@ input {
     font-style: 'Poppins', sans-serif;
 }
 
-/* Toggle de Ativo/Inativo (esse me deu trabalho kkkkk)*/
+/* Active/Inactive Toggle*/
 .toggle-active {
     background-color: #D9FEE6;
     color: #00C247;
@@ -729,14 +718,14 @@ input {
     align-items: center;
 }
 
-/* ////////////////////////////////// */
-
 .widthTh {
     width: 27%;
 }
 
 /* ////////////////////////////////// */
-/* Turmas */
+
+/* "CLASSES" SCREEN STYLING*/
+/* Register and Edit Screens */
 .display-inputs {
     display: flex;
 }
