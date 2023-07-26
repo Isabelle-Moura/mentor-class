@@ -62,7 +62,7 @@ const enterButton = () => {
     msgSuccess.innerHTML = `Redirecionando...`
 
     setTimeout(()=> {
-      window.location.href = "../singup/index.html"
+      window.location.href = "../mentors/html/index.html"
     }, 3000)   
 
   } else {
