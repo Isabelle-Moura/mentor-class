@@ -2,66 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Tela de Cadastro</title>
+  <title>Tela de Login</title>
 
-    <!-- Arquivo CSS -->
-    <link rel="stylesheet" href="../../css/style.css">
-    <!-- ////////////////////////////////////////////// -->
+  <!-- Arquivo CSS -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- ////////////////////////////////////////////// -->
 
-    <!-- Arquivo JS -->
-    <script defer src="./index.js"></script>
-    <!-- ////////////////////////////////////////////// -->
+  <!-- Arquivo JS -->
+  <script defer src="../../login/app.js"></script>
+  <!-- ////////////////////////////////////////////// -->
 
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
-    <!-- ////////////////////////////////////////////// -->
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
+  <!-- ////////////////////////////////////////////// -->
 
 </head>
 
 <body>
-    <section class="signup-content" id="content">
-        <div>
-            <div class="welcome-title">Cadastro de Usuário</div>
-            <div class="singup-main-title">Preencha seus dados</div>
-        </div>
+  <section class="login-content" id="content">
+    <div>
+      <div class="welcome-title">Seja bem-vindo(a)!</div>
+      <div class="main-title">Realize seu Login</div>
+    </div>
 
-        <div id="msgError"></div>
-        <div id="msgSuccess"></div>
+    <div id="msgError"></div>
+    <div id="msgSuccess"></div>
 
-        <form class="login-form" id="form">
-            <section>
-                <label id="labelName" class="login-label" for="name">Nome</label><br>
-                <input class="login-input" type="text" name="name" placeholder="Insira o seu nome." id="userName">
-            </section>
+    <form class="login-form" id="form">
+      <section>
+        <label id="labelEmail" class="login-label" for="email">E-mail</label><br>
+        <input class="login-input" type="email" name="email" class="email" placeholder="Insira o seu e-mail."
+          type="email" id="email">
+        <small class="small-tag-display"></small>
+      </section>
 
-            <section>
-                <label id="labelEmail" class="login-label" for="email">E-mail</label><br>
-                <input class="login-input" type="email" name="email" placeholder="Insira o seu e-mail." id="email">
-            </section>
+      <section class="password-container">
+        <label id="labelPassword" class="login-label" for="password">Senha</label><br>
+        <input class="login-input" type="password" id="password" name="password" placeholder="Insira a sua senha.">
+        <i id="toggle-password" class="fas fa-eye" style="color: #BDBDBD;"></i>
+        <small class="small-tag-display"></small>
+      </section>
 
-            <section class="password-container">
-                <label id="labelPassword" class="login-label" for="password">Senha</label><br>
-                <input class="login-input" type="password" name="password" placeholder="Insira a sua senha."
-                    id="password">
-                <i id="toggle-password" class="fas fa-eye" style="color: #BDBDBD;"></i>
-            </section>
+      <section class="login-checkbox">
+        <section>
+          <input class="form-check-input" type="checkbox" id="checkboxNoLabel" />
+          <label for="checkboxNoLabel" class="label-checkbox">Lembrar-me</label>
+        </section>
 
-            <section class="password-container">
-                <label id="labelConfirmPassword" class="login-label" for="confirm-password">Confirme a senha</label><br>
-                <input class="login-input" type="password" name="confirm-password" placeholder="Confirme a sua senha." id="confirmPassword">
-                <i id="toggle-confirm-password" class="fas fa-eye" style="color: #BDBDBD;"></i>
-            </section>
+        <section style="color: #7E7E7E;">
+          Esqueci minha senha
+        </section>
+      </section>
 
-            <button class="login-button" onclick="signupButton()" type="button">Cadastrar</button>
-        </form>
+      <button class="login-button" type="button" onclick="enterButton()">Entrar</button>
 
-        <section class="new-account">Já possui uma conta?<a class="strong-new-account" href="./login/index.html"> Faça o login!</a></section>
-    </section>
+    </form>
 
+    <section class="new-account">Não possui uma conta?<a href="../index.html" class="strong-new-account"> Cadastre-se
+        agora!</a></section>
+  </section>
 </body>
 
 </html>

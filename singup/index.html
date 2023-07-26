@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tela de Cadastro</title>
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- ////////////////////////////////////////////// -->
+
+    <!-- Arquivo JS -->
+    <script defer src="./index.js"></script>
+    <!-- ////////////////////////////////////////////// -->
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/2b32d66645.js" crossorigin="anonymous"></script>
+    <!-- ////////////////////////////////////////////// -->
+
+</head>
+
+<body>
+    <section class="signup-content" id="content">
+        <div>
+            <div class="welcome-title">Cadastro de Usuário</div>
+            <div class="singup-main-title">Preencha seus dados</div>
+        </div>
+
+        <div id="msgError"></div>
+        <div id="msgSuccess"></div>
+
+        <form class="login-form" id="form">
+            <section>
+                <label id="labelName" class="login-label" for="name">Nome</label><br>
+                <input class="login-input" type="text" name="name" placeholder="Insira o seu nome." id="userName">
+            </section>
+
+            <section>
+                <label id="labelEmail" class="login-label" for="email">E-mail</label><br>
+                <input class="login-input" type="email" name="email" placeholder="Insira o seu e-mail." id="email">
+            </section>
+
+            <section class="password-container">
+                <label id="labelPassword" class="login-label" for="password">Senha</label><br>
+                <input class="login-input" type="password" name="password" placeholder="Insira a sua senha."
+                    id="password">
+                <i id="toggle-password" class="fas fa-eye" style="color: #BDBDBD;"></i>
+            </section>
+
+            <section class="password-container">
+                <label id="labelConfirmPassword" class="login-label" for="confirm-password">Confirme a senha</label><br>
+                <input class="login-input" type="password" name="confirm-password" placeholder="Confirme a sua senha." id="confirmPassword">
+                <i id="toggle-confirm-password" class="fas fa-eye" style="color: #BDBDBD;"></i>
+            </section>
+
+            <button class="login-button" onclick="signupButton()" type="button">Cadastrar</button>
+        </form>
+
+        <section class="new-account">Já possui uma conta?<a class="strong-new-account" href="./login/index.html"> Faça o login!</a></section>
+    </section>
+
+</body>
+
+</html>
