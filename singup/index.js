@@ -1,6 +1,6 @@
 // Icone de ocultar/mostrar senha
 const passwordInput = document.getElementById("password");
-const confirmPasswordInput = document.getElementById("confirm-password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
 const togglePassword = document.getElementById("toggle-password");
 const toggleConfirmPassword = document.getElementById(
   "toggle-confirm-password"
@@ -123,8 +123,9 @@ const signupButton = () => {
     msgSuccess.innerHTML = `<strong>Cadastrando usuário...</strong>`;
 
     setTimeout(() => {
-      window.location.href = "../index.html;
+      window.location.href = "../index.html"
     }, 3000);
+
   } else {
     msgError.setAttribute("style", "display: block");
     msgError.innerHTML = `<strong>Erro ao cadastrar usuário!</strong>`;

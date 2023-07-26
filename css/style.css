@@ -17,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin-top: 50px;
+    margin-top: 90px;
 }
 
 .login-content {
@@ -25,7 +25,7 @@
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin-top: 92px;
+    margin-top: 125px;
 }
 
 .password-container {

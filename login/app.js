@@ -55,8 +55,12 @@ const enterButton = () => {
  })
 
   if (email.value == userValid.email && password.value == userValid.password) {
-    usersList.push(userValid);
+    usersList.push(userValid); 
     localStorage.setItem("usersList", JSON.stringify(usersList));
+    labelEmail.setAttribute('style', 'color: #40D175')
+    email.setAttribute('style', 'border-color: #40D175')
+    labelPassword.setAttribute('style', 'color: #40D175')
+    password.setAttribute('style', 'border-color: #40D175')
     msgSuccess.setAttribute('style', 'display: block')
     msgError.setAttribute("style", "display: none");
     msgSuccess.innerHTML = `Redirecionando...`
