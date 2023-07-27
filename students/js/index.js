@@ -88,13 +88,33 @@ const confirmDelete = async (studentId) => {
 };
 
 //...
+//SORTING
+const sortStudents = (students, order) => {
+  const ascendingOrder = order === "asc";
+
+  students.sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+
+    if (ascendingOrder) {
+      return nameA.localeCompare(nameB);
+    } else {
+      return nameB.localeCompare(nameA);
+    }
+  });
+
+  showStudent(students); // Update the table after sorting
+};
+
+//...
 //GET STUDENTS
 // Function to get student data from the API and display them in a table
 const getStudent = async () => {
   try {
     const apiResponse = await fetch(url);
-    const students = await apiResponse.json();
+    students = await apiResponse.json();
     showStudent(students);
+    updateStudentsTable()
   } catch (error) {
     console.error(error);
   }

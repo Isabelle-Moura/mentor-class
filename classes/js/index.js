@@ -88,12 +88,32 @@ const confirmDelete = async (classId) => {
   }
 };
 
+//...
+//SORTING
+const sortClasses = (classesData, order) => {
+  const ascendingOrder = order === "asc";
+
+  classesData.sort((a, b) => {
+    const nameA = a.className.toLowerCase();
+    const nameB = b.className.toLowerCase();
+
+    if (ascendingOrder) {
+      return nameA.localeCompare(nameB);
+    } else {
+      return nameB.localeCompare(nameA);
+    }
+  });
+
+  showClasses(classesData); // Update the table after sorting
+};
+
 // GET CLASSES
 // Function to get the list of classes from the API
 const getClasses = async () => {
   try {
     const apiResponse = await fetch(url);
-    const classes = await apiResponse.json();
+    classes = await apiResponse.json();
+    updateClassesTable()
 
     showClasses(classes);
   } catch (error) {

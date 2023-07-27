@@ -87,13 +87,35 @@ const showMentorship = (mentorships) => {
       closeModal(mentorshipId); // Close the modal after attempting the deletion, regardless of success or failure.
     }
   };
+
+//...
+//SORTING
+const sortMentorships = (mentorships, order) => {
+  const ascendingOrder = order === "asc";
+
+  mentorships.sort((a, b) => {
+    const nameA = a.mentorshipTitle.toLowerCase();
+    const nameB = b.mentorshipTitle.toLowerCase();
+
+    if (ascendingOrder) {
+      return nameA.localeCompare(nameB);
+    } else {
+      return nameB.localeCompare(nameA);
+    }
+  });
+
+  showMentorship(mentorships); // Update the table after sorting
+};
+
+//...
   
 
 //GET MENTORSHIPS
 const getMentorship = async () => {
   try {
     const apiResponse = await fetch(url);
-    const mentorships = await apiResponse.json();
+    mentorships = await apiResponse.json();
+    updateMentorshipsTable()
 
     showMentorship(mentorships);
     
