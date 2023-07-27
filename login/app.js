@@ -16,9 +16,6 @@ togglePassword.addEventListener("click", function () {
   }
 });
 
-// ...
-// Input validation
-
 const enterButton = () => {
   const email = document.querySelector("#email");
   const labelEmail = document.querySelector("#labelEmail");
@@ -44,6 +41,19 @@ const enterButton = () => {
     usersList = [];
   }
 
+  // Check if the email and password fields are empty
+  if (email.value === "" || password.value === "") {
+    // Show error message and stop the function execution
+    labelEmail.setAttribute("style", "color: red");
+    email.setAttribute("style", "border-color: red");
+    labelPassword.setAttribute("style", "color: red");
+    password.setAttribute("style", "border-color: red");
+    msgError.setAttribute("style", "display: block");
+    msgError.innerHTML = `Os campos não foram preenchidos!`;
+    email.focus();
+    return; // Stop the function execution
+  }
+
   // Check if the entered email and password match any user in the usersList
   usersList.forEach((item) => {
     if (email.value == item.email && password.value == item.password) {
@@ -67,7 +77,7 @@ const enterButton = () => {
     password.setAttribute("style", "border-color: #40D175");
     msgSuccess.setAttribute("style", "display: block");
     msgError.setAttribute("style", "display: none");
-    msgSuccess.innerHTML = `Redirecting...`;
+    msgSuccess.innerHTML = `Redirecionando...`;
 
     setTimeout(() => {
       window.location.href = "../mentors/html/index.html";
