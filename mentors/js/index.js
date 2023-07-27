@@ -41,7 +41,7 @@ const showMentors = (mentorsData) => {
     <td>
           <button class="edit-button" onclick="edit(${mentor.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
           <button class="delete-button" onclick="openModal(${mentor.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
-          <!-- Modal for confirmation -->
+        
           <div id="deleteButton-${mentor.id}" class="modal">
           <div class="modal-content">
           <span id="close" class="x" onclick="closeModal(${mentor.id})">&times;</span>
@@ -158,8 +158,8 @@ const updatePaginationButtons = () => {
   // Disable "Previous" button on first page
   if (currentPage === 1) {
     previousButton.disabled = true;
-    previousButton.setAttribute('style', 'cursor: not-allowed')
-    nextButton.setAttribute('style', 'cursor: pointer')
+    previousButton.setAttribute("style", "cursor: not-allowed");
+    nextButton.setAttribute("style", "cursor: pointer");
   } else {
     previousButton.disabled = false;
   }
@@ -167,8 +167,8 @@ const updatePaginationButtons = () => {
   // Disable "Next" button on last page
   if (currentPage === Math.ceil(totalMentors / mentorsPerPage)) {
     nextButton.disabled = true;
-    previousButton.setAttribute('style', 'cursor: pointer')
-    nextButton.setAttribute('style', 'cursor: not-allowed')
+    previousButton.setAttribute("style", "cursor: pointer");
+    nextButton.setAttribute("style", "cursor: not-allowed");
   } else {
     nextButton.disabled = false;
   }

@@ -1,114 +1,128 @@
-//Botão para voltar para a página principal
+// Get the back button element by its ID
 const backButton = document.getElementById("backButton");
 
+// Add event listener to the back button to redirect to the main page
 backButton.addEventListener("click", function () {
   window.location.href = "../../classes/html/index.html";
 });
 
-/////////////////////////////////////////////////
-const formClasses = document.getElementById("formClasses")
-const url = "https://api-projeto-modulo-1.onrender.com/classes"
-const url1 = "https://api-projeto-modulo-1.onrender.com/mentorships"
-const url2 = "https://api-projeto-modulo-1.onrender.com/mentors"
+//...
+// Get the form element by its ID
+const formClasses = document.getElementById("formClasses");
 
+// URLs for API endpoints
+const url = "https://api-projeto-modulo-1.onrender.com/classes";
+const url1 = "https://api-projeto-modulo-1.onrender.com/mentorships";
+const url2 = "https://api-projeto-modulo-1.onrender.com/mentors";
+
+// Function to get a mentorship by its ID from the API
 const getMentorship = async (id) => {
-  if (id == null){
-    return false
+  if (id == null) {
+    return false;
   }
-  const response = await fetch (`${url1}/${id}`)
-  const mentorship = await response.json()
-  return mentorship
-}
+  const response = await fetch(`${url1}/${id}`);
+  const mentorship = await response.json();
+  return mentorship;
+};
 
+// Function to get all mentorships from the API
 const getMentorships = async () => {
-  const response = await fetch (`${url1}`)
-  const mentorships = await response.json()
-  return mentorships
-}
+  const response = await fetch(`${url1}`);
+  const mentorships = await response.json();
+  return mentorships;
+};
 
+// Function to load mentorships into the select element
 const loadMentorshipsSelect = async () => {
-  const mentorships = await getMentorships()
-  const mentorshipSelect = document.getElementById("mentorship")
-  
-  const emptyOption = new Option ('Selecione uma mentoria...', null)
-  mentorshipSelect.options.add(emptyOption)
+  const mentorships = await getMentorships();
+  const mentorshipSelect = document.getElementById("mentorship");
 
-  mentorships.forEach (mentorship => {
-    const option = new Option (mentorship.mentorshipTitle, mentorship.id)
-    mentorshipSelect.options.add(option)
-  })
-  console.log(mentorshipSelect)
-}
+  const emptyOption = new Option("Selecione uma mentoria...", null);
+  mentorshipSelect.options.add(emptyOption);
 
+  mentorships.forEach((mentorship) => {
+    const option = new Option(mentorship.mentorshipTitle, mentorship.id);
+    mentorshipSelect.options.add(option);
+  });
+  console.log(mentorshipSelect);
+};
+
+// Function to get a mentor by its ID from the API
 const getMentor = async (id) => {
-  if(id == null){
-    return false
+  if (id == null) {
+    return false;
   }
-  const response = await fetch (`${url2}/${id}`)
-  const mentor = await response.json()
-  return mentor
-}
+  const response = await fetch(`${url2}/${id}`);
+  const mentor = await response.json();
+  return mentor;
+};
 
+// Function to get all mentors from the API
 const getMentors = async () => {
-  const response = await fetch (`${url2}`)
-  const mentors = await response.json()
-  return mentors
-}
+  const response = await fetch(`${url2}`);
+  const mentors = await response.json();
+  return mentors;
+};
 
+// Function to load mentors into the select element
 const loadMentorsSelect = async () => {
-  const mentors = await getMentors()
-  const mentorSelect = document.getElementById('mentorName')
+  const mentors = await getMentors();
+  const mentorSelect = document.getElementById('mentorName');
 
-  const emptyOption = new Option ('Selecione um mentor...', null)
-  mentorSelect.options.add(emptyOption)
+  const emptyOption = new Option('Selecione um mentor...', null);
+  mentorSelect.options.add(emptyOption);
 
-  mentors.forEach (mentor => {
-    const option = new Option (mentor.name + " " + "(" + mentor.email + ")", mentor.id )
-    mentorSelect.options.add(option)
-  })
-  console.log(mentorSelect)
-}
+  mentors.forEach(mentor => {
+    const option = new Option(mentor.name + " " + "(" + mentor.email + ")", mentor.id);
+    mentorSelect.options.add(option);
+  });
+  console.log(mentorSelect);
+};
 
+// Function to register a new class to the API
 const registerClass = async (className) => {
   try {
-    await fetch (`${url}`, {
+    await fetch(`${url}`, {
       method: "POST",
       headers: {
         "Accept": "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(className)
-    })
-    window.location = "../../classes/html/index.html"
-
-  } catch (error){
-    console.error(error)
+    });
+    window.location = "../../classes/html/index.html";
+  } catch (error) {
+    console.error(error);
   }
-}
+};
 
+// Event listener for the form submission
 formClasses.addEventListener("submit", async (e) => {
-  e.preventDefault()
+  e.preventDefault();
 
-  const mentorship = formClasses.elements['mentorship'].value
-  const mentorName = formClasses.elements['mentorName'].value
-  const beginning = formClasses.elements['beginning'].value
-  const weekday = formClasses.elements['weekday'].value
-  const beginningTime = formClasses.elements['beginningTime'].value
-  const endingTime = formClasses.elements['endingTime'].value
-  const className = formClasses.elements['className'].value
-  const classLink = formClasses.elements['classLink'].value
-  const meetQuantity = formClasses.elements['meetQuantity'].value
+  // Get form values
+  const mentorship = formClasses.elements['mentorship'].value;
+  const mentorName = formClasses.elements['mentorName'].value;
+  const beginning = formClasses.elements['beginning'].value;
+  const weekday = formClasses.elements['weekday'].value;
+  const beginningTime = formClasses.elements['beginningTime'].value;
+  const endingTime = formClasses.elements['endingTime'].value;
+  const className = formClasses.elements['className'].value;
+  const classLink = formClasses.elements['classLink'].value;
+  const meetQuantity = formClasses.elements['meetQuantity'].value;
 
-  const mentorshipObject = await getMentorship(mentorship)
-  if (Object.keys(mentorshipObject).lenght == 0){
-    console.log("Não foi possível cadastrar a turma, mentoria inválida :/")
+  // Get mentorship and mentor objects from the API
+  const mentorshipObject = await getMentorship(mentorship);
+  if (Object.keys(mentorshipObject).length == 0) {
+    console.log("Não foi possível cadastrar a turma, mentoria inválida :/");
   }
 
-  const mentorObject = await getMentor(mentorName)
-  if (Object.keys(mentorObject).lenght == 0){
-    console.log("Não foi possível cadastrar a turma, mentor inválido :/")
+  const mentorObject = await getMentor(mentorName);
+  if (Object.keys(mentorObject).length == 0) {
+    console.log("Não foi possível cadastrar a turma, mentor inválido :/");
   }
-  
+
+  // Create class data object
   const classData = {
     mentorName: {
       id: mentorObject.id,
@@ -125,8 +139,12 @@ formClasses.addEventListener("submit", async (e) => {
     className,
     classLink,
     meetQuantity
-  }
-  registerClass(classData)
-})
-loadMentorshipsSelect()
-loadMentorsSelect()
+  };
+
+  // Register the class
+  registerClass(classData);
+});
+
+// Load mentorships and mentors into the respective select elements
+loadMentorshipsSelect();
+loadMentorsSelect();

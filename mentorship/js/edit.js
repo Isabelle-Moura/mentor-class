@@ -1,47 +1,51 @@
-//U = UPDATE
 const formMentorship = document.getElementById("formMentorship");
 let mentorshipId = null;
-const url = "https://api-projeto-modulo-1.onrender.com/mentorships";
+const url = "https://api-projeto-modulo-1.onrender.com/mentorships"; 
 const url2 = "https://api-projeto-modulo-1.onrender.com/mentors"
 
+// Function to fetch mentor data by ID
 const getMentor = async (id) => {
     const response = await fetch (`${url2}/${id}`)
     const mentor = await response.json()
     return mentor
 }
 
+// Function to fetch all mentors
 const getMentors = async () => {
     const response = await fetch (`${url2}`)
     const mentors = await response.json()
     return mentors
 }
 
+// Function to load mentor select options
 const loadSelect = async (id) => {
     const mentors = await getMentors()
     const mentorSelect = document.getElementById("mentor")
 
-    const emptyOption = new Option ('Selecione um mentor...', null)
+    const emptyOption = new Option('Selecione um mentor...', null)
     mentorSelect.options.add(emptyOption)
     
-    mentors.forEach ( mentor => {
-        const option = new Option (mentor.name, mentor.id)
+    mentors.forEach(mentor => {
+        const option = new Option(mentor.name, mentor.id)
         mentorSelect.options.add(option)
     })
 }
 
+// Function to get the mentorship ID from the URL
 const getMentorshipIdUrl = () => {
   const paramsString = window.location.search;
   const params = new URLSearchParams(paramsString);
   mentorshipId = params.get("id");
 };
 
+// Function to fetch a mentorship by ID
 const getMentorship = async () => {
   const apiResponse = await fetch(`${url}/${mentorshipId}`);
   const mentorship = await apiResponse.json();
   return mentorship;
 };
 
-//UPDATE
+// Function to handle mentorship update
 const editMentorship = async (mentorship) => {
   await fetch(`${url}/${mentorshipId}`, {
     method: "PUT",
@@ -54,6 +58,7 @@ const editMentorship = async (mentorship) => {
   window.location = "../../mentorship/html/index.html";
 };
 
+// Function to load form data
 const loadFormData = async (mentorship) => {
   loadSelect()
   document.getElementById("mentorshipTitle").value = mentorship.mentorshipTitle;
@@ -68,6 +73,7 @@ const loadFormData = async (mentorship) => {
   }
 };
 
+// Function to load mentorship data and handle form submission
 const loadData = async () => {
   getMentorshipIdUrl();
   const mentorship = await getMentorship();
@@ -84,7 +90,7 @@ formMentorship.addEventListener("submit", async (e) => {
   const mentorObject = await getMentor(mentor);
 
   if (Object.keys(mentorObject).length == 0) {
-    console.log("Não foi possível cadastrar a mentoria, mentor inválido :/");
+    console.log("Unable to register the mentorship, invalid mentor :/");
     return;
   }
 
@@ -102,9 +108,9 @@ formMentorship.addEventListener("submit", async (e) => {
 
 loadData();
 
-//////////////////////////////////////////
+//...
 
-//Botão para voltar para a página principal
+// Button to go back to the main page
 const backButton = document.getElementById("backButton");
 
 backButton.addEventListener("click", function () {

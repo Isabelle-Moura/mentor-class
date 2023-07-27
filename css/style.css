@@ -257,6 +257,7 @@ input::placeholder {
     height: 37px;
     border: 1px solid #CCCCCC;
     border-radius: 10px;
+    padding: 5px;
     color: #a4a6ac;
     font-weight: 400 !important;
     font-size: 15px;
@@ -555,8 +556,9 @@ tr {
 }
 
 .red{
-    background-color: #FF3333;
-    color: #212121;
+    background-color: ##212121;
+    color: #FF3333;
+    border: 1px solid #FF3333;
 }
 
 #close {
