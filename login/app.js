@@ -79,7 +79,7 @@ const enterButton = () => {
     labelPassword.setAttribute("style", "color: red");
     password.setAttribute("style", "border-color: red");
     msgError.setAttribute("style", "display: block");
-    msgError.innerHTML = `Incorrect email or password!`;
+    msgError.innerHTML = `E-mail ou senha incorretos!`;
     email.focus();
   }
 };
