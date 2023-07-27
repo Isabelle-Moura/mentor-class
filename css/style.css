@@ -248,6 +248,18 @@ input::placeholder {
     outline: none;
 }
 
+.next-and-previous-button{
+    width: 80px;
+    height: 37px;
+    border: 1px solid #CCCCCC;
+    border-radius: 10px;
+    color: #a4a6ac;
+    font-weight: 400 !important;
+    font-size: 15px;
+    align-self: flex-start;
+    outline: none;
+}
+
 .search-and-order-button {
     display: flex;
     flex-direction: row;
@@ -401,7 +413,7 @@ thead {
     height: 45px;
     font-weight: 200;
     font-size: 13px;
-    width: 66rem;
+    width: 100%;
 }
 
 .bk-purple {
@@ -431,6 +443,7 @@ td {
     text-overflow: ellipsis;
     vertical-align: middle;
     text-align: center;
+    margin-bottom: 5px !important;
 }
 /* ////////////////////////////////// */
 
@@ -445,9 +458,8 @@ tr:nth-child(odd) {
 
 tr {
     height: 45px;
-    width: 66rem;
+    width: 100%;
     padding: 20px;
-    margin: 5px !important;
     text-align: center;
 }
 
@@ -478,6 +490,37 @@ tr {
     background-color: #f57878;
 }
 
+/* Modal */
+.modal{
+    display: none;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    width: 80%;
+    padding: 30px;
+    margin: 15% auto;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.modal-content h1 {
+    font-size: 40px;
+    margin: 40px;
+}
+
+#close {
+    float: right;
+}
+
 /* ////////////////////////////////// */
 
 
@@ -490,7 +533,7 @@ tr {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
     padding: 20px;
-    margin: 0px 10px;
+    margin: 1px 25px;
     background-color: #FFFFFF;
 }
 
@@ -509,8 +552,9 @@ hr {
     border-radius: 20px;
     box-shadow: 1px 1px 8px 1px #dbd6d6;
     padding: 20px;
-    margin: 0px 1px;
+    margin: 17px 30px;
     height: 240px;
+    width: 95%;
 }
 
 .dFlex {

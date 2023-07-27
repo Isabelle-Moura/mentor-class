@@ -1,12 +1,33 @@
 const url = "https://api-projeto-modulo-1.onrender.com/mentors"; // API URL
 let ascendingOrder = true; // Variable to control sorting
 let mentors = []; // Declaration of the mentors variable in the global scope
-
-// Constants for pagination
-const mentorsPerPage = 7;
 let currentPage = 1;
+const mentorsPerPage = 6;
+let totalMentors = 0;
 
-//////////////////////////////////////////
+//...
+// MODAL FOR DELETE
+// Get the modal element by its ID
+const modal = document.querySelector("#modal");
+const deleteModal = document.querySelector("#deleteButton");
+
+// Function to open the modal
+const openModal = (mentorId) => {
+  const modal = document.querySelector(`#deleteButton-${mentorId}`);
+  modal.setAttribute("style", "display: block");
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal(mentorId);
+    }
+  });
+};
+
+const closeModal = (mentorId) => {
+  const modal = document.querySelector(`#deleteButton-${mentorId}`);
+  modal.setAttribute("style", "display: none");
+};
+
 // Function to display the list of mentors in the table dynamically
 const showMentors = (mentorsData) => {
   const tableContent = document.getElementById("tableContent");
@@ -15,111 +36,163 @@ const showMentors = (mentorsData) => {
   mentorsData.forEach((mentor) => {
     mentorHtml += `
     <tr>
-      <td>${mentor.name}</td>
-      <td>${mentor.email}</td>
-      <td>
-        <button class="edit-button" id="editButton" onclick="edit(${mentor.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
-        <button class="delete-button" id="deleteButton" onclick="deleteButton(${mentor.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
-      </td>
-    </tr>
-    `;
+    <td>${mentor.name}</td>
+    <td>${mentor.email}</td>
+    <td>
+          <button class="edit-button" onclick="edit(${mentor.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
+          <button class="delete-button" onclick="openModal(${mentor.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
+          <!-- Modal for confirmation -->
+          <div id="deleteButton-${mentor.id}" class="modal">
+          <div class="modal-content">
+          <span id="close" class="x" onclick="closeModal(${mentor.id})">&times;</span>
+          <h1>Excluir mentor</h1>
+          <h3>Você tem certeza que deseja excluir o mentor?</h3>
+          <button onclick="closeModal(${mentor.id})">Cancelar</button>
+          <button onclick="confirmDelete(${mentor.id})">Excluir</button>
+          </div>
+          </div>
+          </td>
+          </tr>
+          `;
   });
 
   tableContent.innerHTML = mentorHtml;
 };
 
-//////////////////////////////////////////
-// Function to sort the list of mentors by name
-
-const sortMentorsByName = (mentorsData, order) => {
-  const sortedMentors = [...mentorsData];
-
-  sortedMentors.sort((a, b) => {
-    if (order === "asc") {
-      return a.name.localeCompare(b.name); // Ascending order (A-Z)
-    } else {
-      return b.name.localeCompare(a.name); // Descending order (Z-A)
-    }
-  });
-
-  return sortedMentors;
-};
-
-// Select element for sorting
-const orderSelect = document.getElementById("orderSelect");
-
-// Event listener to detect changes in sorting
-orderSelect.addEventListener("change", () => {
-  currentPage = 1; // Reset the current page to 1 when the sorting order changes
-  displayMentors(mentors, currentPage, mentorsPerPage);
-});
-
-// Function to paginate mentors based on the current page and limit
-const paginateMentors = (mentorsData, page, perPage) => {
-  const startIndex = (page - 1) * perPage;
-  const endIndex = startIndex + perPage;
-  return mentorsData.slice(startIndex, endIndex);
-};
-
-// Function to display mentors for the given page and sorting order
-const displayMentors = (mentorsData, page, perPage) => {
-  const sortedMentors = sortMentorsByName(mentorsData, orderSelect.value);
-  const paginatedMentors = paginateMentors(sortedMentors, page, perPage);
-  showMentors(paginatedMentors);
-};
-
-// Function to handle pagination button click
-const handlePaginationClick = (pageNum) => {
-  currentPage = pageNum;
-  displayMentors(mentors, currentPage, mentorsPerPage);
-};
-
-// Function to create pagination buttons
-const createPaginationButtons = (totalPages) => {
-  const paginationContainer = document.getElementById("paginationContainer");
-  paginationContainer.innerHTML = ""; // Clear previous pagination buttons
-
-  for (let i = 1; i <= totalPages; i++) {
-    const button = document.createElement("button");
-    button.textContent = i;
-    button.classList.add("pagination-button");
-
-    // Highlight the active page button
-    if (i === currentPage) {
-      button.classList.add("active");
-    }
-
-    button.addEventListener("click", () => {
-      handlePaginationClick(i);
+// Function to handle mentor deletion when the "Excluir" button is clicked
+const confirmDelete = async (mentorId) => {
+  try {
+    const response = await fetch(`${url}/${mentorId}`, {
+      method: "DELETE",
     });
-
-    paginationContainer.appendChild(button);
+    if (response.ok) {
+      console.log("Mentor deleted successfully");
+      // Refresh the mentors list after successful deletion
+      await getMentors();
+    } else {
+      console.error("Error deleting the mentor!");
+    }
+  } catch (error) {
+    console.error("An error occurred while deleting the mentor!", error);
+  } finally {
+    closeModal(mentorId); // Close the modal after attempting the deletion, regardless of success or failure.
   }
 };
 
-// Function to calculate total number of pages
-const getTotalPages = (mentorsData, perPage) => {
-  return Math.ceil(mentorsData.length / perPage);
+//...
+//SORTING
+const sortMentors = (mentorsData, order) => {
+  const ascendingOrder = order === "asc";
+
+  mentorsData.sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+
+    if (ascendingOrder) {
+      return nameA.localeCompare(nameB);
+    } else {
+      return nameB.localeCompare(nameA);
+    }
+  });
+
+  showMentors(mentorsData); // Update the table after sorting
 };
 
-//////////////////////////////////////////
+//...
+//GET MENTORS
 // Function to get the list of mentors from the API
 const getMentors = async () => {
   try {
     const apiResponse = await fetch(url);
-    mentors = await apiResponse.json(); // Assign API data to the mentors variable
-    const totalPages = getTotalPages(mentors, mentorsPerPage);
-    createPaginationButtons(totalPages);
-    displayMentors(mentors, currentPage, mentorsPerPage);
+    mentors = await apiResponse.json();
+    updateMentorsTable(); // Call the function to update the table after fetching data
   } catch (error) {
     console.error(error);
   }
 };
 
-getMentors(); // Call the function to get mentors on page load
+getMentors();
 
-//////////////////////////////////////////
-// Search Input (Search Bar)
+//...
+//PAGINATION
+
+// Function to get the total number of mentors
+const getTotalMentors = async () => {
+  try {
+    const response = await fetch(url);
+    const mentorsData = await response.json();
+    totalMentors = mentorsData.length;
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Erro ao obter o total de mentores:", error);
+  }
+};
+
+// Function to get the mentors with pagination
+const getMentorsPerPage = async (page, limit) => {
+  try {
+    const response = await fetch(`${url}?_page=${page}&_limit=${limit}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Erro ao obter os mentores:", error);
+  }
+};
+
+const updateMentorsTable = async () => {
+  try {
+    const mentorsData = await getMentorsPerPage(currentPage, mentorsPerPage);
+    showMentors(mentorsData);
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Error getting mentors:", error);
+  }
+};
+
+const updatePaginationButtons = () => {
+  const previousButton = document.getElementById("previousButton");
+  const nextButton = document.getElementById("nextButton");
+
+  // Disable "Previous" button on first page
+  if (currentPage === 1) {
+    previousButton.disabled = true;
+    previousButton.setAttribute('style', 'cursor: not-allowed')
+    nextButton.setAttribute('style', 'cursor: pointer')
+  } else {
+    previousButton.disabled = false;
+  }
+
+  // Disable "Next" button on last page
+  if (currentPage === Math.ceil(totalMentors / mentorsPerPage)) {
+    nextButton.disabled = true;
+    previousButton.setAttribute('style', 'cursor: pointer')
+    nextButton.setAttribute('style', 'cursor: not-allowed')
+  } else {
+    nextButton.disabled = false;
+  }
+};
+
+const previousPage = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateMentorsTable();
+  }
+};
+
+const nextPage = () => {
+  if (currentPage < Math.ceil(totalMentors / mentorsPerPage)) {
+    currentPage++;
+    updateMentorsTable();
+  }
+};
+
+// Calls the function to get the total number of mentors before updating the table and setting the pagination buttons
+getTotalMentors().then(() => {
+  updateMentorsTable();
+});
+
+//...
+// SEARCH INPUT (SEARCH BAR)
 const searchInput = document.getElementById("searchInput");
 
 // Function to filter mentors by name
@@ -150,8 +223,8 @@ searchInput.addEventListener("keyup", (event) => {
   }
 });
 
-//////////////////////////////////////////
-// Page Redirection
+//...
+// PAGE REDIRECTION
 
 //"Side Menu"
 const mentorsPage = document.getElementById("mentorsPage");
@@ -180,7 +253,6 @@ studentsPage.addEventListener("click", function () {
 const newButton = document.getElementById("newButton");
 
 newButton.addEventListener("click", function () {
-  // Event listener to redirect when clicking on the "New Mentor" button
   window.location.href = "../../mentors/html/register.html";
 });
 
@@ -189,60 +261,10 @@ const edit = (id) => {
   window.location.href = `../../mentors/html/edit.html?id=${id}`;
 };
 
-// Function to delete a mentor
-const deleteMentor = async (mentorId) => {
-  try {
-    const response = await fetch(`${url}/${mentorId}`, {
-      method: "DELETE",
-    });
-    console.log(response);
-    if (response.ok) {
-      console.log("Mentor deleted successfully");
-      // Refresh the mentors list after successful deletion
-      await getMentors();
-    } else {
-      console.error("Error deleting the mentor!");
-    }
-  } catch (error) {
-    console.error("An error occurred while deleting the mentor!", error);
-  }
-};
-
-// Function to delete a mentor
-const deleteButton = async (mentorId) => {
-  // Open the confirmation modal when the delete button is clicked
-  const deleteConfirmationModal = new bootstrap.Modal(
-    document.getElementById("deleteConfirmationModal")
-  );
-  deleteConfirmationModal.show();
-
-  // Store the mentorId in a data attribute of the delete button in the modal
-  document
-    .getElementById("confirmDeleteButton")
-    .setAttribute("data-mentor-id", mentorId);
-};
-
-// Event listener for the "Delete" button in the confirmation modal
-document
-  .getElementById("confirmDeleteButton")
-  .addEventListener("click", async () => {
-    const mentorId = document
-      .getElementById("confirmDeleteButton")
-      .getAttribute("data-mentor-id");
-    await deleteMentor(mentorId); // Call the actual function to delete the mentor
-    // Close the confirmation modal after deleting the mentor
-    const deleteConfirmationModal = new bootstrap.Modal(
-      document.getElementById("deleteConfirmationModal")
-    );
-    deleteConfirmationModal.hide();
-  });
-
-//////////////////////////////////////////
-// Get user data from localStorage
+//...
+// USER DATA FROM LOCALSTORAGE
 
 document.addEventListener("DOMContentLoaded", () => {
-  // In the JavaScript of the mentors page
-
   const usersList = JSON.parse(localStorage.getItem("usersList")); // Retrieve the list of registered users from localStorage
 
   if (usersList && usersList.length > 0) {
