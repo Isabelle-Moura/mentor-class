@@ -7,6 +7,7 @@
     margin: 0;
     padding: 0;
 }
+
 /* ////////////////////////////////// */
 
 
@@ -168,6 +169,7 @@ input::placeholder {
     transform: translateY(-50%);
     cursor: pointer;
 }
+
 /* ////////////////////////////////// */
 
 
@@ -192,6 +194,7 @@ input::placeholder {
     border: 1px solid red;
     border-radius: 13px;
 }
+
 /* ////////////////////////////////// */
 
 
@@ -230,6 +233,7 @@ input::placeholder {
     font-weight: 400;
     font-size: 12px;
 }
+
 /* ////////////////////////////////// */
 
 
@@ -248,7 +252,7 @@ input::placeholder {
     outline: none;
 }
 
-.next-and-previous-button{
+.next-and-previous-button {
     width: 80px;
     height: 37px;
     border: 1px solid #CCCCCC;
@@ -404,6 +408,7 @@ table {
     margin-top: 1px;
     width: 100%;
 }
+
 /* ////////////////////////////////// */
 
 /* Table Header */
@@ -429,6 +434,7 @@ th {
     font-size: 13px !important;
     text-align: center;
 }
+
 /* ////////////////////////////////// */
 
 /* Table Body */
@@ -445,6 +451,7 @@ td {
     text-align: center;
     margin-bottom: 5px !important;
 }
+
 /* ////////////////////////////////// */
 
 /* Table Row */
@@ -491,9 +498,9 @@ tr {
 }
 
 /* Modal */
-.modal{
+.modal {
     display: none;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100%;
     height: 100%;
     position: fixed;
@@ -505,20 +512,57 @@ tr {
 
 .modal-content {
     background-color: white;
-    width: 80%;
-    padding: 30px;
-    margin: 15% auto;
+    width: 60%;
+    padding: 20px;
+    margin: 170px auto;
     border-radius: 8px;
     text-align: center;
 }
 
 .modal-content h1 {
-    font-size: 40px;
-    margin: 40px;
+    font-size: 30px;
+    margin: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: #3b2569;
+}
+
+.modal-content h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-flex {
+    display: flex;
+    position: relative;
+    margin-left: 500px;
+}
+
+.modal-buttons{
+    width: 400px;
+    height: 35px;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-family: 'Sora', sans-serif;
+    font-size: 15px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+.purple{
+    background-color: #482D83;
+    color: #F5F5F5;
+}
+
+.red{
+    background-color: #FF3333;
+    color: #212121;
 }
 
 #close {
-    float: right;
+    position: absolute;
+    margin-left: 90%;
+    cursor: pointer;
 }
 
 /* ////////////////////////////////// */
@@ -565,6 +609,7 @@ hr {
     display: flex;
     flex-direction: column;
 }
+
 /* ////////////////////////////////// */
 
 /* Input and label */
@@ -594,6 +639,7 @@ input {
     padding: 4px;
     outline: none;
 }
+
 .display-label-input {
     display: flex;
     flex-direction: column;
@@ -639,6 +685,7 @@ input {
 .save-button:hover {
     background-color: #3f2772;
 }
+
 /* ////////////////////////////////// */
 
 /* ////////////////////////////////// */

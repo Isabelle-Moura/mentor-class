@@ -45,10 +45,12 @@ const showMentors = (mentorsData) => {
           <div id="deleteButton-${mentor.id}" class="modal">
           <div class="modal-content">
           <span id="close" class="x" onclick="closeModal(${mentor.id})">&times;</span>
-          <h1>Excluir mentor</h1>
+          <h1 class="modal-title">Excluir mentor</h1>
           <h3>Você tem certeza que deseja excluir o mentor?</h3>
-          <button onclick="closeModal(${mentor.id})">Cancelar</button>
-          <button onclick="confirmDelete(${mentor.id})">Excluir</button>
+          <div class="modal-flex">
+          <button class="modal-buttons purple" onclick="closeModal(${mentor.id})">Cancelar</button>
+          <button class="modal-buttons red" onclick="confirmDelete(${mentor.id})">Excluir</button>
+          </div>
           </div>
           </div>
           </td>
