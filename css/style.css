@@ -627,7 +627,7 @@ input {
 }
 
 .custom-input-select {
-    color: #c4c1c1 !important;
+    color: #757575; !important;
     padding-left: 3px;
     font-size: 13px;
 }
