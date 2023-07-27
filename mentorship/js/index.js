@@ -1,4 +1,9 @@
 const url = "https://api-projeto-modulo-1.onrender.com/mentorships";//API url
+let ascendingOrder = true; // Variable to control sorting
+let mentorships = []; // Declaration of the mentorships variable in the global scope
+let currentPage = 1;
+const mentorshipsPerPage = 6;
+let totalMentorships = 0;
 
 //...
 // MODAL FOR DELETE
@@ -32,7 +37,7 @@ const showMentorship = (mentorships) => {
       <tr>
         <td>${mentorship.mentorshipTitle}</td>
         <td>${mentorship.mentor.name}</td>
-        <td class="${mentorship.status ? "toggle-active" : "toggle-inactive"}">${mentorship.status ? "Active" : "Inactive"}</td>
+        <td class="${mentorship.status ? "toggle-active" : "toggle-inactive"}">${mentorship.status ? "Ativo" : "Inativo"}</td>
         <td>
           <button class="edit-button" id="editButton" onclick="edit(${mentorship.id})"><i class="fa-solid fa-pencil" style="color: #004ce8;"></i></button>
           <button class="delete-button" onclick="openModal(${mentorship.id})"><i class="fa-solid fa-trash" style="color: #ff3333;"></i></button>
@@ -40,11 +45,11 @@ const showMentorship = (mentorships) => {
           <div id="deleteButton-${mentorship.id}" class="modal">
           <div class="modal-content">
           <span id="close" class="x" onclick="closeModal(${mentorship.id})">&times;</span>
-          <h1 class="modal-title">Delete mentorship</h1>
-          <h3>Are you sure you want to delete this mentorship?</h3>
+          <h1 class="modal-title">Excluir mentoria</h1>
+          <h3>Você tem certeza que quer excluir mentoria?</h3>
           <div class="modal-flex">
-          <button class="modal-buttons purple" onclick="closeModal(${mentorship.id})">Cancel</button>
-          <button class="modal-buttons red" onclick="confirmDelete(${mentorship.id})">Delete</button>
+          <button class="modal-buttons purple" onclick="closeModal(${mentorship.id})">Cancelar</button>
+          <button class="modal-buttons red" onclick="confirmDelete(${mentorship.id})">Excluir</button>
           </div>
           </div>
           </div>
@@ -57,25 +62,34 @@ const showMentorship = (mentorships) => {
 };
 
 // Function to handle mentorship deletion when the "Delete" button is clicked
-const confirmDelete = async (mentorshipId) => {
-  try {
-    const response = await fetch(`${url}/${mentorshipId}`, {
-      method: "DELETE",
-    });
-    if (response.ok) {
-      console.log("Mentorship deleted successfully");
-      // Refresh the mentorships list after successful deletion
-      await getmentorships();
-    } else {
-      console.error("Error deleting the mentorship!");
+  const confirmDelete = async (mentorshipId) => {
+    try {
+      const response = await fetch(`${url}/${mentorshipId}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        console.log("Mentorship deleted successfully");
+        location. reload();
+        // Refresh the mentorships list after successful deletion
+        await getmentorships();
+  
+        // Check if there is only one page and mentorships are empty
+        if (totalMentorships === 1 && mentorships.length === 0) {
+          currentPage = 1; // Set current page to 1
+          await updateMentorshipsTable(); // Update the mentorships table with the new page
+        }
+      } else {
+        console.error("Error deleting the mentorship!");
+      }
+    } catch (error) {
+      console.error("An error occurred while deleting the mentorship!", error);
+    } finally {
+      closeModal(mentorshipId); // Close the modal after attempting the deletion, regardless of success or failure.
     }
-  } catch (error) {
-    console.error("An error occurred while deleting the mentorship!", error);
-  } finally {
-    closeModal(mentorshipId); // Close the modal after attempting the deletion, regardless of success or failure.
-  }
-};
+  };
+  
 
+//GET MENTORSHIPS
 const getMentorship = async () => {
   try {
     const apiResponse = await fetch(url);
@@ -91,7 +105,98 @@ const getMentorship = async () => {
 getMentorship();
 
 //...
+// Function to get the total number of Mentorships
+const getTotalMentorships = async () => {
+  try {
+    const response = await fetch(url);
+    const mentorshipsData = await response.json();
+    totalMentorships = mentorshipsData.length;
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Erro ao obter o total de mentorias:", error);
+  }
+};
 
+// Function to get the Mentorships with pagination
+const getMentorshipsPerPage = async (page, limit) => {
+  try {
+    const response = await fetch(`${url}?_page=${page}&_limit=${limit}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error getting mentorships:", error);
+  }
+};
+
+const updateMentorshipsTable = async () => {
+  try {
+    const mentorshipsData = await getMentorshipsPerPage(currentPage, mentorshipsPerPage);
+    showMentorship(mentorshipsData);
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Error getting mentorships:", error);
+  }
+};
+
+const updatePaginationButtons = () => {
+  const previousButton = document.getElementById("previousButton");
+  const nextButton = document.getElementById("nextButton");
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalMentorships / mentorshipsPerPage);
+
+  // Check if there is only one page or no content to paginate
+  if (totalPages <= 1) {
+    // Disable both "Previous" and "Next" buttons
+    previousButton.disabled = true;
+    nextButton.disabled = true;
+
+    // Set cursor to "not-allowed" for both buttons
+    previousButton.style.cursor = "not-allowed";
+    nextButton.style.cursor = "not-allowed";
+  } else {
+    // Handle previous button state
+    if (currentPage === 1) {
+      // Disable "Previous" button on the first page
+      previousButton.disabled = true;
+      previousButton.style.cursor = "not-allowed";
+    } else {
+      previousButton.disabled = false;
+      previousButton.style.cursor = "pointer";
+    }
+
+    // Handle next button state
+    if (currentPage === totalPages) {
+      // Disable "Next" button on the last page
+      nextButton.disabled = true;
+      nextButton.style.cursor = "not-allowed";
+    } else {
+      nextButton.disabled = false;
+      nextButton.style.cursor = "pointer";
+    }
+  }
+};
+
+const previousPage = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateMentorshipsTable();
+  }
+};
+
+const nextPage = () => {
+  if (currentPage < Math.ceil(totalMentorships / mentorshipsPerPage)) {
+    currentPage++;
+    updateMentorshipsTable();
+  }
+};
+
+// Calls the function to get the total number of Mentorships before updating the table and setting the pagination buttons
+getTotalMentorships().then(() => {
+  updateMentorshipsTable();
+});
+
+//...
 // Search Input (Search Bar)
 const searchInput = document.getElementById("searchInput");
 
@@ -158,26 +263,9 @@ newButton.addEventListener("click", function () {
 const edit = (id) => {
     window.location.href = `../../mentorship/html/edit.html?id=${id}`;    
 }
+
 //...
-
-const deleteButton = async (mentorshipId) => {
-    try {
-      const response = await fetch(`${url}/${mentorshipId}`, {
-        method: 'DELETE',
-      })
-        console.log(response);
-        if (response.ok) {
-          console.log('Mentorship deleted successfully');
-        } else {
-          console.error('Error deleting the mentorship!');
-        }
-
-    } catch (error) {
-      console.error('An error occurred while deleting the mentorship!', error);
-    }
-  };
-
-// Retrieve user data from localStorage
+// GET USER DATA FROM LOCALSTORAGE
 // In the JavaScript of the mentors page
 document.addEventListener("DOMContentLoaded", () => {
   // Retrieve the list of registered users from localStorage

@@ -1,4 +1,9 @@
 const url = "https://api-projeto-modulo-1.onrender.com/classes"; // API URL
+let ascendingOrder = true; // Variable to control sorting
+let classes = []; // Declaration of the classes variable in the global scope
+let currentPage = 1;
+const classesPerPage = 6;
+let totalClasses = 0;
 
 //...
 // MODAL FOR DELETE
@@ -70,6 +75,7 @@ const confirmDelete = async (classId) => {
     });
     if (response.ok) {
       console.log("Class deleted successfully");
+      location. reload();
       // Refresh the classes list after successful deletion
       await getClasses();
     } else {
@@ -98,6 +104,101 @@ const getClasses = async () => {
 getClasses();
 //...
 
+//...
+//PAGINATION
+
+// Function to get the total number of Classes
+const getTotalClasses = async () => {
+  try {
+    const response = await fetch(url);
+    const classesData = await response.json();
+    totalClasses = classesData.length;
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Error on getting the total of classes:", error);
+  }
+};
+
+// Function to get the classes with pagination
+const getClassesPerPage = async (page, limit) => {
+  try {
+    const response = await fetch(`${url}?_page=${page}&_limit=${limit}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error on getting classes:", error);
+  }
+};
+
+const updateClassesTable = async () => {
+  try {
+    const classesData = await getClassesPerPage(currentPage, classesPerPage);
+    showClasses(classesData);
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Error getting classes:", error);
+  }
+};
+
+const updatePaginationButtons = () => {
+  const previousButton = document.getElementById("previousButton");
+  const nextButton = document.getElementById("nextButton");
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalClasses / classesPerPage);
+
+  // Check if there is only one page or no content to paginate
+  if (totalPages <= 1) {
+    // Disable both "Previous" and "Next" buttons
+    previousButton.disabled = true;
+    nextButton.disabled = true;
+
+    // Set cursor to "not-allowed" for both buttons
+    previousButton.style.cursor = "not-allowed";
+    nextButton.style.cursor = "not-allowed";
+  } else {
+    // Handle previous button state
+    if (currentPage === 1) {
+      // Disable "Previous" button on the first page
+      previousButton.disabled = true;
+      previousButton.style.cursor = "not-allowed";
+    } else {
+      previousButton.disabled = false;
+      previousButton.style.cursor = "pointer";
+    }
+
+    // Handle next button state
+    if (currentPage === totalPages) {
+      // Disable "Next" button on the last page
+      nextButton.disabled = true;
+      nextButton.style.cursor = "not-allowed";
+    } else {
+      nextButton.disabled = false;
+      nextButton.style.cursor = "pointer";
+    }
+  }
+};
+
+const previousPage = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateClassesTable();
+  }
+};
+
+const nextPage = () => {
+  if (currentPage < Math.ceil(totalClasses / classesPerPage)) {
+    currentPage++;
+    updateClassesTable();
+  }
+};
+
+// Calls the function to get the total number of classes before updating the table and setting the pagination buttons
+getTotalClasses().then(() => {
+  updateClassesTable();
+});
+
+//...
 // Input for search (Search Bar)
 const searchInput = document.getElementById("searchInput");
 
@@ -171,10 +272,11 @@ const edit = (id) => {
 }
 
 //...
-// USER DATA FROM LOCALSTORAGE
-
+// GET USER DATA FROM LOCALSTORAGE
+// In the JavaScript of the mentors page
 document.addEventListener("DOMContentLoaded", () => {
-  const usersList = JSON.parse(localStorage.getItem("usersList")); // Retrieve the list of registered users from localStorage
+  // Retrieve the list of registered users from localStorage
+  const usersList = JSON.parse(localStorage.getItem("usersList"));
 
   if (usersList && usersList.length > 0) {
     // If the list of users exists and is not empty, display the last registered user
@@ -182,6 +284,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("user-name").textContent = `${lastUser.name}`;
     document.getElementById("user-email").textContent = `${lastUser.email}`;
   } else {
-    alert("User does not exist!");
+    alert("User does not exist!")
   }
 });

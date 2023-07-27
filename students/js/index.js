@@ -1,4 +1,9 @@
 const url = "https://api-projeto-modulo-1.onrender.com/students"; // API URL
+let ascendingOrder = true; // Variable to control sorting
+let students = []; // Declaration of the students variable in the global scope
+let currentPage = 1;
+const studentsPerPage = 6;
+let totalStudents = 0;
 
 //...
 // MODAL FOR DELETE
@@ -69,6 +74,7 @@ const confirmDelete = async (studentId) => {
     });
     if (response.ok) {
       console.log("Student deleted successfully");
+      location.reload();
       // Refresh the students list after successful deletion
       await getstudents();
     } else {
@@ -81,6 +87,8 @@ const confirmDelete = async (studentId) => {
   }
 };
 
+//...
+//GET STUDENTS
 // Function to get student data from the API and display them in a table
 const getStudent = async () => {
   try {
@@ -92,8 +100,101 @@ const getStudent = async () => {
   }
 };
 getStudent();
-//...
 
+//...
+//PAGINATION
+// Function to get the total number of students
+const getTotalStudents = async () => {
+  try {
+    const response = await fetch(url);
+    const studentsData = await response.json();
+    totalStudents = studentsData.length;
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Error on getting students:", error);
+  }
+};
+
+// Function to get the students with pagination
+const getStudentsPerPage = async (page, limit) => {
+  try {
+    const response = await fetch(`${url}?_page=${page}&_limit=${limit}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error on getting students:", error);
+  }
+};
+
+const updateStudentsTable = async () => {
+  try {
+    const studentsData = await getStudentsPerPage(currentPage, studentsPerPage);
+    showStudent(studentsData);
+    updatePaginationButtons();
+  } catch (error) {
+    console.error("Error pn getting students:", error);
+  }
+};
+
+const updatePaginationButtons = () => {
+  const previousButton = document.getElementById("previousButton");
+  const nextButton = document.getElementById("nextButton");
+
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalStudents / studentsPerPage);
+
+  // Check if there is only one page or no content to paginate
+  if (totalPages <= 1) {
+    // Disable both "Previous" and "Next" buttons
+    previousButton.disabled = true;
+    nextButton.disabled = true;
+
+    // Set cursor to "not-allowed" for both buttons
+    previousButton.style.cursor = "not-allowed";
+    nextButton.style.cursor = "not-allowed";
+  } else {
+    // Handle previous button state
+    if (currentPage === 1) {
+      // Disable "Previous" button on the first page
+      previousButton.disabled = true;
+      previousButton.style.cursor = "not-allowed";
+    } else {
+      previousButton.disabled = false;
+      previousButton.style.cursor = "pointer";
+    }
+
+    // Handle next button state
+    if (currentPage === totalPages) {
+      // Disable "Next" button on the last page
+      nextButton.disabled = true;
+      nextButton.style.cursor = "not-allowed";
+    } else {
+      nextButton.disabled = false;
+      nextButton.style.cursor = "pointer";
+    }
+  }
+};
+
+const previousPage = () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updateStudentsTable();
+  }
+};
+
+const nextPage = () => {
+  if (currentPage < Math.ceil(totalStudents / studentsPerPage)) {
+    currentPage++;
+    updateStudentsTable();
+  }
+};
+
+// Calls the function to get the total number of students before updating the table and setting the pagination buttons
+getTotalStudents().then(() => {
+  updateStudentsTable();
+});
+
+//...
 // Input for search (Search Bar)
 const searchInput = document.getElementById("searchInput");
 

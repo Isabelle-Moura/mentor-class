@@ -69,6 +69,7 @@ const confirmDelete = async (mentorId) => {
     });
     if (response.ok) {
       console.log("Mentor deleted successfully");
+      location.reload();
       // Refresh the mentors list after successful deletion
       await getMentors();
     } else {
@@ -126,7 +127,7 @@ const getTotalMentors = async () => {
     totalMentors = mentorsData.length;
     updatePaginationButtons();
   } catch (error) {
-    console.error("Erro ao obter o total de mentores:", error);
+    console.error("Error on getting mentors:", error);
   }
 };
 
@@ -137,7 +138,7 @@ const getMentorsPerPage = async (page, limit) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Erro ao obter os mentores:", error);
+    console.error("Error on getting mentors:", error);
   }
 };
 
@@ -155,22 +156,38 @@ const updatePaginationButtons = () => {
   const previousButton = document.getElementById("previousButton");
   const nextButton = document.getElementById("nextButton");
 
-  // Disable "Previous" button on first page
-  if (currentPage === 1) {
-    previousButton.disabled = true;
-    previousButton.setAttribute("style", "cursor: not-allowed");
-    nextButton.setAttribute("style", "cursor: pointer");
-  } else {
-    previousButton.disabled = false;
-  }
+  // Calculate the total number of pages
+  const totalPages = Math.ceil(totalMentors / mentorsPerPage);
 
-  // Disable "Next" button on last page
-  if (currentPage === Math.ceil(totalMentors / mentorsPerPage)) {
+  // Check if there is only one page or no content to paginate
+  if (totalPages <= 1) {
+    // Disable both "Previous" and "Next" buttons
+    previousButton.disabled = true;
     nextButton.disabled = true;
-    previousButton.setAttribute("style", "cursor: pointer");
-    nextButton.setAttribute("style", "cursor: not-allowed");
+
+    // Set cursor to "not-allowed" for both buttons
+    previousButton.style.cursor = "not-allowed";
+    nextButton.style.cursor = "not-allowed";
   } else {
-    nextButton.disabled = false;
+    // Handle previous button state
+    if (currentPage === 1) {
+      // Disable "Previous" button on the first page
+      previousButton.disabled = true;
+      previousButton.style.cursor = "not-allowed";
+    } else {
+      previousButton.disabled = false;
+      previousButton.style.cursor = "pointer";
+    }
+
+    // Handle next button state
+    if (currentPage === totalPages) {
+      // Disable "Next" button on the last page
+      nextButton.disabled = true;
+      nextButton.style.cursor = "not-allowed";
+    } else {
+      nextButton.disabled = false;
+      nextButton.style.cursor = "pointer";
+    }
   }
 };
 

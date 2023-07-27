@@ -148,3 +148,20 @@ formClasses.addEventListener("submit", async (e) => {
 // Load mentorships and mentors into the respective select elements
 loadMentorshipsSelect();
 loadMentorsSelect();
+
+//...
+// GET USER DATA FROM LOCALSTORAGE
+// In the JavaScript of the mentors page
+document.addEventListener("DOMContentLoaded", () => {
+  // Retrieve the list of registered users from localStorage
+  const usersList = JSON.parse(localStorage.getItem("usersList"));
+
+  if (usersList && usersList.length > 0) {
+    // If the list of users exists and is not empty, display the last registered user
+    const lastUser = usersList[usersList.length - 1];
+    document.getElementById("user-name").textContent = `${lastUser.name}`;
+    document.getElementById("user-email").textContent = `${lastUser.email}`;
+  } else {
+    alert("User does not exist!")
+  }
+});

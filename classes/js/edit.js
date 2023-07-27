@@ -188,10 +188,11 @@ backButton.addEventListener("click", function () {
 });
 
 //...
-// USER DATA FROM LOCALSTORAGE
-
+// GET USER DATA FROM LOCALSTORAGE
+// In the JavaScript of the mentors page
 document.addEventListener("DOMContentLoaded", () => {
-  const usersList = JSON.parse(localStorage.getItem("usersList")); // Retrieve the list of registered users from localStorage
+  // Retrieve the list of registered users from localStorage
+  const usersList = JSON.parse(localStorage.getItem("usersList"));
 
   if (usersList && usersList.length > 0) {
     // If the list of users exists and is not empty, display the last registered user
@@ -199,6 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("user-name").textContent = `${lastUser.name}`;
     document.getElementById("user-email").textContent = `${lastUser.email}`;
   } else {
-    alert("User does not exist!");
+    alert("User does not exist!")
   }
 });
