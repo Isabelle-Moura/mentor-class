@@ -1,5 +1,5 @@
 const url = "https://api-projeto-modulo-1.onrender.com/classes"; // API URL
-let ascendingOrder = true; // Variable to control sorting
+let ascendingOrder = true; // Boolean variable to control sorting
 let classes = []; // Declaration of the classes variable in the global scope
 let currentPage = 1;
 const classesPerPage = 6;
@@ -75,7 +75,7 @@ const confirmDelete = async (classId) => {
     });
     if (response.ok) {
       console.log("Class deleted successfully");
-      location. reload();
+      location.reload();
       // Refresh the classes list after successful deletion
       await getClasses();
     } else {
