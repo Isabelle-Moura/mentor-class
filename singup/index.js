@@ -57,7 +57,7 @@ let msgSuccess = document.querySelector("#msgSuccess");
 
 // Event listeners for input fields
 userName.addEventListener("keyup", () => {
-  if (userName.value.length <= 1) {
+  if (userName.value === "") {
     labelName.setAttribute("style", "color: red");
     labelName.innerHTML = `Nome <small>(Digite o seu nome.)</small>`;
     userName.setAttribute("style", "border-color: red");
