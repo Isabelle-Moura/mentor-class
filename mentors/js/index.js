@@ -225,7 +225,7 @@ const filterMentors = (mentors, searchTerm) => {
 // Function to perform search and display filtered mentors
 const searchMentors = async (searchTerm) => {
   try {
-    const response = await fetch(`${url}`);
+    const response = await fetch(url);
     mentors = await response.json();
     const filteredMentors = filterMentors(mentors, searchTerm);
     showMentors(filteredMentors);
