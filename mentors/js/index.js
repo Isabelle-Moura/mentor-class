@@ -226,7 +226,7 @@ const filterMentors = (mentors, searchTerm) => {
 const searchMentors = async (searchTerm) => {
   try {
     const apiResponse = await fetch(`${url}`);
-    const mentors = await apiResponse.json();
+    mentors = await apiResponse.json();
     const filteredMentors = filterMentors(mentors, searchTerm);
     showMentors(filteredMentors);
   } catch (error) {
