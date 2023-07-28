@@ -1,9 +1,9 @@
 const url = "https://api-projeto-modulo-1.onrender.com/mentors"; // API URL
-let ascendingOrder = true; // Variable to control sorting
-let mentors = []; // Declaration of the mentors variable in the global scope
-let currentPage = 1;
-const mentorsPerPage = 6;
-let totalMentors = 0;
+let ascendingOrder = true; // Boolean variable to control sorting.
+let mentors = []; // Variable that stores the mentors (initially empty).
+let currentPage = 1; // Number of the current page in the pagination.
+const mentorsPerPage = 6; // Maximum number of mentors displayed per page.
+let totalMentors = 0; // Total number of mentors existing in the API. 
 
 //...
 // MODAL FOR DELETE

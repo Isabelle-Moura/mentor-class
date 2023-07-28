@@ -1,9 +1,9 @@
-const url = "https://api-projeto-modulo-1.onrender.com/classes"; // API URL
-let ascendingOrder = true; // Boolean variable to control sorting
-let classes = []; // Declaration of the classes variable in the global scope
-let currentPage = 1;
-const classesPerPage = 6;
-let totalClasses = 0;
+const url = "https://api-projeto-modulo-1.onrender.com/classes"; // API URL.
+let ascendingOrder = true; // Boolean variable to control sorting.
+let classes = []; // Variable that stores the classes (initially empty).
+let currentPage = 1; // Number of the current page in the pagination.
+const classesPerPage = 6; // Maximum number of classes displayed per page.
+let totalClasses = 0; // Total number of classes existing in the API.
 
 //...
 // MODAL FOR DELETE

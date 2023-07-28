@@ -1,9 +1,9 @@
 const url = "https://api-projeto-modulo-1.onrender.com/students"; // API URL
-let ascendingOrder = true; // Variable to control sorting
-let students = []; // Declaration of the students variable in the global scope
-let currentPage = 1;
-const studentsPerPage = 6;
-let totalStudents = 0;
+let ascendingOrder = true; // Boolean variable to control sorting.
+let students = []; // Variable that stores the students (initially empty).
+let currentPage = 1; // Number of the current page in the pagination.
+const studentsPerPage = 6; // Maximum number of students displayed per page.
+let totalStudents = 0; // Total number of students existing in the API. 
 
 //...
 // MODAL FOR DELETE

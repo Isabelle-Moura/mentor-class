@@ -1,9 +1,9 @@
-const url = "https://api-projeto-modulo-1.onrender.com/mentorships";//API url
-let ascendingOrder = true; // Variable to control sorting
-let mentorships = []; // Declaration of the mentorships variable in the global scope
-let currentPage = 1;
-const mentorshipsPerPage = 6;
-let totalMentorships = 0;
+const url = "https://api-projeto-modulo-1.onrender.com/mentorships";//API url.
+let ascendingOrder = true; // Boolean variable to control sorting.
+let mentorships = []; // Variable that stores the mentorships (initially empty).
+let currentPage = 1; // Number of the current page in the pagination.
+const mentorshipsPerPage = 6; // Maximum number of mentorships displayed per page.
+let totalMentorships = 0; // Total number of mentorships existing in the API.
 
 //...
 // MODAL FOR DELETE
