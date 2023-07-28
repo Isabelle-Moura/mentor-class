@@ -56,8 +56,4 @@ The login and sign-up screens are vital components of the Mentor Class applicati
 - Delete: Remove a student from the system.
 - Search: Allow searching for students based on specific criteria, such as name or email. The search bar allows users to quickly find students based on their input.
 
-...
-
-The documentation provides an overview of the features available in the Mentor Class application, allowing users to effectively manage mentors, mentorships, classes, and students. As the project evolves, updates and enhancements can be added to the documentation to keep users informed about the latest functionalities and improvements.
-
 ---
