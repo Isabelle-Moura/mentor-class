@@ -219,30 +219,32 @@ getTotalMentorships().then(() => {
 });
 
 //...
-// Search Input (Search Bar)
+// SEARCH INPUT (Search Bar)
 const searchInput = document.getElementById("searchInput");
 
-// Function to filter mentorships by mentor's name
-const filterMentorship = (mentorships, searchTerm) => {
+// Function to filter mentorships data based on the search term
+const filterMentorships = (mentorships, searchTerm) => {
   searchTerm = searchTerm.toLowerCase();
-  return mentorships.filter((mentorship) => mentorship.mentor.name.toLowerCase().includes(searchTerm));
+  return mentorships.filter((mentorship) =>
+  mentorship.mentorshipTitle.toLowerCase().includes(searchTerm)
+  );
 };
 
-// Function to perform search and display filtered mentorships
+// Function to perform a search for Mentorshipss based on the search term
 const searchMentorships = async (searchTerm) => {
-  const apiResponse = await fetch(url)
-    .then((response) => response.json())
-    .then((mentorships) => {
-      const filteredMentorships = filterMentorship(mentorships, searchTerm);
-      showMentorship(filteredMentorships);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  try {
+    const apiResponse = await fetch(url);
+    mentorships = await apiResponse.json();
+    const filteredMentorships = filterMentorships(mentorships, searchTerm);
+    showMentorship(filteredMentorships);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-searchInput.addEventListener("keyup", (event) => {
-  if (event.key === "Enter") {
+// Event listener for the search input (Search Bar)
+searchInput.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
     const searchTerm = searchInput.value;
     searchMentorships(searchTerm);
   }

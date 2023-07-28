@@ -215,7 +215,7 @@ getTotalStudents().then(() => {
 });
 
 //...
-// Input for search (Search Bar)
+// SEARCH INPUT (Search Bar)
 const searchInput = document.getElementById("searchInput");
 
 // Function to filter student data based on the search term
@@ -230,7 +230,7 @@ const filterStudent = (students, searchTerm) => {
 const searchStudents = async (searchTerm) => {
   try {
     const apiResponse = await fetch(url);
-    const students = await apiResponse.json();
+    students = await apiResponse.json();
     const filteredStudents = filterStudent(students, searchTerm);
     showStudent(filteredStudents);
   } catch (error) {

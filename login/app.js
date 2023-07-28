@@ -49,7 +49,7 @@ const enterButton = () => {
     labelPassword.setAttribute("style", "color: red");
     password.setAttribute("style", "border-color: red");
     msgError.setAttribute("style", "display: block");
-    msgError.innerHTML = `<strong>Os campos não foram preenchidos!</strong>`;
+    msgError.innerHTML = `Os campos não foram preenchidos!`;
     email.focus();
     return; // Stop the function execution
   }
@@ -77,7 +77,7 @@ const enterButton = () => {
     password.setAttribute("style", "border-color: #40D175");
     msgSuccess.setAttribute("style", "display: block");
     msgError.setAttribute("style", "display: none");
-    msgSuccess.innerHTML = `<strong>Redirecionando...</strong>`;
+    msgSuccess.innerHTML = `Redirecionando...`;
 
     setTimeout(() => {
       window.location.href = "../mentors/html/index.html";
@@ -89,7 +89,7 @@ const enterButton = () => {
     labelPassword.setAttribute("style", "color: red");
     password.setAttribute("style", "border-color: red");
     msgError.setAttribute("style", "display: block");
-    msgError.innerHTML = `<strong>E-mail ou senha incorretos!</strong>`;
+    msgError.innerHTML = `E-mail ou senha incorretos!`;
     email.focus();
   }
 };

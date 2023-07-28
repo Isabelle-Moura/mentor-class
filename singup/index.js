@@ -127,14 +127,14 @@ const signupButton = () => {
     // Show success message and redirect to login page after a delay
     msgSuccess.setAttribute("style", "display: block");
     msgError.setAttribute("style", "display: none");
-    msgSuccess.innerHTML = `<strong>Cadastrando...</strong>`;
+    msgSuccess.innerHTML = `Cadastrando...`;
     setTimeout(() => {
       window.location.href = "../index.html";
     }, 3000);
   } else {
     // Show error message if form validation fails
     msgError.setAttribute("style", "display: block");
-    msgError.innerHTML = `<strong>Erro ao cadastrar usuário!</strong>`;
+    msgError.innerHTML = `Erro ao cadastrar usuário!`;
     msgSuccess.setAttribute("style", "display: none");
   }
 };
