@@ -626,6 +626,12 @@ input {
     color: #757575 !important;
 }
 
+.error-message {
+    color: red; 
+    font-size: 10px; 
+    margin: 0px 0px 3px 25px;
+}
+
 .custom-input-select {
     color: #757575; !important;
     padding-left: 3px;
@@ -679,7 +685,7 @@ input {
     background-color: #482D83;
     border-radius: 10px;
     color: #FFFFFF;
-    margin: 10px 10px;
+    margin: 3px 10px;
     font-family: 'Poppins', sens-serif;
     font-weight: 500;
 }

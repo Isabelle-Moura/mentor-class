@@ -15,6 +15,31 @@ const url = "https://api-projeto-modulo-1.onrender.com/classes";
 const url1 = "https://api-projeto-modulo-1.onrender.com/mentorships";
 const url2 = "https://api-projeto-modulo-1.onrender.com/mentors";
 
+// Function to validate form fields
+const isFormValid = () => {
+  const mentorship = formClasses.elements["mentorship"].value;
+  const mentorName = formClasses.elements["mentorName"].value;
+  const beginning = formClasses.elements["beginning"].value;
+  const weekday = formClasses.elements["weekday"].value;
+  const beginningTime = formClasses.elements["beginningTime"].value;
+  const endingTime = formClasses.elements["endingTime"].value;
+  const className = formClasses.elements["className"].value;
+  const classLink = formClasses.elements["classLink"].value;
+  const meetQuantity = formClasses.elements["meetQuantity"].value;
+
+  return (
+    mentorship !== "" &&
+    mentorName !== "" &&
+    beginning !== "" &&
+    weekday !== "" &&
+    beginningTime !== "" &&
+    endingTime !== "" &&
+    className !== "" &&
+    classLink !== "" &&
+    meetQuantity !== ""
+  );
+};
+
 // Function to get a mentorship by its ID from the API
 const getMentorship = async (id) => {
   if (id == null) {
@@ -100,49 +125,56 @@ const registerClass = async (className) => {
 formClasses.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // Get form values
-  const mentorship = formClasses.elements['mentorship'].value;
-  const mentorName = formClasses.elements['mentorName'].value;
-  const beginning = formClasses.elements['beginning'].value;
-  const weekday = formClasses.elements['weekday'].value;
-  const beginningTime = formClasses.elements['beginningTime'].value;
-  const endingTime = formClasses.elements['endingTime'].value;
-  const className = formClasses.elements['className'].value;
-  const classLink = formClasses.elements['classLink'].value;
-  const meetQuantity = formClasses.elements['meetQuantity'].value;
+  if (isFormValid()) {
+    // Get form values
+    const mentorship = formClasses.elements["mentorship"].value;
+    const mentorName = formClasses.elements["mentorName"].value;
+    const beginning = formClasses.elements["beginning"].value;
+    const weekday = formClasses.elements["weekday"].value;
+    const beginningTime = formClasses.elements["beginningTime"].value;
+    const endingTime = formClasses.elements["endingTime"].value;
+    const className = formClasses.elements["className"].value;
+    const classLink = formClasses.elements["classLink"].value;
+    const meetQuantity = formClasses.elements["meetQuantity"].value;
 
-  // Get mentorship and mentor objects from the API
-  const mentorshipObject = await getMentorship(mentorship);
-  if (Object.keys(mentorshipObject).length == 0) {
-    console.log("Não foi possível cadastrar a turma, mentoria inválida :/");
+    // Get mentorship and mentor objects from the API
+    const mentorshipObject = await getMentorship(mentorship);
+    if (Object.keys(mentorshipObject).length === 0) {
+      console.log("Não foi possível cadastrar a turma, mentoria inválida :/");
+      return;
+    }
+
+    const mentorObject = await getMentor(mentorName);
+    if (Object.keys(mentorObject).length === 0) {
+      console.log("Não foi possível cadastrar a turma, mentor inválido :/");
+      return;
+    }
+
+    // Create class data object
+    const classData = {
+      mentorName: {
+        id: mentorObject.id,
+        name: mentorObject.name,
+      },
+      mentorship: {
+        id: mentorshipObject.id,
+        mentorship: mentorshipObject.mentorshipTitle,
+      },
+      beginning,
+      weekday,
+      beginningTime,
+      endingTime,
+      className,
+      classLink,
+      meetQuantity,
+    };
+
+    // Register the class
+    registerClass(classData);
+  } else {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = "Por favor, preencha todos os campos!";
   }
-
-  const mentorObject = await getMentor(mentorName);
-  if (Object.keys(mentorObject).length == 0) {
-    console.log("Não foi possível cadastrar a turma, mentor inválido :/");
-  }
-
-  // Create class data object
-  const classData = {
-    mentorName: {
-      id: mentorObject.id,
-      name: mentorObject.name
-    },
-    mentorship: {
-      id: mentorshipObject.id,
-      mentorship: mentorshipObject.mentorshipTitle
-    },
-    beginning,
-    weekday,
-    beginningTime,
-    endingTime,
-    className,
-    classLink,
-    meetQuantity
-  };
-
-  // Register the class
-  registerClass(classData);
 });
 
 // Load mentorships and mentors into the respective select elements

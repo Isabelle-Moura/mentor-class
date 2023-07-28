@@ -34,14 +34,23 @@ form.addEventListener("submit", (e) => {
   const name = form.elements["name"].value;
   const email = form.elements["email"].value;
 
-  // Create a mentor object with the form data
-  const mentor = {
-    name: name,
-    email: email,
-  };
+  // Check if both name and email are filled
+  if (name.trim() === "" || email.trim() === "") {
+    document.getElementById("error-message").textContent =
+      "Por favor, preencha todos os campos!";
+  } else {
+    document.getElementById("error-message").textContent = "";
 
-  registerMentor(mentor); // Call the function to register the new mentor on the API
+    // Create a mentor object with the form data
+    const mentor = {
+      name: name,
+      email: email,
+    };
+
+    registerMentor(mentor); // Call the function to register the new mentor on the API
+  }
 });
+
 
 //...
 // USER DATA FROM LOCALSTORAGE

@@ -12,6 +12,15 @@ const form = document.getElementById("formStudents");
 const url = "https://api-projeto-modulo-1.onrender.com/students";
 const url2 = "https://api-projeto-modulo-1.onrender.com/classes";
 
+// Function to validate form fields
+const isFormValid = () => {
+  const name = form.elements["name"].value;
+  const email = form.elements["email"].value;
+  const className = form.elements["className"].value;
+
+  return name.trim() !== "" && email.trim() !== "" && className !== "";
+};
+
 // Function to fetch the class data by its ID from the API
 const getClass = async (id) => {
   const response = await fetch(`${url2}/${id}`);
@@ -61,25 +70,30 @@ const registerStudent = async (student) => {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const name = form.elements["name"].value;
-  const email = form.elements["email"].value;
-  const className = form.elements["className"].value;
+  if (isFormValid()) {
+    const name = form.elements["name"].value;
+    const email = form.elements["email"].value;
+    const className = form.elements["className"].value;
 
-  const classObject = await getClass(className);
-  if (Object.keys(classObject).length == 0) {
-    console.log("Couldn't register the student, invalid class :/");
-    return;
+    const classObject = await getClass(className);
+    if (Object.keys(classObject).length === 0) {
+      console.log("Couldn't register the student, invalid class :/");
+      return;
+    }
+
+    const student = {
+      name,
+      email,
+      className: {
+        id: classObject.id,
+        name: classObject.className,
+      },
+    };
+    registerStudent(student);
+  } else {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = "Por favor, preencha todos os campos!";
   }
-
-  const student = {
-    name,
-    email,
-    className: {
-      id: classObject.id,
-      name: classObject.className,
-    },
-  };
-  registerStudent(student);
 });
 
 // Load the select element with the classes data

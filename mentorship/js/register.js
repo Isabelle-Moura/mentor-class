@@ -11,6 +11,14 @@ const form = document.getElementById("formMentorship");
 const url1 = "https://api-projeto-modulo-1.onrender.com/mentorships";
 const url2 = "https://api-projeto-modulo-1.onrender.com/mentors";
 
+// Function to validate form fields
+const isFormValid = () => {
+  const mentorshipTitle = form.elements["mentorshipTitle"].value;
+  const mentor = form.elements["mentor"].value;
+
+  return mentorshipTitle.trim() !== "" && mentor !== "";
+};
+
 // Function to fetch mentor data by ID
 const getMentor = async (id) => {
     const response = await fetch (`${url2}/${id}`);
@@ -61,26 +69,31 @@ const registerMentorship = async (mentorship) => {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const mentorshipTitle = form.elements['mentorshipTitle'].value;
-  const mentor = form.elements['mentor'].value;
-  const status = form.elements['toggle-input'].checked;
+  if (isFormValid()) {
+    const mentorshipTitle = form.elements["mentorshipTitle"].value;
+    const mentor = form.elements["mentor"].value;
+    const status = form.elements["toggle-input"].checked;
 
-  const mentorObject = await getMentor(mentor);
-  if (Object.keys(mentorObject).length == 0) {
-    console.log("Unable to register the mentorship, invalid mentor :/");
-    return;
+    const mentorObject = await getMentor(mentor);
+    if (Object.keys(mentorObject).length === 0) {
+      console.log("Unable to register the mentorship, invalid mentor :/");
+      return;
+    }
+
+    const mentorship = {
+      mentorshipTitle: mentorshipTitle,
+      mentor: {
+        id: mentorObject.id,
+        name: mentorObject.name,
+      },
+      status: status,
+    };
+
+    registerMentorship(mentorship);
+  } else {
+    const errorMessage = document.getElementById("error-message");
+    errorMessage.textContent = "Por favor, preencha todos os campos!";
   }
-
-  const mentorship = {
-    mentorshipTitle: mentorshipTitle,
-    mentor: {
-      id: mentorObject.id,
-      name: mentorObject.name
-    },
-    status: status
-  };
-
-  registerMentorship(mentorship);
 });
 
 loadSelect();
