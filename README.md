@@ -1,4 +1,10 @@
-##Before we start, I would like to dedicate this whole project to God, to my beautiful and wonderful family (mom, Nana, Jéssica, Grandpa and Grandma, I love you guys so badly!) and, last but not least, to my incredible teachers (Prof. Lucas Perdigão, Profa. Letícia Porto Soares and Monitor Pedro Souza). Thank you!
+## Quick Note:
+### 👉 Before we start our documentation, I would like to say somthing. I want to dedicate this whole project to:
+  - God, Jesus and Saint Mother;
+  - To my beautiful and wonderful family: mom, Nana, Jéssica, Grandpa and Grandma, I love you guys so badly!;
+  - And, last but not least, to my incredible teachers: Prof. Lucas Perdigão, Profa. Letícia Porto Soares and Monitor Pedro Souza; 
+
+### Without you all this wouldn't be possible. Thank you!
 
 ##
 
