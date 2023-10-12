@@ -1,9 +1,9 @@
 ### 👉 Before we start our documentation, I would like to say something. I want to dedicate this whole project to:
   - God, Jesus and Blessed Mary;
-  - To my beautiful and wonderful family: mom, Nana, Jéssica, Grandpa and Grandma, I love you guys so badly!;
+  - To my beautiful and wonderful family: mom, Nana, Jessie, Grandpa and Grandma. I love you guys so badly!;
   - And, last but not least, to my incredible teachers: Prof. Lucas Perdigão, Profa. Letícia Porto Soares and Monitor Pedro Souza; 
 
-### Without you all this wouldn't be possible. Thank you!
+### Without you guys, this wouldn't be possible. Thank you!
 
 ##
 
